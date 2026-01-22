@@ -4,10 +4,10 @@ This document covers everything you need to know about setting up your discord t
 
 *NOTE: This bot uses a custom `.config` file system to load configuration values such prefixes and public data from your bot*
 
-**DISCLAIMER: you can NEVER share your bot token. If your token is leaked, regenerate it IMMEDIATELY from the [Discord Developer Portal]()**
+**DISCLAIMER: you can NEVER share your bot token. If your token is leaked, regenerate it IMMEDIATELY from the [Discord Developer Portal](https://discord.com/developers/docs/intro)**
 
 ## Create a Discord Bot Token
-- Go to the **[Discord Developer Portal]()**
+- Go to the **[Discord Developer Portal](https://discord.com/developers/docs/intro)**
 - Click **New Application**, and go to the **Bot** tab.
 - Click **Add Bot** (if one isn't already created)
 - Under **Token**, click **Reset Token** or **Copy Token**
