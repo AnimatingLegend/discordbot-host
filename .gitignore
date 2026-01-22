@@ -35,3 +35,5 @@ temp/
 
 # Files
 CHANGELOG.md
+modlogs.db
+token.env
