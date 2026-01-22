@@ -1,10 +1,10 @@
-const {REST, Routes} = require('discord.js');
+const { REST, Routes } = require('discord.js');
 
 const config = require('./api/config.js');
 const path = require('node:path');
 const fs = require('node:fs');
 
-require('dotenv').config({path: path.resolve(__dirname, './api/data/token.env')});
+require('dotenv').config({ path: path.resolve(__dirname, './api/data/token.env') });
 
 // ==========================================================
 // Deploy Command Script
@@ -15,10 +15,10 @@ const commandPath = path.join(__dirname, 'commands');
 
 // === Recursive function to find command files === \\
 function getCommandFiles(dir) {
-    const files = fs.readdirSync(dir, { withFileTypes: true});
-    let command_files = [];
+     const files = fs.readdirSync(dir, { withFileTypes: true });
+     let command_files = [];
 
-    for (const file of files) {
+     for (const file of files) {
           const file_path = path.join(dir, file.name);
 
           if (file.isDirectory()) {
@@ -30,7 +30,7 @@ function getCommandFiles(dir) {
           }
      }
 
-    return command_files;
+     return command_files;
 }
 
 // === Use the recursive function to find command files === \\
@@ -52,7 +52,7 @@ for (const file of all_command_files) {
 // Registering Commands
 // ==========================================================
 const rest = new REST({ version: '10' }).setToken(process.env.PRIVATE_APIKEY);
-const userid = config.PUBLIC_ID;
+const userid = config.CLIENT_ID;
 
 (async () => {
      try {
