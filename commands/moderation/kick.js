@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const MOD_DATABASE = require('../../utils/database.js');
+const db = require('../../utils/database.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -114,7 +114,7 @@ module.exports = {
 
                await targetMember.kick(finalReason);
 
-               const STMT = MOD_DATABASE.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
+               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
                STMT.run(targetId, actorMember.id, 'Kick :door:', finalReason);
 
                const content = `:door: Kicked **${targetTag}** | Reason: **${finalReason}**`;

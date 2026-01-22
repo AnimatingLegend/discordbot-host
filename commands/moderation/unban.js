@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const MOD_DATABASE = require('../../utils/database.js');
+const db = require('../../utils/database.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -66,7 +66,7 @@ module.exports = {
           try {
                await guild.members.unban(targetMember.id);
 
-               const STMT = MOD_DATABASE.prepare(`INSERT INTO mod_logs (user_id, mod_id, action) VALUES (?, ?, ?)`);
+               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action) VALUES (?, ?, ?)`);
                STMT.run(actorMember.id, targetMember.id, 'Unban');
 
                if (ctx.reply) return ctx.reply({ content: `:white_check_mark: **${targetMember.tag}** has been unbanned.` });
