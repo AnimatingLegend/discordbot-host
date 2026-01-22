@@ -1,6 +1,5 @@
 const { AuditLogEvent, Events } = require('discord.js');
-const client = require('../../index.js');
-const db = require('../database.js');
+const MOD_DATABASE = require('../database.js');
 
 module.exports = {
      name: Events.GuildAuditLogEntryCreate,
@@ -23,7 +22,7 @@ module.exports = {
           }
 
           if (actionType) {
-               const STMT = db.prepare(`INSERT INTO modlogs (guildId, userId, userTag, modTag, action, reason, timestamp) VALUES ('${auditLog.guild.id}', '${executorId}', '${executorId}', '${targetId}', '${actionType}', '${reason}', ${Date.now()})`);
+               const STMT = MOD_DATABASE.prepare(`INSERT INTO modlogs (guildId, userId, userTag, modTag, action, reason, timestamp) VALUES ('${auditLog.guild.id}', '${executorId}', '${executorId}', '${targetId}', '${actionType}', '${reason}', ${Date.now()})`);
                STMT.run(targetId, executorId, actionType, reason, Date.now());
           }
      }

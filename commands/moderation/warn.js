@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
-const db = require('../../utils/database.js');
+const MOD_DATABASE = require('../../utils/database.js');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -64,7 +64,7 @@ module.exports = {
     try {
       await targetMember.send(`:warning: You have been **warned** in **${guild.name}**. | Reason: **${finalReason}**`);
 
-      const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
+      const STMT = MOD_DATABASE.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
       STMT.run(targetMember.id, actor.id, 'Warn :warning:', finalReason);
     } catch (err) {
       console.error(err);

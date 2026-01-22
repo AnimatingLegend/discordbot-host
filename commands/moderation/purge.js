@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
-const db = require("../../utils/database.js");
+const MOD_DATABASE = require('../../utils/database.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -35,7 +35,7 @@ module.exports = {
                await ctx.channel.bulkDelete(fetchedMessages, true);
 
                // -- Log the purge -- \\
-               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, action, timestamp) VALUES (?, ?, ?)`);
+               const STMT = MOD_DATABASE.prepare(`INSERT INTO mod_logs (user_id, action, timestamp) VALUES (?, ?, ?)`);
                STMT.run(actor.id, "Purge", Date.now());
 
                //-- Send confirmation messages -- \\
