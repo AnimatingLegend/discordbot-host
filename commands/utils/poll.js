@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, PollLayoutType } = require('discord.js');
-const { sep } = require('path');
 
 module.exports = {
      data: new SlashCommandBuilder()
