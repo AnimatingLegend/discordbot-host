@@ -1,7 +1,7 @@
 const Database = require('better-sqlite3')
-const db = new Database('utils/data/modlogs.db', { verbose: console.log });
+const MOD_DATABASE = new Database('utils/data/modlogs.db', { verbose: console.log });
 
-db.prepare(`
+MOD_DATABASE.prepare(`
      CREATE TABLE IF NOT EXISTS mod_logs (
      id INTEGER PRIMARY KEY AUTOINCREMENT,
      user_id TEXT,
@@ -11,4 +11,4 @@ db.prepare(`
      timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
 )`).run();
 
-module.exports = db;
+module.exports = MOD_DATABASE;

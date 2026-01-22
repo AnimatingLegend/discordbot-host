@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 const ms = require('ms');
-const db = require('../../utils/database.js');
+const MOD_DATABASE = require('../../utils/database.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -142,7 +142,7 @@ module.exports = {
           try {
                await targetMember.roles.add(muteRole, finalReason);
 
-               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
+               const STMT = MOD_DATABASE.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
                STMT.run(targetMember.id, actor.id, 'Mute :x:', finalReason);
 
                // -- Auto-unmute the user after the duration is up -- \\
@@ -153,7 +153,7 @@ module.exports = {
                               await memberCheck.roles.remove(muteRole, 'Mute duration expired.');
 
                               // -- Log the unmute when it expires -- \\
-                              const unmuteSTMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
+                              const unmuteSTMT = MOD_DATABASE.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
                               unmuteSTMT.run(targetMember.id, actor.id, 'Unmute', 'Mute duration expired.');
                          }
                     } catch (err) { console.error('Failed to auto-unmute user:', err); }

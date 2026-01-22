@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits, } = require('discord.js');
-const db = require('../../utils/database.js');
+const MOD_DATABASE = require('../../utils/database.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -31,12 +31,12 @@ module.exports = {
           if (!target) return ctx.reply({ content: 'You must provide a valid user.', ephemeral: true });
 
           try {
-               const check_log = db.prepare(`SELECT COUNT(*) as count FROM mod_logs WHERE user_id = ?`).get(target.id);
+               const check_log = MOD_DATABASE.prepare(`SELECT COUNT(*) as count FROM mod_logs WHERE user_id = ?`).get(target.id);
 
                if (!check_log || check_log.count === 0)
                     return ctx.reply({ content: `No mod logs found for <@${target.id}>.` });
 
-               const STMT = db.prepare(`DELETE FROM mod_logs WHERE user_id = ?`);
+               const STMT = MOD_DATABASE.prepare(`DELETE FROM mod_logs WHERE user_id = ?`);
                STMT.run(target.id);
 
                return ctx.reply({ content: `:white_check_mark: Successfully cleared mod logs for <@${target.id}>.` });
