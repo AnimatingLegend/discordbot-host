@@ -33,8 +33,11 @@ logs/
 tmp/
 temp/
 
-# Files
-discordbot.config
+# ====== Files ======= #
 CHANGELOG.md
-modlogs.db
+# ------ Data -------- #
+modlogs.sqlite
+xp.sqlite
+# ----- config ------- #
 token.env
+discordbot.config
