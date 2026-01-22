@@ -109,7 +109,7 @@ client.on('clientReady', () => {
             - CUR STATUS: ${client.user.presence.status}
         ]
         =====================================
-        RUNNING IN: ${process.env.NODE_ENV.toUpperCase()}
+        [STATUS: ${client.user.presence.status}]
         =====================================
     `);
 
