@@ -37,22 +37,12 @@ npm install discord.js
 
 ## Required Dependencies
 - axios
-- badge-maker
 - better-sqlite3
-- common-tags
-- cookie-parser
 - discord-jokes
 - discord.js
 - dotenv
-- express
-- got
 - he
-- http-errors
-- moment
-- mongoose
-- morgan
 - ms
-- nodemon
 - path
 - sqlite3
 - winston
