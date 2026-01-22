@@ -34,6 +34,7 @@ tmp/
 temp/
 
 # Files
+discordbot.config
 CHANGELOG.md
 modlogs.db
 token.env
