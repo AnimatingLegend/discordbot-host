@@ -23,7 +23,7 @@ module.exports = {
                     .catch(() => null);
                if (!user) continue;
 
-               desc += `**${i + 1}. ${user.username}** - Level ${rows[i].level} (${rows[i].xp} XP)\n`;
+               desc += `**${i + 1}. ${user.user.username}** - Level ${rows[i].level} (${rows[i].xp} XP)\n`;
           }
 
           const embed = new EmbedBuilder()
