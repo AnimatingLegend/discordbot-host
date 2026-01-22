@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { getLeaderboard } = require('../../../utils/database.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -8,9 +9,8 @@ module.exports = {
      name: 'leaderboard',
      description: 'Get the leaderboard of the top XP users in the server.',
 
-     async execute(ctx, db) {
-          const rows = db.prepare(`SELECT user_id xp, level FROM users ORDER BY xp DESC LIMIT 10`)
-               .all();
+     async execute(ctx) {
+          const rows = await getLeaderboard(ctx.guild.id);
 
           if (rows.length === 0) return ctx.reply({ content: 'No users found in the database.' });
 

@@ -1,28 +1,40 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { getUser } = require('../../../utils/database.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
           .setName('rank')
-          .setDescription('View your rank or another user\'s rank in the server!'),
+          .setDescription('View your rank or another user\'s rank in the server!')
+          .addUserOption(option => option.setName('user').setDescription('The user you want to check')),
 
      name: 'rank',
      description: 'View your rank or another user\'s rank in the server!',
 
-     async execute(ctx, db) {
-          const user = ctx.user.options.getUser('user') || ctx.user;
+     async execute(ctx) {
+          const isInteraction = ctx.isCommand && ctx.isCommand();
 
-          const rows = db.prepare(`SELECT user_id xp, level FROM users WHERE guild_id = ? AND user_id = ?`)
-               .get(user.id);
+          let targetUser;
 
-          if (!rows) return ctx.reply({ content: 'User not found in the database.' });
+          if (isInteraction) {
+               targetUser = ctx.options.getUser('user') || ctx.user;
+          } else {
+               targetUser = ctx.mentions.users.first() || ctx.author;
+          }
+
+          const userData = getUser(targetUser.id, ctx.guild.id);
+
+          if (!userData) {
+               const msg = `${targetUser.username} hasn't earned any XP yet!`;
+               return isInteraction ? ctx.reply({ content: msg, ephemeral: true }) : ctx.reply(msg);
+          }
 
           const embedBuilder = new EmbedBuilder()
                .setColor('#F1C40F')
-               .setAuthor({ name: user.tag, iconURL: user.displayAvatarURL() })
-               .setTitle(`:trophy: ${user.username}'s Rank :trophy:`)
+               .setAuthor({ name: targetUser.tag, iconURL: targetUser.displayAvatarURL() })
+               .setTitle(`:trophy: ${targetUser.username}'s Rank :trophy:`)
                .addFields(
-                    { name: 'Level', value: rows.level, inline: true },
-                    { name: 'XP', value: rows.xp, inline: true }
+                    { name: 'Level', value: userData.level.toString(), inline: true },
+                    { name: 'XP', value: userData.xp.toString(), inline: true }
                );
 
           return ctx.reply({ embeds: [embedBuilder] });

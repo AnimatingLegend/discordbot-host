@@ -90,7 +90,7 @@ function addXP(userId, guildId, amount) {
 
      // ---- Insert Cooldown ---- \\
      db2.prepare(`INSERT INTO cooldown (user_id, guild_id, timestamp) VALUES (?, ?, ?) ON CONFLICT(user_id, guild_id) DO UPDATE SET timestamp = ?`)
-          .run(userId, guildId, now);
+          .run(userId, guildId, now, now); // ---- FOR FUTURE REFERENCE: SQLite doesn't support less than 3 arguments, so we have to duplicate them. ~ aaron  ---- \\
 
      return { leveledUp, level };
 }
