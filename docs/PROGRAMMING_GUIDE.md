@@ -1,4 +1,4 @@
-# Discordbot-v14 Repo Programming Style Guide
+# Discordbot-Host Repo Programming Style Guide
 
 **DISCLAIMER**  
 Inspired by the [Funkin' Style Guide](https://github.com/FunkinCrew/Funkin/blob/dummy/develop-v0.7.5/docs/style-guide.md#funkin-repo-code-style-guide).  
@@ -6,7 +6,7 @@ This project is written in **Node.js** using **Discord.js v14**, not Haxe / Haxe
 
 ## Purpose
 
-This document explains how code should be written and maintained for **Discordbot-v14**.  
+This document explains how code should be written and maintained for **Discordbot-Host**.  
 The goal is consistency, readability, and easy maintenance.
 
 ## General Rules

@@ -12,7 +12,7 @@ npm -v
 ```
 
 **CMD Terminal Example**  
-![Node Version Example](../images/README/node_versions.png)
+![Node Version Example](readme_images/COMPILE/node_versions.png)
 
 --- 
 ## Installing Dependencies
@@ -75,4 +75,4 @@ node index.js
 If everything is set up correctly, you should see a successful startup message in your terminal.
 
 **Successful Compile Example**  
-![Compile Example](../images/README/compile.png)
+![Compile Example](readme_images/COMPILE/compile.png)
