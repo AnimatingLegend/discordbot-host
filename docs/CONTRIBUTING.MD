@@ -6,7 +6,7 @@ this document will cover all you need to know to make a contribution.
 ## Before You Contribute
 Please make sure you:
 - Have basic knowledge of **Node.js** & **Discord.js v14**
-- Read the **[Programming Style Guide](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/documents/PROGRAMMING_GUIDE.md)**
+- Read the **[Programming Style Guide](./PROGRAMMING_GUIDE.md)**
 - Understand the purpose of the project as a reusable Discord bot template
 
 If you are unsure of something, feel free to ask or open an issue.
@@ -25,7 +25,7 @@ Use clear branch names, such as:
 - ``bugfix/bug-name``
 - ``docs/readme-update``
 ### 3. Make Your Changes
-- Follow the project's **[code style / formatting rules](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/documents/PROGRAMMING_GUIDE.md)**
+- Follow the project's **[code style / formatting rules](./PROGRAMMING_GUIDE.md)**
 - Keep code readable and consistent
 - Avoid unrelated changes in the same commit
 - Comment complex logic when necessary
@@ -65,7 +65,7 @@ When opening a PR:
 Your pull request may be reviewed and requested to be adjusted before merging.
 
 ## Code Guidelines
-If you didn't read the **[Programming Style Guide](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/documents/PROGRAMMING_GUIDE.md)**, then heres a basic break down of whats in it, and what you would need to follow.
+If you didn't read the **[Programming Style Guide](./PROGRAMMING_GUIDE.md)**, then heres a basic break down of whats in it, and what you would need to follow.
 
 - Use descriptive variable and function names (when needed)
 - Avoid deeply nested logic

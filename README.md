@@ -38,8 +38,8 @@ Here are the current commands available. This list will continue to grow as upda
 - NodeJs v25 +
 - Discord.js v14 +
 - Discord Token, which you can get from the [Discord Developers Portal](https://discord.com/developers/docs/intro)
-- **[ALL OF THESE NODE DEPENDCIES](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/documents/LOCALLY_COMPILING.md#required-dependencies)**
+- **[ALL OF THESE NODE DEPENDCIES](docs/LOCALLY_COMPILING.md/#required-dependencies)**
 - The guts and the brains
 
 ## Building Instructions
-if you want to learn how to locally build this bot yourself, please read [this guide!](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/documents/LOCALLY_COMPILING.md)
+if you want to learn how to locally build this bot yourself, please read [this guide!](docs/LOCALLY_COMPILING.md)
