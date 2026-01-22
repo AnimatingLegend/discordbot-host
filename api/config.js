@@ -17,6 +17,7 @@ console.log(`
    ======= DISCORDBOT CONFIG =========
    [
       PREFIX: ${config.PREFIX},
+      CLIENT_ID: ${config.CLIENT_ID}
    ]
    ======== DISCORD.JS V14 ===========
 `);
