@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const db = require('../../utils/database.js');
+const { db } = require("../../utils/database.js");
 const ms = require('ms');
 
 module.exports = {
