@@ -1,7 +1,7 @@
 {
   "name": "discordbot-host",
-  "version": "1.0.0",
-  "description": "Discord bot made with discord.js v14",
+  "version": "2.0.0",
+  "description": "Discordbot-host, your multipurpose bot for moderation, utility, and fun. ",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
