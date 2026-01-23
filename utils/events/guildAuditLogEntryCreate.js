@@ -36,7 +36,7 @@ module.exports = {
                          targetId,
                          executorId,
                          actionType,
-                         reason,
+                         reason || 'No reason provided.',
                          Date.now()
                     );
                } catch (err) {
