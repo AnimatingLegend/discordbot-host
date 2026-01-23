@@ -1,6 +1,13 @@
-const Database = require('better-sqlite3')
-const db = new Database('utils/data/modlogs.sqlite', { verbose: console.log });
-const db2 = new Database('utils/data/xp.sqlite', { verbose: console.log });
+const Database = require('better-sqlite3');
+const logger = require('./logger');
+
+const db = new Database('utils/data/modlogs.sqlite', {
+     verbose: (query) => logger.debug(`SQL Executed: ${query}`)
+});
+
+const db2 = new Database('utils/data/xp.sqlite', {
+     verbose: (query) => logger.debug(`SQL Executed: ${query}`)
+});
 
 // =========================
 // Initialize Mod Logs Table
