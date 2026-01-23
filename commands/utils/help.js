@@ -40,30 +40,23 @@ module.exports = {
                     {
                          name: ":shield: Moderation",
                          value: `
-                         \`ban\`
-                         \`unban\`
+                         \`ban\` \`unban\`
                          \`kick\`
-                         \`mute\`
-                         \`unmute\`
+                         \`mute\` \`unmute\`
                          \`warn\`
                          \`purge\`
-                         \`mod_logs\`
-                         \`clear_mod_logs\`
+                         \`mod_logs\` \`clear_mod_logs\`
                          `,
                          inline: false,
                     },
                     {
                          name: ":tools: Utility",
                          value: `
-                         \`channel_info\`
-                         \`changelog\`
-                         \`github\`
+                         \`channel_info\` \`member_count\` \`server_info\` \`user_info\`
+                         \`changelog\` \`github\`
                          \`help\`
-                         \`member_count\`
                          \`poll\`
-                         \`server_info\`
                          \`uptime\`
-                         \`user_info\`
                          \`world_clock\`
                          `,
                          inline: false,
@@ -71,11 +64,8 @@ module.exports = {
                     {
                          name: ":game_die: Fun",
                          value: `
-                         \`cat_facts\`
-                         \`dog_facts\`
-                         \`facts\`
-                         \`joke\`
-                         \`meme\`
+                         \`cat_facts\` \`dog_facts\` \`facts\`
+                         \`joke\` \`meme\`
                          \`revive\`
                          \`8ball\`
                          \n\n
@@ -86,7 +76,7 @@ module.exports = {
                .addFields(
                     {
                          name: "Need help using a command?",
-                         value: "[Follow this command guide!](https://github.com/AnimatingLegend/discordbot-host/)"
+                         value: "[Follow this command guide!](https://github.com/AnimatingLegend/discordbot-host/blob/develop/docs/COMMAND_GUIDE.md)"
                     }
                )
                .setFooter({ text: "Made with Node.js | animatinglegend.github.io | © 2026 ALL RIGHTS RESERVED", iconURL: bot?.displayAvatarURL() });
