@@ -4,9 +4,9 @@ const config = require('../../api/config.js');
 module.exports = {
      data: new SlashCommandBuilder()
           .setName("help")
-          .setDescription("Learn about Discordbot and its features."),
+          .setDescription(`Information about ${config.BOT_USERNAME}, and it's features.`),
      name: "help",
-     description: "Information about Discordbot and its features.",
+     description: `Information about ${config.BOT_USERNAME}, and it's features.`,
 
      async execute(ctx) {
           const guild = ctx.guild;
@@ -16,7 +16,7 @@ module.exports = {
 
           const helpEmbed = new EmbedBuilder()
                .setColor("#00a896")
-               .setTitle("Discordbot — help")
+               .setTitle(`${config.BOT_USERNAME} — help`)
                .setDescription("Your multipurpose bot for moderation, utility, and fun.")
                .setThumbnail(bot?.displayAvatarURL())
                .addFields(

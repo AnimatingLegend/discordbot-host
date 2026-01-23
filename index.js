@@ -18,8 +18,8 @@ const fs = require('node:fs');
 
 client.config = {
     PREFIX: config.PREFIX,
-    PUBLIC_ID: config.PUBLIC_ID,
-    PUBLIC_APIKEY: config.PUBLIC_APIKEY,
+    CLIENT_ID: config.CLIENT_ID,
+    BOT_USERNAME: config.BOT_USERNAME
 };
 
 require('dotenv').config({ path: path.resolve(__dirname, './api/data/token.env') });
@@ -99,17 +99,17 @@ console.log('Total: ' + client.commands.size);
 // ==============================================
 client.on('clientReady', () => {
     console.log(`
-        ====== WELCOME TO DISCORDBOT-HOST ======
+        ====== WELCOME TO ${client.config.BOT_USERNAME} ======
         [${new Date().toLocaleString()}]
         =====================================
         [
             - ID: ${client.user.id}
-            - GUILD (SERVER) COUNT: ${client.guilds.cache.size}
+            - SERVER COUNT: ${client.guilds.cache.size}
             - CMD COUNT: ${client.commands.size}
             - CUR STATUS: ${client.user.presence.status}
         ]
         =====================================
-        [STATUS: ${client.user.presence.status}]
+        [Prefix: ${client.config.PREFIX}]
         =====================================
     `);
 
