@@ -118,8 +118,14 @@ clear_mod_logs <user> <reason> <duration>
 ## Utility & Guild Commands
 Most Utility & Guild commands are straightforward and require little explanation.
 
+<center>
+
 **Utility & Guild Command Example:**
+
 ![alt text](./readme_images/COMMANDS/util_cmd.png)
+
+</center>
+
 ## Fun Commands
 Fun commands are simple to use. Below is one example.
 
@@ -135,6 +141,10 @@ Ask the magic discordbot a question!
 
 If successful, it will shoot out a randomized answer
 
+<center>
+
 **Example:**
 
 ![alt text](./readme_images/COMMANDS/eight-ball.png)
+
+</center>
