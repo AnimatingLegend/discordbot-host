@@ -9,7 +9,7 @@ module.exports = {
      description: 'discordbot\'s source code on GitHub',
 
      async execute(ctx) {
-          const github = 'https://github.com/AnimatingLegend/';
+          const github = 'https://github.com/AnimatingLegend/discordbot-host';
           await ctx.reply({ content: `:computer: Here is discordbot's source code: ${github}` });
      },
 };

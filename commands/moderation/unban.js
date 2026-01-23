@@ -66,8 +66,8 @@ module.exports = {
           try {
                await guild.members.unban(targetMember.id);
 
-               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action) VALUES (?, ?, ?)`);
-               STMT.run(actorMember.id, targetMember.id, 'Unban');
+               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, timestamp) VALUES (?, ?, ?)`);
+               STMT.run(actorMember.id, targetMember.id, 'Unban', Date.now());
 
                if (ctx.reply) return ctx.reply({ content: `:white_check_mark: **${targetMember.tag}** has been unbanned.` });
 

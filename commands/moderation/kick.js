@@ -114,8 +114,8 @@ module.exports = {
 
                await targetMember.kick(finalReason);
 
-               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`);
-               STMT.run(targetId, actorMember.id, 'Kick :door:', finalReason);
+               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason, timestamp) VALUES (?, ?, ?, ?, ?)`);
+               STMT.run(targetId, actorMember.id, 'Kick :door:', finalReason, Date.now());
 
                const content = `:door: Kicked **${targetTag}** | Reason: **${finalReason}**`;
 

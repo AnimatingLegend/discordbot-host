@@ -1,15 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-
-// ===================================================
-// Config bullshit
-// im basically working with two bots (one for testing and the other for the public) so this is technically needed
-// 
-// what i want to do is get the prefix for the bot based on the environment (lb- for testing, and lbh- for public)
-// for the contributors reading this code forgive me and dont mind this :heartbreak:
-// ===================================================
-const { devStart } = require('../../package.json');
-const token = devStart ? process.env.PRIVATE_APIKEY_TEST : process.env.PRIAVE_APIKEY;
-const getPrefix = () => devStart ? 'lb-' : 'lbh-';
+const config = require('../../api/config.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -32,7 +22,7 @@ module.exports = {
                .addFields(
                     {
                          name: "Quick Start",
-                         value: `Prefix \`${getPrefix()}\` | slash \`/\`. \n Type \`${getPrefix()}help\` or \`/help\` for more info.`,
+                         value: `Prefix \`${config.PREFIX}\` | slash \`/\`. \n Type \`${config.PREFIX}help\` or \`/help\` for more info.`,
                          inline: false,
                     },
                     {
@@ -42,25 +32,61 @@ module.exports = {
                     },
                     {
                          name: "Links",
-                         value: "[Source Code](https://github.com/AnimatingLegend/discordbot-host) \n [Website](https://animatinglegend.github.io) \n\n",
+                         value: "[Source Code](https://github.com/AnimatingLegend/discordbot-host) \n [Invite Bot](https://discord.gg/)\n\n",
                          inline: true,
                     },
                )
                .addFields(
                     {
                          name: ":shield: Moderation",
-                         value: "`purge <1-100>` - bulk delete messages \n`warn <user>` - alert a member if they violated a rule \n`kick <user>` - remove a member\n`ban <user>` | `unban <user>` - ban & unban a member\n`mute <user>` | `unmute <user>` - mute & unmute a user\n`mod_logs <info> | <user>` | `clear_mod_logs <info> | <user>` - view/clear the mod logs of a specific user in the server",
+                         value: `
+                         \`ban\`
+                         \`unban\`
+                         \`kick\`
+                         \`mute\`
+                         \`unmute\`
+                         \`warn\`
+                         \`purge\`
+                         \`mod_logs\`
+                         \`clear_mod_logs\`
+                         `,
                          inline: false,
                     },
                     {
                          name: ":tools: Utility",
-                         value: "`help` `github` `changelog` `uptime` `world_clock` `poll` `channel_info` `server_info` `user_info` `member_count`",
+                         value: `
+                         \`channel_info\`
+                         \`changelog\`
+                         \`github\`
+                         \`help\`
+                         \`member_count\`
+                         \`poll\`
+                         \`server_info\`
+                         \`uptime\`
+                         \`user_info\`
+                         \`world_clock\`
+                         `,
                          inline: false,
                     },
                     {
                          name: ":game_die: Fun",
-                         value: "`cat_facts` `dog_facts` `revive` `8ball <questions>` `facts` `joke` `meme`",
+                         value: `
+                         \`cat_facts\`
+                         \`dog_facts\`
+                         \`facts\`
+                         \`joke\`
+                         \`meme\`
+                         \`revive\`
+                         \`8ball\`
+                         \n\n
+                         `,
                          inline: false,
+                    }
+               )
+               .addFields(
+                    {
+                         name: "Need help using a command?",
+                         value: "[Follow this command guide!](https://github.com/AnimatingLegend/discordbot-host/)"
                     }
                )
                .setFooter({ text: "Made with Node.js | animatinglegend.github.io | © 2026 ALL RIGHTS RESERVED", iconURL: bot?.displayAvatarURL() });
