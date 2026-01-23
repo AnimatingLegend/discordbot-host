@@ -35,6 +35,7 @@ temp/
 
 # ====== Files ======= #
 CHANGELOG.md
+TODO.md
 # ------ Data -------- #
 modlogs.sqlite
 xp.sqlite
