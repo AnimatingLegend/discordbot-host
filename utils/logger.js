@@ -1,49 +1,48 @@
-const {createLogger, format, transports } = require('winston');
-const path = require('node:path');
+const { createLogger, format, transports } = require('winston');
+const path = require('path');
 
-// ======================================================
-// Create a custom log format for the bot
-// ======================================================
-const logForamt = format.printf((info) => {
-  const {timestamp, level, label, message, ...rest} = info;
-  const log =`${timestamp} [${label}] ${level}: ${message}`;
+// ====================
+// Initialize Log Format
+// ====================
+const log_format = format.printf((info) => {
+  // ---- Remove timestamp, level, and message from info object ---- \\
+  const { timestamp, level, message, ...rest } = info;
 
-  if (!(Object.keys(rest).length === 0 && rest.constructor === Object)) {
-      log = `${log}\n${JSON.stringify(rest, null, 2)}`.replace(/\\n/g, '\n');
+  // ---- Create a log message  ${timestamp} ${level}: ${message} ---- \\
+  let log_message = `${timestamp} ${level}: ${message}`;
+
+  // ---- If there are more properties in the info OBJ, log them ---- \\
+  if (Object.keys(rest).length > 0) {
+    log_message += ` ${JSON.stringify(rest)}`;
   }
-  return log;
+
+  return log_message;
 });
 
-// ======================================================
-// Create a new logger
-// @type {Logger}
-// ======================================================
+// ====================
+// Initialize Logger
+// ====================
 const logger = createLogger({
   level: 'debug',
-  format: format.combine(
+  format: format.combine( // ---- Format configuration ---- \\
+    format.label({ label: path.basename(process.mainModule?.filename || 'bot') }),
+    format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
     format.errors({ stack: true }),
-    format.label({ label: path.basename(process.mainModule.filename) }),
-    format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' })
   ),
-  transports: [
-    // -- Logging to console -- \\
+  transports: [ // ---- Transport configuration ---- \\
     new transports.Console({
-      format: format.combine(
-        format.colorize(),
-        logFormat
-        )
-      }),
-    // -- Logging info and up-to-file -- \\
-    new transports.File({
-        level: 'info',
-        format: logFormat,
-        options: { flags: 'w' }
+      format: format.combine(format.colorize(), log_format),
     }),
-    // -- Logging errors to file -- \\
     new transports.File({
-      filename: path.join(__basedir, 'logs/error.log'),
+      filename: 'logs/combined.log',
+      level: 'info',
+      format: log_format,
+      options: { flags: 'w' },
+    }),
+    new transports.File({
+      filename: 'logs/error.log',
       level: 'warn',
-      format: logFormat,
+      format: log_format,
       options: { flags: 'w' }
     })
   ]
