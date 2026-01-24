@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
-const { db } = require("../../utils/database.js");
+const { modlogDB } = require("../../utils/database");
 
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
 
           const requester = ctx.user || ctx.author;
 
-          const logs = db.prepare(`SELECT * FROM mod_logs WHERE user_id = ? ORDER BY timestamp DESC`).all(target.id);
+          const logs = modlogDB.prepare(`SELECT * FROM mod_logs WHERE user_id = ? ORDER BY timestamp DESC`).all(target.id);
 
           if (logs.length === 0) return ctx.reply({ content: `No mod logs found for <@${target.id}>.` });
 

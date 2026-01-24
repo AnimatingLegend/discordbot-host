@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { db } = require("../../utils/database.js");
+const { addModLog } = require('../../utils/database');
+const { add } = require('winston');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -114,9 +115,6 @@ module.exports = {
 
                await targetMember.kick(finalReason);
 
-               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason, timestamp) VALUES (?, ?, ?, ?, ?)`);
-               STMT.run(targetId, actorMember.id, 'Kick :door:', finalReason, Date.now());
-
                const content = `:door: Kicked **${targetTag}** | Reason: **${finalReason}**`;
 
                if (isInteraction) {
@@ -124,6 +122,8 @@ module.exports = {
                } else if (ctx.channel) {
                     return ctx.channel.send({ content });
                }
+
+               addModLog(guild.id, actorMember.id, targetId, 'kick', finalReason);
           } catch (err) {
                console.error(err);
                if (ctx.reply) return ctx.reply({ content: 'Failed to kick the member. Please check my permissions and role position.', ephemeral: true });
