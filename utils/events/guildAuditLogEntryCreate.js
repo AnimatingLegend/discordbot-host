@@ -24,7 +24,7 @@ module.exports = {
           if (!actionType || !executorId || !targetId) return;
 
           try {
-               addModLog(targetId, executorId, actionType, reason || 'No reason provided.');
+               addModLog(targetId, executorId, actionType, reason || 'N/A');
           } catch (err) {
                console.error(`[ERROR] Failed to log audit entry: ${err}`);
           }
