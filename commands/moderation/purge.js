@@ -35,7 +35,7 @@ module.exports = {
                await ctx.channel.bulkDelete(fetchedMessages, true);
 
                // -- Log the purge -- \\
-               addModLog(actor.id, ctx.guild.id, "Purge :no_entry_sign:", `Purged ${fetchedMessages.size} messages.`);
+               addModLog(actor.id, ctx.guild.id, "Purge", `Purged ${fetchedMessages.size} messages.`);
 
                //-- Send confirmation messages -- \\
                const reply = await ctx.channel.send(`:white_check_mark: Successfully deleted ${fetchedMessages.size} messages.`)

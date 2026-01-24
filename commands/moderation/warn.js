@@ -64,7 +64,7 @@ module.exports = {
     try {
       await targetMember.send(`:warning: You have been **warned** in **${guild.name}**. | Reason: **${finalReason}**`);
 
-      addModLog(guild, actor, targetMember, 'Warn :warning:', finalReason);
+      addModLog(guild, actor, targetMember, 'Warn', finalReason);
     } catch (err) {
       console.error(err);
       console.log('Failed to DM user.');

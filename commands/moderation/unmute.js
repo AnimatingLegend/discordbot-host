@@ -61,7 +61,7 @@ module.exports = {
           try {
                await targetMember.roles.remove(MUTE_ROLE);
 
-               addModLog(targetMember.id, guild.id, 'Unmute :white_check_mark:', 'No reason provided.');
+               addModLog(targetMember.id, guild.id, 'Unmute', 'No reason provided.');
 
                if (MUTE_ROLE && targetMember.roles.cache.has(MUTE_ROLE.id)) {
                     await targetMember.roles.remove(MUTE_ROLE);

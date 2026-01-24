@@ -142,7 +142,7 @@ module.exports = {
           try {
                await targetMember.roles.add(muteRole, finalReason);
 
-               addModLog(targetMember.id, guild.id, 'Mute :x:', finalReason);
+               addModLog(targetMember.id, guild.id, 'Mute', finalReason);
 
                // -- Auto-unmute the user after the duration is up -- \\
                setTimeout(async () => {
@@ -152,7 +152,7 @@ module.exports = {
                               await memberCheck.roles.remove(muteRole, 'Mute duration expired.');
 
                               // -- Log the unmute when it expires -- \\
-                              addModLog(targetMember.id, guild.id, 'Unmute :white_check_mark:', 'Mute duration expired.');
+                              addModLog(targetMember.id, guild.id, 'Unmute', 'Mute duration expired.');
                          }
                     } catch (err) { console.error('Failed to auto-unmute user:', err); }
                }, durationMs);

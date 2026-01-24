@@ -66,7 +66,7 @@ module.exports = {
           try {
                await guild.members.unban(targetMember.id);
 
-               addModLog(actorMember.id, guild.id, "Unban :white_check_mark:", `Unbanned ${targetMember.tag}`);
+               addModLog(actorMember.id, guild.id, "Unban", `Unbanned ${targetMember.tag}`);
 
                if (ctx.reply) return ctx.reply({ content: `:white_check_mark: **${targetMember.tag}** has been unbanned.` });
 
