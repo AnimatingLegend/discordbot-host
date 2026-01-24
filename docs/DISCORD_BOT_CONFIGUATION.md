@@ -19,7 +19,7 @@ This project uses environment variables to keep sensitive data secure.
 ### 1. Create a `.env` File
 In the `api` directory of your project, create a file name:
 `token.env`
-### 2. Add your bot Bot Token
+### 2. Add your Bot Token
 Inside the `.env` file, add:
 ```bash
 PRIVATE_APIKEY = "PUT_API_TOKEN_HERE"
