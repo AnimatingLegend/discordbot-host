@@ -63,8 +63,8 @@ const fs = require('node:fs');
 
 client.config = {
     PREFIX: config.PREFIX,
-    PUBLIC_ID: config.PUBLIC_ID,
-    PUBLIC_APIKEY: config.PUBLIC_APIKEY,
+    CLIENT_ID: config.CLIENT_ID,
+    BOT_USERNAME: config.BOT_USERNAME
 };
 ```
 It is ideal that you keep all configuration values in **one place**.
@@ -82,17 +82,18 @@ Navagate to the `api` directory
 │   └── data/
 └── config.js
 ```
-Inside the file `data` folder, create a file called: **`discordbot.config`**.
+Inside the file `data` folder, create a file called: **`<your_bots_username>.config`.** (ie., `discordbot.config`)
 
 ### 2. Add Configuration Values
-Inside `discordbot.config` add your values using the following format:
+Inside your file, add your values using the following format:
 ```bash
+# -- format -- #
 KEY=VALUE
-```
-Example:
-```bash
+
+# -- example --#
 PREFIX=!
-CLIENT_ID=123456789012345678
+BOT_USERNAME=YOUR_BOTS_USERNAME
+CLIENT_ID=1463773555803295765
 ```
 
 - Each value must be on its own line
