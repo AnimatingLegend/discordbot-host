@@ -1,15 +1,10 @@
 const { Events } = require('discord.js');
 const { addXP } = require('../database');
-const { isXPBlacklisted, isXPWhitelisted } = require('../database');
 
 module.exports = {
      name: Events.MessageCreate,
      async execute(msg) {
           if (msg.author.bot || !msg.guild) return;
-
-          if (!isXPWhitelisted(userId)) {
-               if (isXPBlacklisted(userId)) return;
-          }
 
           const xpAmount = Math.floor(Math.random() * 10) + 5;
 
