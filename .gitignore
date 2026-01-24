@@ -1,44 +1,32 @@
-# Dependencies
+# ===== Folders ====== #
+build/
+dist/
+.idea/
+logs/
+out/
+tmp/
+temp/
+.vscode/
 node_modules/
-npm-debug.log
-yarn-error.log
+# ===== Files ===== #
+.DS_Store
+CHANGELOG.md
 package-lock.json
-
-# Environment variables
+Thumbs.db
+TODO.md
+# ===== Data ===== #
+modlogs.sqlite
+xp.sqlite
+# ===== config ===== #
 .env
 .env.local
 .env.*.local
-
-# IDE
-.vscode/
-.idea/
+token.env
+discordbot.config
+# ===== misc ===== #
+npm-debug.log
+yarn-error.log
+*.log
 *.swp
 *.swo
 *~
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Build output
-dist/
-build/
-out/
-
-# Logs
-logs/
-*.log
-
-# Temporary files
-tmp/
-temp/
-
-# ====== Files ======= #
-CHANGELOG.md
-TODO.md
-# ------ Data -------- #
-modlogs.sqlite
-xp.sqlite
-# ----- config ------- #
-token.env
-discordbot.config
