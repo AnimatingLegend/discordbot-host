@@ -115,7 +115,8 @@ client.on('clientReady', () => {
 
     client.user.setPresence({
         activities: [{
-            name: 'Prefix: `!`',
+            name: `Your Commands | ${client.config.PREFIX}help`,
+            type: 'WATCHING'
         }],
         status: 'online'
     });
