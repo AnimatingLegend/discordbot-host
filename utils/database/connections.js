@@ -1,5 +1,5 @@
 const Database = require('better-sqlite3');
-const logger = require('./logger');
+const logger = require('../logger.js');
 
 const modlogDB = new Database('utils/data/modlogs.sqlite', {
      verbose: (query) => logger.debug(`SQL Executed: ${query}`)
