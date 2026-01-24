@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits, } = require('discord.js');
-const { modlogDB } = require("../../utils/database");
+const { clearUserModLogs } = require("../../utils/database");
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -28,15 +28,16 @@ module.exports = {
                if (target_id) target = await ctx.client.users.fetch(target_id).catch(() => null);
           }
 
-          if (!target) return ctx.reply({ content: 'You must provide a valid user.', ephemeral: true });
+          if (!target)
+               return ctx.reply({ content: 'You must provide a valid user.', ephemeral: true });
+
+          const result = clearUserModLogs(target.id);
 
           try {
-               if (!check_log || check_log.count === 0)
+               if (result.changes === 0)
                     return ctx.reply({ content: `No mod logs found for <@${target.id}>.` });
 
-               await modlogDB.prepare(`DELETE FROM mod_logs WHERE user_id = ?`).run(target.id);
-
-               return ctx.reply({ content: `:white_check_mark: Successfully cleared mod logs for <@${target.id}>.` });
+               return ctx.reply({ content: `:white_check_mark: Successfully cleared ${result.changes} mod logs for <@${target.id}>.` });
           } catch (err) {
                console.error(err);
                return ctx.reply({ content: 'An error occurred while clearing mod logs.', ephemeral: true });
