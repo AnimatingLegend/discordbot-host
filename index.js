@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Collection, EmbedBuilder, Partials } = require('discord.js');
+const { ActivityType, Client, GatewayIntentBits, Collection, EmbedBuilder, Partials } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -98,28 +98,28 @@ console.log('Total: ' + client.commands.size);
 // Once bot is initialized, its gonna log into the console
 // ==============================================
 client.on('clientReady', () => {
+    const statusTxt = `Your Commands | ${client.config.PREFIX}help`;
+
+    client.user.setActivity(statusTxt,
+        { type: ActivityType.Watching }
+    );
+
     console.log(`
         ====== WELCOME TO ${client.config.BOT_USERNAME} ======
         [${new Date().toLocaleString()}]
         =====================================
         [
-            - ID: ${client.user.id}
-            - SERVER COUNT: ${client.guilds.cache.size}
+            - CLIENT ID: ${client.user.id}
             - CMD COUNT: ${client.commands.size}
-            - CUR STATUS: ${client.user.presence.status}
+            - GUILD COUNT: ${client.guilds.cache.size}
         ]
         =====================================
-        [Prefix: ${client.config.PREFIX}]
+        [
+            - BOT STATUS: ${client.user.presence?.status || 'online'}
+            - BOT STATUS MESSAGE: ${statusTxt}
+        ]
         =====================================
     `);
-
-    client.user.setPresence({
-        activities: [{
-            name: `Your Commands | ${client.config.PREFIX}help`,
-            type: 'WATCHING'
-        }],
-        status: 'online'
-    });
 });
 
 // ==============================================
