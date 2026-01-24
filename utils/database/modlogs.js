@@ -32,8 +32,8 @@ function clearAllModLogs() {
 
 // ===== Add a Modlog to User Modlogs ===== \\
 function addModLog(userID, guildID, action, reason) {
-     modlogDB.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason) VALUES (?, ?, ?, ?)`)
-          .run(userID, guildID, action, reason);
+     modlogDB.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason, timestamp) VALUES (?, ?, ?, ?, ?)`)
+          .run(userID, guildID, action, reason, Date.now());
 }
 
 module.exports = {
