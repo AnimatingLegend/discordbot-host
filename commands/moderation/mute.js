@@ -142,7 +142,7 @@ module.exports = {
           try {
                await targetMember.roles.add(muteRole, finalReason);
 
-               addModLog(targetMember.id, guild.id, 'Mute :white_check_mark:', finalReason);
+               addModLog(targetMember.id, guild.id, 'Mute :x:', finalReason);
 
                // -- Auto-unmute the user after the duration is up -- \\
                setTimeout(async () => {
