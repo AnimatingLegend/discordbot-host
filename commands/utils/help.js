@@ -50,11 +50,12 @@ module.exports = {
                          inline: false,
                     },
                     {
-                         name: ":tools: Utility",
+                         name: ":tools: Utility & Guild",
                          value: `
                          \`channel_info\` \`member_count\` \`server_info\` \`user_info\`
                          \`changelog\` \`github\`
                          \`help\`
+                         \`leaderboard\` \`rank\`
                          \`poll\`
                          \`uptime\`
                          \`world_clock\`
