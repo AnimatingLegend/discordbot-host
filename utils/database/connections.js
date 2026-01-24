@@ -9,4 +9,8 @@ const xpDB = new Database('utils/data/xp.sqlite', {
      verbose: (query) => logger.debug(`SQL Executed: ${query}`)
 });
 
-module.exports = { modlogDB, xpDB };
+const listDB = new Database('utils/data/list.sqlite', {
+     verbose: (query) => logger.debug(`SQL Executed: ${query}`)
+});
+
+module.exports = { modlogDB, xpDB, listDB };
