@@ -1,6 +1,17 @@
 const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
-const { db } = require("../../utils/database.js");
+const { getUserModlogs } = require("../../utils/database");
 
+const ACTION_EMOJIS = {
+     'Ban': ':hammer:',
+     'Unban': ':unlock:',
+     'Kick': ':door:',
+     'Mute': ':mute:',
+     'Unmute': ':speaker:',
+     'Warn': ':warning:',
+     'Purge': ':wastebasket:'
+};
+
+const DEFAULT_EMOJI = ':no_entry_sign:';
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -28,7 +39,7 @@ module.exports = {
 
           const requester = ctx.user || ctx.author;
 
-          const logs = db.prepare(`SELECT * FROM mod_logs WHERE user_id = ? ORDER BY timestamp DESC`).all(target.id);
+          const logs = getUserModlogs(target.id, 25);
 
           if (logs.length === 0) return ctx.reply({ content: `No mod logs found for <@${target.id}>.` });
 
@@ -37,10 +48,12 @@ module.exports = {
                const mod_id = log.mod_id;
                const reason = log.reason;
 
+               const emoji = ACTION_EMOJIS[action] || DEFAULT_EMOJI;
+
                const raw_date = log.timestamp;
                const timestamp = raw_date ? `<t:${Math.floor(new Date(raw_date).getTime() / 1000)}:R>` : 'N/A';
 
-               return `**${index + 1}. ${action}** by <@${mod_id}> | Reason: **${reason}** | Date: ${timestamp}`;
+               return `**${index + 1}. ${action} ${emoji}** **Moderated By**: <@${mod_id}> | Reason: **${reason}**\n Date: ${timestamp}`;
           }).join('\n\n');
 
           const FINAL_DESC = logList.length > 4000 ? logList.substring(0, 3997) + '...' : logList;
