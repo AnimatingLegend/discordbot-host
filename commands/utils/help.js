@@ -55,10 +55,18 @@ module.exports = {
                          \`channel_info\` \`member_count\` \`server_info\` \`user_info\`
                          \`changelog\` \`github\`
                          \`help\`
-                         \`leaderboard\` \`rank\` \`toggle_xp\`
+                         \`leaderboard\` \`rank\`
                          \`poll\`
                          \`uptime\`
                          \`world_clock\`
+                         `,
+                         inline: false,
+                    },
+                    {
+                         name: ":gear: Configuration",
+                         value: `
+                         \`toggle_xp\`
+                         \`toggle_welcome\` \`toggle_leave\`
                          `,
                          inline: false,
                     },
