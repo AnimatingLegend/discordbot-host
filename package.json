@@ -3,6 +3,9 @@
   "version": "2.2.0",
   "description": "Discordbot-host, your multipurpose bot for moderation, utility, and fun. ",
   "main": "index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node index.js",
     "deploy-cmds": "node deploy-cmds.js"
@@ -11,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.13.2",
+    "badge-maker": "^5.0.2",
     "better-sqlite3": "^12.6.2",
     "discord-jokes": "^4.0.7",
     "discord.js": "^14.25.1",

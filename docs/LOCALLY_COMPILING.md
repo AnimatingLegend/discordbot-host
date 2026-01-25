@@ -37,6 +37,7 @@ npm install discord.js
 
 ## Required Dependencies
 - axios
+- badge-maker
 - better-sqlite3
 - discord-jokes
 - discord.js

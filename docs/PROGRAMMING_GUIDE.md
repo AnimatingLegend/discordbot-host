@@ -54,15 +54,14 @@ function doThing() {}
 - Command files should match the command name
 - Event Files should match the Discord event
 ```
-(I hope this directory tree makes sense lol)
-
-commands/
-     moderation/
-       ban.js
-       kick.js
-events /
-  ready.js
-  messageCrate.js
+.
+├── commands/
+│   └── moderation/
+│       ├── ban.js
+│       └── kick.js
+└── events/
+    ├── ready.js
+    └── messageCreate.js
 ```
 
 ## Code Comments
