@@ -1,10 +1,12 @@
 # Discordbot-Host Command Guide
 This document explains how to use all available commands in **DB-Host**.
 
-There are currently **28 Commands**, split into 4 categories:
+There are currently **29 Commands**, split into 4 categories:
 - Moderation
 - Utility & Guild
 - Fun
+
+[Here is a list of the commands.](../README.md#features)
 
 > **NOTE:**
 > Command names are **not capitalized** when used in discord.
@@ -49,6 +51,7 @@ This format applies only to: **Ban** & **Mute**.
 ---
 
 ### Warn
+Warn a member from the server.
 ```bash
 # -- format -- #
 warn <user> <reason>
@@ -58,6 +61,7 @@ warn <user> <reason>
 ```
 
 ### Kick
+Kick a member from the server.
 ```bash
 # -- format --#
 kick <user> <reason>
@@ -67,6 +71,7 @@ kick <user> <reason>
 ```
 
 ### Ban / Unban
+Ban / Unban a member from the server.
 ```bash
 # -- format -- #
 ban <user> <reason> <duration>
@@ -78,6 +83,7 @@ unban <user>
 ```
 
 ### Mute / Unmute
+Mute / Unmute a member from the server.
 ```bash
 # -- format -- #
 mute <user> <reason> <duration>
@@ -89,6 +95,7 @@ unmute <user>
 ```
 
 ### Purge
+Purge a specified number of messages from a text channel.
 ```bash
 # -- format -- #
 purge <messages> (1 - 100)
@@ -97,34 +104,50 @@ purge <messages> (1 - 100)
 !purge 50
 ```
 
-### Mod Logs
+### Mod Logs / Clear Mod Logs
+Get mod logs, or clear the mod logs of a specific user in your server.
 ```bash
 # -- format -- #
 mod_logs <user>
+clear_mod_logs <user>
 
 # -- example -- #
 !mod_logs @user
-```
-
-### Clear Mod Logs
-```bash
-# -- format -- #
-clear_mod_logs <user> <reason> <duration>
-
-# -- example -- #
 !clear_mod_logs @user
 ```
 
 ## Utility & Guild Commands
-Most Utility & Guild commands are straightforward and require little explanation.
+Most Utility & Guild commands are straightforward and require little explanation. Below are commands that have specific usage rules.
 
-<center>
+### Toggle XP
+Enabled or disables the XP system for a server or specific channels.
+```bash
+# -- format -- #
+toggle_xp <scope> <value>
 
-**Utility & Guild Command Example:**
+# -- example -- #
+!toggle_xp server 1
+!toggle_xp channel false
+```
+**Scopes**:
+- `server`
+- `channel`
 
-![alt text](./readme_images/COMMANDS/util_cmd.png)
+**Values**:
+- `true` / `false`
+- `1` / `0`
 
-</center>
+### Poll
+Creates a poll with multiple answer questions.
+```bash
+# -- format -- #
+poll <question> | <answer>
+
+# -- example -- #
+!poll What should we add? | Music channel, Gaming Channel, Announcments
+```
+- Seperate the question and answers using `|`
+- You can add up to **10** answer options
 
 ## Fun Commands
 Fun commands are simple to use. Below is one example.
@@ -141,10 +164,6 @@ Ask the magic discordbot a question!
 
 If successful, it will shoot out a randomized answer
 
-<center>
-
 **Example:**
 
 ![alt text](./readme_images/COMMANDS/eight-ball.png)
-
-</center>

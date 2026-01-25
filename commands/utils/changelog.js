@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
+const config = require('../../api/config.js');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -80,7 +81,7 @@ module.exports = {
                          .addFields(
                               { name: 'Available Versions', value: `**${all_versions.map(v => `\`[${v.version}\``).join('\n')}**` }
                          )
-                         .setFooter({ text: 'Use the command again with a specific version name \n(e.g., `lbh-changelog 1.0.0`) to see the details.' });
+                         .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.PREFIX}changelog 1.0.0\`)` });
 
                     return await ctx.reply({ embeds: [embed], ephemeral: true });
                }
@@ -91,7 +92,7 @@ module.exports = {
                     .setColor('#3498DB')
                     .setTitle(':ballot_box_with_check: Available Versions: :ballot_box_with_check:')
                     .setDescription(`**${versionList}**`)
-                    .setFooter({ text: 'Use the command again with a specific version name \n(e.g., `lbh-changelog 1.0.0`) to see the details.' });
+                    .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.PREFIX}changelog 1.0.0\`)` });
 
                return await ctx.reply({ embeds: [embed], ephemeral: true });
           }
@@ -130,7 +131,7 @@ module.exports = {
           const generateEmbed = (index) => {
                return new EmbedBuilder()
                     .setColor('#3498DB')
-                    .setTitle(`:newspaper: discordbot - Changelog || [${target_version_data.version} :newspaper:`)
+                    .setTitle(`:newspaper: ${config.BOT_USERNAME} - Changelog || [${target_version_data.version} :newspaper:`)
                     .setDescription(PAGES[index])
                     .setFooter({ text: `note: if the formatting looks weird, thats just how discord markdown looks.` });
           };
