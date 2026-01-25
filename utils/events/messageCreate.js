@@ -9,10 +9,8 @@ module.exports = {
           if (!guildXPEnabled(msg.guild.id)) return;
           if (!channelXPEnabled(msg.channel.id)) return;
 
-          console.log(`
-               [INFO / GUILD XP] - ${guildXPEnabled(msg.guild.id)}
-               [INFO / CHANNEL XP] - ${channelXPEnabled(msg.channel.id)}
-          `);
+          console.log(`Server XP Enabled = **${guildXPEnabled(msg.guild.id)}**`);
+          console.log(`Channel XP Enabled = **${channelXPEnabled(msg.channel.id)}**`);
 
           const xpAmount = Math.floor(Math.random() * 10) + 5;
 
