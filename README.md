@@ -12,13 +12,13 @@ DB-Host [Discord Bot Template]
 
 <p align="center">
 <a href="https://github.com/AnimatingLegend/discordbot-host/releases">
-    <img src="https://img.shields.io/github/v/release/AnimatingLegend/discordbot-host?style=for-the-badge" alt="DB-HOST VERSION">
-  </a>
-<a href="https://github.com/discordjs/discord.js/releases">
-    <img src="https://img.shields.io/github/package-json/dependency-version/AnimatingLegend/discordbot-host/discord.js/main?style=for-the-badge&logo=discord&logoColor=white&color=5865F2" alt="discord.js version">
+  <img src="https://img.shields.io/github/v/release/AnimatingLegend/discordbot-host?style=for-the-badge" alt="DB-HOST VERSION">
 </a>
 <a href="https://nodejs.org/en/download">
   <img src="https://img.shields.io/badge/node.js-%3E%3D25.0.0-darkgreen?style=for-the-badge&logo=node.js&logoColor=white" alt="NODE.JS VERSION">
+</a>
+<a href="https://github.com/discordjs/discord.js/releases">
+  <img src="https://img.shields.io/github/package-json/dependency-version/AnimatingLegend/discordbot-host/discord.js/main?style=for-the-badge&logo=discord&logoColor=white&color=5865F2" alt="discord.js version">
 </a>
 </p>
 
@@ -31,9 +31,9 @@ TABLE OF CONTENTS <br>
 |
 <a href="#features">Features</a>
 |
-<a href="#requirements">Requirements</a>
+<a href="./docs/">Documentation</a>
 |
-<a href="#building-instructions">Building Instructions</a>
+<a href="./LICENSE.md">License</a>
 </p>
 </strong>
 
@@ -69,14 +69,5 @@ Here are the current commands available. This list will continue to grow as upda
 - Revive
 - 8ball
 
-For more information on these commands and how to use them, read this **[Command Guide](./docs/COMMAND_GUIDE.md)!**
-
-## Requirements
-- NodeJs v25 +
-- Discord.js v14 +
-- Discord Token, which you can get from the [Discord Developers Portal](https://discord.com/developers/docs/intro)
-- **[ALL OF THESE NODE DEPENDCIES](docs/LOCALLY_COMPILING.md/#required-dependencies)**
-- The guts and the brains
-
-## Building Instructions
-if you want to learn how to locally build this bot yourself, please read [this guide!](docs/LOCALLY_COMPILING.md)
+# Documentation
+For more information on how to **configure**, **build**, or **contribute** to Discordbot-Host's development, please read **[DB-Host's Documentation Guide](./docs/)**
