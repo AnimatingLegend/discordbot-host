@@ -148,7 +148,7 @@ client.on('messageCreate', async (message) => {
                 { name: 'Available Commands', value: cmd_list },
                 { name: 'Prefix', value: `\`${prefix}\` | slash \`/\`` }
             )
-            .setFooter({ text: `Use \`${prefix}-help\` or \`/help\` for more info.` });
+            .setFooter({ text: `Use \`${prefix}help\` or \`/help\` for more info.` });
 
         await message.reply({ embeds: [embed], ephemeral: true });
 
