@@ -8,31 +8,31 @@ Since Legbot has finished production, instead of open-sourcing the bot itself, I
 ## Features
 Here are the current commands available. This list will continue to grow as updates go on. 
 
-(*note: the actual commands are not capitialized*)
+> **NOTE**: 
+> **THE ACTUAL COMMANDS ARE NOT CAPITALIZED**
 
 ### Moderation Commands
-- Warn `<user>`
-- Kick `<user>`
-- Ban | Unban `<user>`
-- Mute | Unmute `<user>`
-- Purge `<messages>` | `<1 - 100>`
-- Mod_Logs `<info>` | `<user>`
-- Clear_Mod_Logs `<info>` | `<user>`
-### Utility Commands
-- Help `<info>`
-- Server_Info | Channel_Info | User_Info `<info>`
-- World_Clock `<info>`
-- Poll `<info>` | `<moderation>`
-- Member_Count `<stats>`
-- Uptime `<stats>`
-- Github `<source>`
-- Changelog `<source>`
+- Ban | Unban
+- Kick
+- Mute | Unmute
+- Warn
+- Purge
+- Mod_Logs | Clear_Mod_Logs
+### Utility & Guild Commands
+- Channel_Info | Member_Count | Server_Info | User_Info
+- Changelog | Github
+- Help
+- Leaderboard | Rank | Toggle_XP
+- Poll
+- Uptime
+- World_Clock
 ### Fun Commands
-- Cat_Facts | Dog_Facts | Facts `<fun>` | `<info>`
-- Revive `<fun>` | `<info>`
+- Cat_Facts | Dog_Facts | Facts
+- Joke | Meme
+- Revive
 - 8ball
-- Joke
-- Meme
+
+For more information on these commands and how to use them, read this **[Command Guide](./docs/COMMAND_GUIDE.md)!**
 
 ## Requirements
 - NodeJs v25 +
