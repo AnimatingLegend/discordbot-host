@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Collection, EmbedBuilder, Partials } = require('discord.js');
+const { ActivityType, Client, GatewayIntentBits, Collection, EmbedBuilder, Partials } = require('discord.js');
 
 const client = new Client({
     intents: [
@@ -18,8 +18,8 @@ const fs = require('node:fs');
 
 client.config = {
     PREFIX: config.PREFIX,
-    PUBLIC_ID: config.PUBLIC_ID,
-    PUBLIC_APIKEY: config.PUBLIC_APIKEY,
+    CLIENT_ID: config.CLIENT_ID,
+    BOT_USERNAME: config.BOT_USERNAME
 };
 
 require('dotenv').config({ path: path.resolve(__dirname, './api/data/token.env') });
@@ -98,27 +98,28 @@ console.log('Total: ' + client.commands.size);
 // Once bot is initialized, its gonna log into the console
 // ==============================================
 client.on('clientReady', () => {
+    const statusTxt = `Your Commands | ${client.config.PREFIX}help`;
+
+    client.user.setActivity(statusTxt,
+        { type: ActivityType.Watching }
+    );
+
     console.log(`
-        ====== WELCOME TO DISCORDBOT-HOST ======
+        ====== WELCOME TO ${client.config.BOT_USERNAME} ======
         [${new Date().toLocaleString()}]
         =====================================
         [
-            - ID: ${client.user.id}
-            - GUILD (SERVER) COUNT: ${client.guilds.cache.size}
+            - CLIENT ID: ${client.user.id}
             - CMD COUNT: ${client.commands.size}
-            - CUR STATUS: ${client.user.presence.status}
+            - GUILD COUNT: ${client.guilds.cache.size}
         ]
         =====================================
-        [STATUS: ${client.user.presence.status}]
+        [
+            - BOT STATUS: ${client.user.presence?.status || 'online'}
+            - BOT STATUS MESSAGE: ${statusTxt}
+        ]
         =====================================
     `);
-
-    client.user.setPresence({
-        activities: [{
-            name: 'Prefix: `!`',
-        }],
-        status: 'online'
-    });
 });
 
 // ==============================================

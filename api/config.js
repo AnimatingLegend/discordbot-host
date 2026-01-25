@@ -14,10 +14,11 @@ config_content.split('\n').forEach(line => {
 });
 
 console.log(`
-   ======= DISCORDBOT CONFIG =========
+   ======= ${config.BOT_USERNAME} CONFIG =========
    [
       PREFIX: ${config.PREFIX},
-      CLIENT_ID: ${config.CLIENT_ID}
+      CLIENT_ID: ${config.CLIENT_ID},
+      BOT_USERNAME: ${config.BOT_USERNAME}
    ]
    ======== DISCORD.JS V14 ===========
 `);

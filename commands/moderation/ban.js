@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { db } = require("../../utils/database.js");
+const { addModLog } = require('../../utils/database');
 const ms = require('ms');
 
 module.exports = {
@@ -133,9 +133,6 @@ module.exports = {
                const targetId = targetMember.id;
                const targetTag = targetMember.user.tag;
 
-               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason, timestamp) VALUES (?, ?, ?, ?, ?)`);
-               STMT.run(targetId, actorMember.id, 'Ban :hammer:', finalReason, Date.now());
-
                const content = `:hammer: ${targetTag} has been **banned**. | Reason: **${finalReason}** | Duration: **${durationInput}**`;
 
                if (ctx.reply) {
@@ -143,6 +140,8 @@ module.exports = {
                } else if (ctx.channel) {
                     return ctx.channel.send({ content });
                }
+
+               addModLog(actorMember.id, guild.id, 'ban', finalReason, Date.now(), targetId);
           } catch (err) {
                console.error(err);
                if (ctx.reply) return ctx.reply({ content: 'Failed to ban the member. Please check my permissions and role position.', ephemeral: true });

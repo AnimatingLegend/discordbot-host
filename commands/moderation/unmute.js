@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
-const { db } = require('../../utils/database.js');
+const { addModLog } = require("../../utils/database");
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -61,8 +61,7 @@ module.exports = {
           try {
                await targetMember.roles.remove(MUTE_ROLE);
 
-               const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, timestamp) VALUES (?, ?, ?, ?)`);
-               STMT.run(targetMember.id, actor.id, 'Unmute :white_check_mark:', Date.now());
+               addModLog(targetMember.id, guild.id, 'Unmute', 'No reason provided.');
 
                if (MUTE_ROLE && targetMember.roles.cache.has(MUTE_ROLE.id)) {
                     await targetMember.roles.remove(MUTE_ROLE);

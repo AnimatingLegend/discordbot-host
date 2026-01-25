@@ -1,4 +1,24 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const config = require('../../api/config.js');
+
+// ================================ 
+// Latency Levels
+// Depending on your bots latency, your embed color will change
+// --------------------------------
+// FAST: 0 - 100ms, COLOR: GREEN
+// NORMAL: 100 - 200ms, COLOR: YELLOW
+// SLOW: > 200ms, COLOR: RED
+// ================================
+const LATENCY_LEVELS = [
+     { threshold: 100, color: '#00a896', status: 'Fast' },
+     { threshold: 200, color: '#C27C0E', status: 'Normal' },
+     { threshold: Infinity, color: '#992D22', status: 'Slow' }
+];
+
+// ===== Get Latency Level ===== \\
+function getLatencyLvl(ping) {
+     return LATENCY_LEVELS.find(lvl => ping < lvl.threshold) || LATENCY_LEVELS[2];
+}
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -8,40 +28,25 @@ module.exports = {
      description: 'Check bot uptime, latency, and stats.',
 
      async execute(ctx, args) {
-          const client = ctx.client;
-          const now = Date.now();
-          const readyAt = client?.readyTimestamp ?? (now - Math.floor(process.uptime() * 1000));
-          const uptimeMs = now - readyAt;
-
-          const formatDuration = (ms) => {
-               const totalSeconds = Math.floor(ms / 1000);
-               const days = Math.floor(totalSeconds / 86400);
-               const hours = Math.floor((totalSeconds % 86400) / 3600);
-               const minutes = Math.floor((totalSeconds % 3600) / 60);
-               const seconds = totalSeconds % 60;
-               const parts = [];
-               if (days) parts.push(`${days}d`);
-               if (hours) parts.push(`${hours}h`);
-               if (minutes) parts.push(`${minutes}m`);
-               parts.push(`${seconds}s`);
-               return parts.join(' ');
-          };
+          const wsPing = ctx.client.ws.ping;
+          const { color, status } = getLatencyLvl(wsPing);
+          const readyTimestamp = Math.floor(ctx.client.readyTimestamp / 1000);
 
           const embed = new EmbedBuilder()
-               .setTitle('Uptime & Status :signal_strength:')
-               .setColor('#00a896')
+               .setTitle(`${config.BOT_USERNAME}'s Uptime Stats :robot:`)
+               .setColor(color)
                .addFields(
-                    { name: 'uptime', value: formatDuration(uptimeMs), inline: true },
-                    { name: 'ping', value: `${Math.round(client.ws.ping)} ms`, inline: true },
-                    { name: 'guilds', value: `${client.guilds.cache.size}`, inline: true },
+                    { name: ':wireless: Ping [LATENCY]', value: `\`${wsPing}ms\``, inline: true },
+                    { name: ':computer: Guilds [SERVERS]', value: `\`${ctx.client.guilds.cache.size}\``, inline: false },
                )
                .addFields(
-                    { name: 'memory', value: `${Math.round(process.memoryUsage().rss / 1024 / 1024)} MB`, inline: true },
-                    { name: 'node', value: process.version, inline: true },
+                    { name: ':pencil: MEM', value: `\`${Math.round(process.memoryUsage().rss / 1024 / 1024)} MB\``, inline: true },
+                    { name: ':pencil: NODE', value: `\`${process.version}\``, inline: true },
                     { name: '\u200b', value: '\u200b', inline: true },
+                    { name: ':stopwatch: BOT UPTIME', value: `<t:${readyTimestamp}:R>`, inline: false },
                )
-               .setTimestamp()
-               .setFooter({ text: 'host: local machine • status: fast' });
+               .setFooter({ text: `Status: ${status}` })
+               .setTimestamp();
 
           if (ctx.reply) {
                return ctx.reply({ embeds: [embed] });

@@ -1,5 +1,5 @@
 const { AuditLogEvent, Events } = require('discord.js');
-const { db } = require('../database.js');
+const { addModLog } = require('../database');
 
 module.exports = {
      name: Events.GuildAuditLogEntryCreate,
@@ -21,27 +21,12 @@ module.exports = {
           }
 
           // === LOG ACTION TO DATABASE === \\
-          // -- only proceed if an action type was found -- \\
-          if (actionType) {
-               try {
-                    // -- user `db.db` if the database utils exports and obj, otherwise use `db` -- \\
-                    const database = db.db || db;
+          if (!actionType || !executorId || !targetId) return;
 
-                    const STMT = database.prepare(`
-                         INSERT INTO mod_logs (user_id, mod_id, action, reason, timestamp)
-                         VALUES (?, ?, ?, ?, ?);
-                    `);
-
-                    STMT.run(
-                         targetId,
-                         executorId,
-                         actionType,
-                         reason || 'No reason provided.',
-                         Date.now()
-                    );
-               } catch (err) {
-                    console.error(`[ERROR] - Failed to log audit entry to DB: ${err}`);
-               }
+          try {
+               addModLog(targetId, executorId, actionType, reason || 'N/A');
+          } catch (err) {
+               console.error(`[ERROR] Failed to log audit entry: ${err}`);
           }
-     }
+     },
 };

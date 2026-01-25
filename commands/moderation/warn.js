@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
-const { db } = require("../../utils/database.js");
+const { addModLog } = require("../../utils/database");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -64,8 +64,7 @@ module.exports = {
     try {
       await targetMember.send(`:warning: You have been **warned** in **${guild.name}**. | Reason: **${finalReason}**`);
 
-      const STMT = db.prepare(`INSERT INTO mod_logs (user_id, mod_id, action, reason, timestamp) VALUES (?, ?, ?, ?, ?)`);
-      STMT.run(targetMember.id, actor.id, 'Warn :warning:', finalReason, Date.now());
+      addModLog(guild, actor, targetMember, 'Warn', finalReason);
     } catch (err) {
       console.error(err);
       console.log('Failed to DM user.');
