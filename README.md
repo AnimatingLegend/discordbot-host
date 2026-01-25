@@ -22,6 +22,8 @@ DB-Host [Discord Bot Template]
 </a>
 </p>
 
+<br>
+
 <strong>
 <p align="center">
 TABLE OF CONTENTS <br>
