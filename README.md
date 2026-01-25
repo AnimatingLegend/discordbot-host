@@ -31,7 +31,7 @@ TABLE OF CONTENTS <br>
 |
 <a href="#features">Features</a>
 |
-<a href="./docs/">Documentation</a>
+<a href="#documentation">Documentation</a>
 |
 <a href="./LICENSE.md">License</a>
 </p>
@@ -69,5 +69,7 @@ Here are the current commands available. This list will continue to grow as upda
 - Revive
 - 8ball
 
-# Documentation
-For more information on how to **configure**, **build**, or **contribute** to Discordbot-Host's development, please read **[DB-Host's Documentation Guide](./docs/)**
+## Documentation
+For more information on how to **configure**, **build**, or **contribute** to Discordbot-Host's development, As well as having trouble using a **bot command**:
+
+**Please read the [DB-Host Documentation Guide](./docs/)**.
