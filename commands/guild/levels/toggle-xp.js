@@ -89,7 +89,7 @@ module.exports = {
           }
 
           return ctx.reply({
-               content: `:white_check_mark: XP System has been **${statusText}** for this ${scope}.`,
+               content: `:white_check_mark: XP System has been **${statusTxt}** for this ${scope}.`,
                flags: [MessageFlags.Ephemeral]
           });
      },
