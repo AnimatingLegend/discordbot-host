@@ -92,9 +92,48 @@ function getLeaderboard(guildId) {
           .all(guildId);
 }
 
+// =========================
+// Initialize XP Settings Table [for servers]
+// -------------------------
+// xp_enabled: 0 = disabled, 1 = enabled
+// =========================
+xpDB.prepare(`
+     CREATE TABLE IF NOT EXISTS guild_xp_settings (
+     guild_id TEXT PRIMARY KEY,
+     xp_enabled INTEGER DEFAULT 1
+)`).run();
+
+// =========================
+// Initialize XP Settings Table [for channels]
+// -------------------------
+// Same logic as above. (disabled = 0, enabled = 1)
+// =========================
+xpDB.prepare(`
+     CREATE TABLE IF NOT EXISTS channel_xp_settings (
+     channel_id TEXT PRIMARY KEY,
+     xp_enabled INTEGER DEFAULT 1
+)`).run();
+
+function guildXPEnabled(guildID) {
+     const row = xpDB.prepare(`SELECT xp_enabled FROM guild_xp_settings WHERE guild_id = ?`)
+          .get(guildID);
+
+     return row ? row.xp_enabled === 1 : true;
+}
+
+function channelXPEnabled(channelID) {
+     const row = xpDB.prepare(`SELECT xp_enabled FROM channel_xp_settings WHERE channel_id = ?`)
+          .get(channelID);
+
+     return row ? row.xp_enabled === 1 : true;
+}
+
 module.exports = {
      addXP,
      getUser,
      getLeaderboard,
-     getXpForNextLevel
+     getXpForNextLevel,
+     guildXPEnabled,
+     channelXPEnabled,
+     xpDB
 };
