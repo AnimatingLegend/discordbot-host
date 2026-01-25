@@ -55,7 +55,7 @@ module.exports = {
                          \`channel_info\` \`member_count\` \`server_info\` \`user_info\`
                          \`changelog\` \`github\`
                          \`help\`
-                         \`leaderboard\` \`rank\`
+                         \`leaderboard\` \`rank\` \`toggle_xp\`
                          \`poll\`
                          \`uptime\`
                          \`world_clock\`
