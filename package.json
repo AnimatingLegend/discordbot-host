@@ -3,6 +3,9 @@
   "version": "2.2.0",
   "description": "Discordbot-host, your multipurpose bot for moderation, utility, and fun. ",
   "main": "index.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node index.js",
     "deploy-cmds": "node deploy-cmds.js"
