@@ -22,6 +22,10 @@ module.exports = {
      description: 'XP System Controls',
 
      async execute(ctx, args) {
+          // ---- Saftey / Permission Checks ---- \\
+          if (!ctx.member || !ctx.member.PermissionFlagsBits.ManageGuild)
+               return ctx.reply({ content: 'You do not have permission to use this command.', ephemeral: true });
+
           let scope;
           let enabled;
           const isInteraction = !!ctx.options; // ---- Check if 'ctx' has the 'options' property ---- \\
