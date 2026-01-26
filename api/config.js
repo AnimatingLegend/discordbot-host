@@ -20,7 +20,7 @@ console.log(`
       CLIENT_ID: ${config.CLIENT_ID},
       BOT_USERNAME: ${config.BOT_USERNAME}
    ]
-   ======== DISCORD.JS V14 ===========
+   ======== DISCORD.JS V${require('discord.js').version} ===========
 `);
 
 module.exports = config;
