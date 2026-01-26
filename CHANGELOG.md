@@ -6,7 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.2.1] - [2026-01-26]
 
-This is more focused on **guide documentation** than actual bot changes and fixes.
+> **NOTE: 
+> This is more focused on ***guide documentation*** rather than actual bot changes and fixes.**
 
 ### Changed
 - **Licensing**
@@ -22,9 +23,9 @@ This is more focused on **guide documentation** than actual bot changes and fixe
      - Added compiling video if your bot compiled successfully.
      - View changes **[here](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/LOCALLY_COMPILING.md)**
 ### Fixed
-- **Directory Structure**
+- **Directory Structure in programming guide**
      - Updated the directory tree to make it look more concise
-     - View changes **[here](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/LOCALLY_COMPILING.md)**
+     - View changes **[here](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/PROGRAMMING_GUIDE.md#file--folder-naming)**
 - **Documentation Cleanup**
      - Fixed a plethora of typos across multiple different README files.
 
