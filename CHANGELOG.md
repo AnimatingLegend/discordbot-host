@@ -4,6 +4,30 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.1] - [2026-01-26]
+
+This is more focused on **guide documentation** than actual bot changes and fixes.
+
+### Changed
+- **Licensing**
+     - Switched DB-Host to the **[MIT LICENSE](https://github.com/AnimatingLegend/discordbot-host/blob/main/LICENSE.md)**.
+- **README Overhaul**
+     - Added DB-Host's Discord icon.
+     - Added [Shields.io](https://shields.io/badges) badges for Discord.js, Node.js & versioning.
+     - Included table of contents for better navigation.
+     - View changes **[here](https://github.com/AnimatingLegend/discordbot-host/blob/main/README.md)**
+- **Compiling Guide Overhaul**
+     - Rewrote steps to be more descriptive.
+     - Updated terminal images.
+     - Added compiling video if your bot compiled successfully.
+     - View changes **[here](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/LOCALLY_COMPILING.md)**
+### Fixed
+- **Directory Structure**
+     - Updated the directory tree to make it look more concise
+     - View changes **[here](https://github.com/AnimatingLegend/discordbot-host/blob/main/docs/LOCALLY_COMPILING.md)**
+- **Documentation Cleanup**
+     - Fixed a plethora of typos across multiple different README files.
+
 ## [2.2.0] - [2026-01-25]
 ### Added
 - **XP / Level Toggle System**
