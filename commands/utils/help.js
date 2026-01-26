@@ -32,7 +32,7 @@ module.exports = {
                     },
                     {
                          name: "Links",
-                         value: "[Source Code](https://github.com/AnimatingLegend/discordbot-host) \n [Invite Bot](https://discord.gg/)\n\n",
+                         value: `[Source Code](${config.GITHUB}) \n [Invite Bot](${config.INVITE_LINK})\n\n`,
                          inline: true,
                     },
                )
