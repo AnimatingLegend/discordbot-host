@@ -24,7 +24,7 @@ You should see some version numbers pop up. If you do, you're good to go.
 <img src="./readme_images/LOCALLY_COMPILE/node_version_terminal.png">
 
 ### 2. Navigate your project
-Your terminal needs to know exactly where you bot files are located. User the `cd` (change directory) command to point to your bots folder.
+Your terminal needs to know exactly where you bot files are located. Use the `cd` (change directory) command to point to your bots folder.
 
 **Example**:
 ```bash
@@ -36,9 +36,9 @@ Now we need to install the "Project Dependencies" we mentioned in the requiremen
 ```bash
 npm install
 ```
-This might take a minute. It's reading the project files, and taking each API, and dependency thats in, and grabbing it from the web.
+This might take a minute. It's reading the project files and taking each API and dependency the bot needs from the web.
 > **Pro Tip:**
-> If you ever notice a specific feature isnt working because a package is missing, you can manually install it by typing `npm install <package-name>` (ie., `npm install discord.js`)
+> If you ever notice a specific feature isnt working because a package is missing, you can manually install it by typing `npm install <package-name>` (e.g., `npm install discord.js`)
 
 #### Included Dependencies:
 - `axios`, `badge-maker`, `better-sqlite3`, `discord-jokes`, `discord.js`, `dotenv` `he`, `ms`, `path`, `sqlite3`, `winston`.
