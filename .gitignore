@@ -10,7 +10,6 @@ temp/
 node_modules/
 # ===== Files ===== #
 .DS_Store
-CHANGELOG.md
 package-lock.json
 Thumbs.db
 TODO.md
