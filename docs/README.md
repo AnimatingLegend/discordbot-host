@@ -21,6 +21,7 @@ If you want to contribute to Discordbot-Host's development:
 
 ## Requirements
 Before you get started, it is **required** you have these things:
-- NodeJs v25 +
-- Discord.js v14 +
+- **[Node.js v25](https://nodejs.org/en/download/current)** +
+- **[Discord.js v14](https://github.com/discordjs/discord.js/releases/tag/14.25.1)** +
 - Discord Token, which you can get from the **[Discord Developers Portal](https://discord.com/developers/docs/intro)**
+     - For more information, read the **[Discordbot Configuration Guide](DISCORD_BOT_CONFIGUATION.md)**
