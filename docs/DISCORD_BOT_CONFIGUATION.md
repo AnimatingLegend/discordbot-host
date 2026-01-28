@@ -2,135 +2,74 @@
 
 This document covers everything you need to know about setting up your discord token, and configuring your bot.
 
-*NOTE: This bot uses a custom `.config` file system to load configuration values such prefixes and public data from your bot*
+> **NOTE #1:**
+> This bot uses a **`.json` file system** to load configuration values such as the thes **bot token**, **username**, **prefix**, & **ID's**
 
-**DISCLAIMER: you can NEVER share your bot token. If your token is leaked, regenerate it IMMEDIATELY from the [Discord Developer Portal](https://discord.com/developers/docs/intro)**
+> **NOTE #2:**
+> **NEVER share your bot token.** If your token is leaked, regenerate it **IMMEDIATELY** from the **[Discord Developer Portal](https://discord.com/developers/docs/intro)**
 
 ## Create a Discord Bot Token
 - Go to the **[Discord Developer Portal](https://discord.com/developers/docs/intro)**
-- Click **New Application**, and go to the **Bot** tab.
-- Click **Add Bot** (if one isn't already created)
-- Under **Token**, click **Reset Token** or **Copy Token**
-- Once everything is done, save your token somewhere safe.
+    - Click **New Application**
+- Open the **Bot** tab
+    - Click **Add Bot** (if one doesn't already exist)
+- Under **Token** click **Reset Token** or **Copy Token**
+    - Store the token somewhere safe
 
-## Enviornment Configuration (.env)
-This project uses environment variables to keep sensitive data secure.
+## Bot Configuration
+To keep things simple, this bot only uses **one JSON file** for all configuration values.
 
-### 1. Create a `.env` File
-In the `api` directory of your project, create a file name:
-`token.env`
-### 2. Add your Bot Token
-Inside the `.env` file, add:
-```bash
-PRIVATE_APIKEY = "PUT_API_TOKEN_HERE"
+### 1. Create the configuration file
+In the `api` directory of your project, create a file named:
+``` bash
+bot-config.json
 ```
-**Example:**
-```bash
-# NOTE: THIS IS NOT A REAL TOKEN.
-PRIVATE_APIKEY = "MzA1Njc4OTAxMjM0NTY3ODk0.GxXXXX.XXXXXXXX"
+### 2. Add Required Values
+Use the following format inside the file:
+
+```json
+{
+    "TOKEN": "BOT_TOKEN_HERE",
+    "BOT_USERNAME": "BOT_USERNAME_HERE",
+    "CLIENT_ID": "BOT_CLIENT_ID_HERE",
+    "PREFIX": "BOT_PREFIX_HERE",
+}
 ```
+*format reference:* `bot-config-EX.json` **([file link](../api/bot-config-EX.json))**
 
 ## Optional Configuration
-Depending on your setup, you may also include:
-```bash
-CLIENT_ID = "YOUR_APPLICATION_ID"
-GUILD_ID = "YOUR_TEST_SERVER_ID"
+These values are optional and only used if provided:
+```json
+{
+    "GITHUB": "BOTS_GITHUB_LINK",
+    "INVITE_LINK": "BOTS_INVITE_LINK"
+}
 ```
-These are commonly used for:
-- Slash command registration
-- Development-only guild commands
+## Initializing your bot
+Now that you configured your bot, its time to initialize it.
 
-## Loading Enviornment Variables
-Make sure the **`dotenv`** node dependency is installed if it isn't already:
-```powershell
-npm install dotenv
-```
-You dont need to worry about initializing your token because it already done for your in **[index.js](../index.js)!**
-```js
-// ----- Line 25 of index.js ----- \\
-require('dotenv').config({ path: path.resolve(__dirname, './api/data/token.env') });
-```
+> Read the **[Compiling Guide](./LOCALLY_COMPILING.md)** for a more detailed breakdown on how to initialize your bot.
 
-## Using a Config File **(Required)**
-This template uses both `.env` and `.config` files. You dont need to worry about creating a `config.js` file, because it's already created for you also! ([view the file here](../api/config.js))
-
-Here is the current config structure written in [index.js](../index.js)
-```js
-// ----- Line 15 - 23 of index.js ----- \\
-const config = require('./api/config.js');
-const path = require('node:path');
-const fs = require('node:fs');
-
-client.config = {
-    PREFIX: config.PREFIX,
-    CLIENT_ID: config.CLIENT_ID,
-    BOT_USERNAME: config.BOT_USERNAME
-};
-```
-It is ideal that you keep all configuration values in **one place**.
-
-*Note that this project does **not** store sensitve values directly into `.js` files.
-Instead, it uses a plain text `.config` file that is parsed at runtime.*
-
----
-
-### 1. Create the config file
-Navagate to the `api` directory
-```tree
-.
-├── api/
-│   └── data/
-└── config.js
-```
-Inside the file `data` folder, create a file called: **`<your_bots_username>.config`.** (ie., `discordbot.config`)
-
-### 2. Add Configuration Values
-Inside your file, add your values using the following format:
-```bash
-# -- format -- #
-KEY=VALUE
-
-# -- example --#
-PREFIX=!
-BOT_USERNAME=YOUR_BOTS_USERNAME
-CLIENT_ID=1463773555803295765
-```
-
-- Each value must be on its own line
-- Do not wrap values in quotes
-- Spaces before or after `=` are trimmed automatically
-
-## How does the Config Loader work?
-The bot reads the config file using **Node.js file system utilities**.
-
-- The file is read as plain text
-- Each line is split using `=` (an equal sign)
-- Keys and values are stored in a config object
-- Values can be accessed anywhere in the project
+**1.** Make sure the `bot-config.json` if filled out correctly
 
 **Example:**
-```js
-const config = require('./api/data/discordbot.config');
-
-console.log(config.PREFIX);
-client.login(config.PRIVATE_APIKEY) || client.login(process.env.PRIVATE_APIKEY);
+```json
+// NOTE: THESE VALUES ARENT REAL
+{
+    "TOKEN": "MzA1Njc4OTAxMjM0NTY3ODk0.GxXXXX.XXXXXXXX",
+    "BOT_USERNAME": "Krab-Bot",
+    "CLIENT_ID": "1463773555803295765",
+    "PREFIX": "kb-",
+}
+```
+**2.** Install dependencies:
+``` bash
+npm install
 ```
 
-## Important Security Notes
-- **NEVER COMMIT** `.env` **FILES** 
-- Make sure `.env` is listed in **[`.gitignore`](../.gitignore)**
-- Do not hardcode tokens in source files
-- Regenerate your token IMMEDIATELY if leaked.
-
-## Verifying your setup
-Run the bot:
-```powershell
+**3.** Start the bot:
+``` bash
 npm start
 ```
-or
-```powershell
-node index.js
-```
-If the bot logs successfully without errors. your token and configuration are set up correctly.
 
-**You are now ready to start developing your discord bot!**
+If the configuration is successful, the bot will log all of your values, and appear online.
