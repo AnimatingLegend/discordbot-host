@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`/toggle_xp` Command Tweaks**
      - Complete code rewrite (Tried to make logic as understandable as possible).
      - Added subcommand to put 'level-up' messages in specific channel(s).
-     - For more info on how to use the subcommand, read the **[Command Guide](./docs/COMMAND_GUIDE.md)**.
+     - For more info on how to use the subcommand, read the **[Command Guide](./docs/COMMAND_GUIDE.md/#toggle-xp)**.
 - **Bot Configuration Overhaul**
      - The bot now uses a `.json` file for bot configuration.
      - For more info, read the **NEW [Discord Config Guide](./docs/DISCORD_BOT_CONFIGUATION.md)**.
