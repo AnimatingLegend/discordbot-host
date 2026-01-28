@@ -18,10 +18,10 @@ modlogs.sqlite
 xp.sqlite
 # ===== config ===== #
 .env
+*.env
 .env.local
 .env.*.local
-token.env
-discordbot.config
+bot-config.json
 # ===== misc ===== #
 npm-debug.log
 yarn-error.log

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
-const config = require('../../api/config.js');
+const config = require('../../api/bot-config.json');
 const fs = require('node:fs');
 const path = require('node:path');
 
