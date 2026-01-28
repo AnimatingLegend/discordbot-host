@@ -26,8 +26,6 @@ client.config = {
     INVITE_LINK: config.INVITE_LINK
 };
 
-// require('dotenv').config({ path: path.resolve(__dirname, './api/data/token.env') });
-
 // ==============================================
 // Initialize Events
 // ==============================================
