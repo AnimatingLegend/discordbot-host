@@ -4,6 +4,18 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- **`/toggle_xp` Command Tweaks**
+     - Complete code rewrite (Tried to make logic as understandable as possible).
+     - Added subcommand to put 'level-up' messages in specific channel(s).
+     - For more info on how to use the subcommand, read the **[Command Guide](./docs/COMMAND_GUIDE.md)**.
+- **Bot Configuration Overhaul**
+     - The bot now uses a `.json` file for bot configuration.
+     - For more info, read the **NEW [Discord Config Guide](./docs/DISCORD_BOT_CONFIGUATION.md)**.
+### Removed
+- Completely removed `.config` & `dotenv` support.
+
 ## [2.2.1] - [2026-01-26]
 
 > **NOTE: 
