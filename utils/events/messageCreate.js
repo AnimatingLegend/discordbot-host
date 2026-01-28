@@ -1,5 +1,5 @@
 const { Events } = require('discord.js');
-const { addXP, guildXPEnabled, channelXPEnabled } = require('../database');
+const { addXP, guildXPEnabled, channelXPEnabled, getLvlUpChannel } = require('../database');
 
 module.exports = {
      name: Events.MessageCreate,
@@ -8,6 +8,7 @@ module.exports = {
 
           if (!guildXPEnabled(msg.guild.id)) return;
           if (!channelXPEnabled(msg.channel.id)) return;
+          if (!getLvlUpChannel(msg.guild.id)) return;
 
           console.log(`Server XP Enabled = **${guildXPEnabled(msg.guild.id)}**`);
           console.log(`Channel XP Enabled = **${channelXPEnabled(msg.channel.id)}**`);

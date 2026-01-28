@@ -1,5 +1,6 @@
 const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('discord.js');
 const { xpDB, setLvlUpChannel } = require('../../../utils/database');
+const { config } = require('../../../api/bot-config.json');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -16,6 +17,11 @@ module.exports = {
                ).addBooleanOption(option => option.setName('enabled')
                     .setDescription('Enable or Disable XP System')
                     .setRequired(true)
+               ))
+          .addSubcommand(subcommand => subcommand.setName('levelup_channel').setDescription('Set where "level up" messages are sent')
+               .addChannelOption(option => option.setName('channel')
+                    .setDescription('Where to send "level up" messages')
+                    .setRequired(false)
                )).setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
 
      name: 'toggle_xp',
@@ -35,8 +41,37 @@ module.exports = {
                scope = ctx.options.getString('scope');
                enabled = ctx.options.getBoolean('enabled') ? 1 : 0;
           } else {
-               if (!Array.isArray(args) && args.length >= 2)
-                    return ctx.reply({ content: `Usage: \`${config.PREFIX}toggle_xp <server|channel> <true|false>\``, flags: [MessageFlags.Ephemeral] });
+               if (!Array.isArray(args) || args.length < 1)
+                    return ctx.reply({ content: `Usage: \`${config.PREFIX}toggle_xp <server|channel> <true|false>\` or \`${config.PREFIX}toggle_xp levelup_channel <channel>\``, flags: [MessageFlags.Ephemeral] });
+
+               // ====== Handle level-up subcommand via prefix ====== \\
+               if (args[0].toLowerCase() === 'levelup_channel') {
+                    const second_args = args[1]?.toLowerCase();
+
+                    // ----- Check if the user typed 'false' or '0' ----- \\
+                    if (!second_args || ['false', '0', 'off'].includes(second_args)) {
+                         setLvlUpChannel(ctx.guild.id, null);
+                         return ctx.reply({ content: 'Level-up messages. are now **disabled**', flags: [MessageFlags.Ephemeral] });
+                    }
+
+                    // ----- Otherwise, try and find the channel ----- \\
+                    const channelId = args[1]?.replace(/\D/g, '');
+                    const channel = ctx.guild.channels.cache.get(channelId);
+
+                    // ----- Disable level-up Messages ----- \\
+                    if (!channel) {
+                         setLvlUpChannel(ctx.guild.id, null);
+                         return ctx.reply({ content: 'Level-up messages. are now **disabled**', flags: [MessageFlags.Ephemeral] });
+                    }
+
+                    setLvlUpChannel(ctx.guild.id, channel.id);
+                    return ctx.reply({ content: `Level-up messages. are now **enabled** in <#${channel.id}>`, flags: [MessageFlags.Ephemeral] });
+
+               }
+
+               // ----- Handle Standard Toggle (server/channel) ----- \\
+               if (args.length < 2)
+                    return ctx.reply({ content: `Please provide a state: \`${config.PREFIX}toggle_xp ${args[0]} <true|false>\``, flags: [MessageFlags.Ephemeral] });
 
                // ----- Parsed Arguments ----- \\
                scope = args[0].toLowerCase();
@@ -44,7 +79,7 @@ module.exports = {
           }
 
           if (!['server', 'channel'].includes(scope))
-               return ctx.reply({ content: `Invalid scope. \`${scope}\`. User server of channel.`, flags: [MessageFlags.Ephemeral] });
+               return ctx.reply({ content: `Invalid scope. \`${scope}\`.`, flags: [MessageFlags.Ephemeral] });
 
           const statusTxt = enabled ? 'Enabled' : 'Disabled';
 
@@ -69,7 +104,7 @@ module.exports = {
                     .run(ctx.channel.id, enabled);
           }
 
-          // ===== Main Reply ===== \\
+          // ===== Final Reply ===== \\
           return ctx.reply({
                content: `:white_check_mark: XP System has been **${statusTxt}** for this ${scope}.`,
                flags: [MessageFlags.Ephemeral]
