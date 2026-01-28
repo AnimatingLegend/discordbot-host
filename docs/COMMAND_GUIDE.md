@@ -120,22 +120,27 @@ clear_mod_logs <user>
 Most Utility & Guild commands are straightforward and require little explanation. Below are commands that have specific usage rules.
 
 ### Toggle XP
-Enabled or disables the XP system for a server or specific channels.
+Enables and disables the XP system for a server or specific channels, or sets a dedicated channel for 'level-up' announcements.
 ```bash
 # -- format -- #
-toggle_xp <scope> <value>
+toggle_xp <scope|subcommand> <value|channel>
 
 # -- example -- #
-!toggle_xp server 1
-!toggle_xp channel false
+!toggle_xp server true
+!toggle_xp channel 0
+!toggle_xp levelup_channel #levels
+!toggle_xp levelup_channel off
 ```
 **Scopes**:
-- `server`
-- `channel`
+- `server` - Affects the entire guild.
+- `channel` - Affects on the channel the command is typed.
+
+**Subcommands**:
+- `levelup_channel`: Sets where the bot posts 'level-up' messages. Providing a channel mention enables it; providing `off`, `false` or leaving it blank disables it.
 
 **Values**:
-- `true` / `false`
-- `1` / `0`
+- **For Scopes**: `true`/`false`, `1`/`0`, `on`/`off`
+- **For Subcommand**: A channel mention (e.g., `#general`) or a status keyword (`off`, `false`, `0`)
 
 ### Poll
 Creates a poll with multiple answer questions.
