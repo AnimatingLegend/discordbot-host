@@ -65,7 +65,7 @@ module.exports = {
                     {
                          name: ":gear: Configuration",
                          value: `
-                         \`toggle_xp\`
+                         \`xp_setup\`
                          \`toggle_welcome_setup\`
                          `,
                          inline: false,

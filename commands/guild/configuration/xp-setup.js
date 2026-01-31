@@ -4,7 +4,7 @@ const { config } = require('../../../api/bot-config.json');
 
 module.exports = {
      data: new SlashCommandBuilder()
-          .setName('toggle_xp')
+          .setName('xp_setup')
           .setDescription('XP System Controls')
           .addSubcommand(subcommand => subcommand.setName('enable').setDescription('Enable/Disable XP System')
                .addStringOption(option => option.setName('scope')
@@ -24,7 +24,7 @@ module.exports = {
                     .setRequired(false)
                )).setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild),
 
-     name: 'toggle_xp',
+     name: 'xp_setup',
      description: 'XP System Controls',
 
      async execute(ctx, args) {
