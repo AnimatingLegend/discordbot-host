@@ -4,7 +4,7 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.3.0]
+## [2.3.0] - [2026-02-01]
 ### Added
 - **Welcome / Leave Toggle System**
      - Created `/welcome_setup` command
@@ -24,7 +24,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - If a `#level-up` channel isnt picked, the bot just level-ups the user in the channel they were already typing in.
      - Rearranged the code so that the bot saves your data before it worries about sending a message.
      - Users should NOW earn points regardless of your server settings.
-
 ### Removed
 - Completely removed `.config` & `dotenv` support in favor of JSON.
 
