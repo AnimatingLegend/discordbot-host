@@ -1,7 +1,7 @@
 # Discordbot-Host Command Guide
 This document explains how to use all available commands in **DB-Host**.
 
-There are currently **29 Commands**, split into 4 categories:
+There are currently **30 Commands**, split into 4 categories:
 - Moderation
 - Utility & Guild
 - Fun
@@ -119,17 +119,37 @@ clear_mod_logs <user>
 ## Utility & Guild Commands
 Most Utility & Guild commands are straightforward and require little explanation. Below are commands that have specific usage rules.
 
-### Toggle XP
+### Welcome Setup
+Configures a professional **[Carl-Bot](https://carl.gg/)** style join and leave logs for the server. This system uses embeds to track account age, member count, and join/leave timestamps.
+```bash
+# -- format -- #
+welcome_setup <type> <#channel|status>
+
+# -- example -- #
+!welcome_setup welcome #welcome-channel
+!welcome_setup leave #leave-channel
+!welcome_setup welcome false
+!welcome_setup leave true
+```
+
+**Types**:
+- `welcome` - Configures the logging for new members joining the server.
+- `leave` - Configures the logging for members departing the server.
+
+**Values**:
+- **Channel Mention**: Providing a channel (e.g., `#welcome-channel`) sets that channel as the log destination and automatically enabled the system for that type.
+- **Status Keywords**: Use `off`, `false`, or `0` to disable logs, Use `on`, `true`, or `1` to re-enable logs using the previously saved channel.
+
+### XP Setup
 Enables and disables the XP system for a server or specific channels, or sets a dedicated channel for 'level-up' announcements.
 ```bash
 # -- format -- #
-toggle_xp <scope|subcommand> <value|channel>
+xp_setup <scope|subcommand> <value|channel>
 
 # -- example -- #
-!toggle_xp server true
-!toggle_xp channel 0
-!toggle_xp levelup_channel #levels
-!toggle_xp levelup_channel off
+!xp_setup server true
+!xp_setup channel false
+!xp_setup levelup_channel #levels
 ```
 **Scopes**:
 - `server` - Affects the entire guild.
