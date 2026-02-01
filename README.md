@@ -59,10 +59,13 @@ Here are the current commands available. This list will continue to grow as upda
 - Channel_Info | Member_Count | Server_Info | User_Info
 - Changelog | Github
 - Help
-- Leaderboard | Rank | Toggle_XP
+- Leaderboard | Rank
 - Poll
 - Uptime
 - World_Clock
+### Configuration
+- Welcome_Setup
+- XP_Setup
 ### Fun Commands
 - Cat_Facts | Dog_Facts | Facts
 - Joke | Meme
