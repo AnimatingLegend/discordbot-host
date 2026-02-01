@@ -18,6 +18,8 @@ modlogs.sqlite
 welcome_settings.sqlite
 xp.sqlite
 # ===== config ===== #
+.config
+*.config
 .env
 *.env
 .env.local
