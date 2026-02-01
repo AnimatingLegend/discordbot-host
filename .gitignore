@@ -15,7 +15,7 @@ Thumbs.db
 TODO.md
 # ===== Data ===== #
 modlogs.sqlite
-welcome_leave.sqlite
+welcome_settings.sqlite
 xp.sqlite
 # ===== config ===== #
 .env
