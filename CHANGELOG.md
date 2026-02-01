@@ -4,6 +4,29 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - [2026-02-01]
+### Added
+- **Welcome / Leave Toggle System**
+     - Created `/welcome_setup` command
+     - Automated embeds for member joins (account age) and leaves (duration of stay).
+     - For more info on how to use this command, read the **[Command Guide](./docs/COMMAND_GUIDE.md/#welcome-setup/)**.
+### Changed
+- **`/toggle_xp` Command Tweaks**
+     - Renamed `/toggle_xp` ==> `/xp_setup`
+     - Complete code overhaul to improve readability and performance.
+     - Added `levelup_channel` subcommand to set dedicated annoucement channels.
+     - For more info on how to use the subcommand, read the **[Command Guide](./docs/COMMAND_GUIDE.md/#toggle-xp)**.
+- **Bot Configuration Overhaul**
+     - Moved bot settings from `.env` & `.config` to a structured `bot-config.json` file.
+     - For more info, read the **UPDATED [Discord Config Guide](./docs/DISCORD_BOT_CONFIGUATION.md)**.
+### Fixed
+- **XP Traffic Jam**
+     - If a `#level-up` channel isnt picked, the bot just level-ups the user in the channel they were already typing in.
+     - Rearranged the code so that the bot saves your data before it worries about sending a message.
+     - Users should NOW earn points regardless of your server settings.
+### Removed
+- Completely removed `.config` & `dotenv` support in favor of JSON.
+
 ## [2.2.1] - [2026-01-26]
 
 > **NOTE: 

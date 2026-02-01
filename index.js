@@ -12,17 +12,19 @@ const client = new Client({
     partials: [Partials.Message, Partials.Channel]
 });
 
-const config = require('./api/config.js');
+const config = require('./api/bot-config.json');
 const path = require('node:path');
 const fs = require('node:fs');
 
+// ===== Bot Configuration ===== \\
 client.config = {
+    TOKEN: config.TOKEN,
     PREFIX: config.PREFIX,
     CLIENT_ID: config.CLIENT_ID,
-    BOT_USERNAME: config.BOT_USERNAME
+    BOT_USERNAME: config.BOT_USERNAME,
+    GITHUB: config.GITHUB,
+    INVITE_LINK: config.INVITE_LINK
 };
-
-require('dotenv').config({ path: path.resolve(__dirname, './api/data/token.env') });
 
 // ==============================================
 // Initialize Events
@@ -109,6 +111,7 @@ client.on('clientReady', () => {
         [${new Date().toLocaleString()}]
         =====================================
         [
+            - PREFIX: ${client.config.PREFIX}
             - CLIENT ID: ${client.user.id}
             - CMD COUNT: ${client.commands.size}
             - GUILD COUNT: ${client.guilds.cache.size}
@@ -201,4 +204,4 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-client.login(process.env.PRIVATE_APIKEY);
+client.login(config.TOKEN);

@@ -1,10 +1,8 @@
 const { REST, Routes } = require('discord.js');
 
-const config = require('./api/config.js');
+const config = require('./api/bot-config.json');
 const path = require('node:path');
 const fs = require('node:fs');
-
-require('dotenv').config({ path: path.resolve(__dirname, './api/data/token.env') });
 
 // ==========================================================
 // Deploy Command Script

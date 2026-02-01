@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-const config = require('../../api/config.js');
+const config = require('../../api/bot-config.json');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -32,7 +32,7 @@ module.exports = {
                     },
                     {
                          name: "Links",
-                         value: "[Source Code](https://github.com/AnimatingLegend/discordbot-host) \n [Invite Bot](https://discord.gg/)\n\n",
+                         value: `[Source Code](${config.GITHUB}) \n [Invite Bot](${config.INVITE_LINK})\n\n`,
                          inline: true,
                     },
                )
@@ -55,10 +55,18 @@ module.exports = {
                          \`channel_info\` \`member_count\` \`server_info\` \`user_info\`
                          \`changelog\` \`github\`
                          \`help\`
-                         \`leaderboard\` \`rank\` \`toggle_xp\`
+                         \`leaderboard\` \`rank\`
                          \`poll\`
                          \`uptime\`
                          \`world_clock\`
+                         `,
+                         inline: false,
+                    },
+                    {
+                         name: ":gear: Configuration",
+                         value: `
+                         \`xp_setup\`
+                         \`welcome_setup\`
                          `,
                          inline: false,
                     },

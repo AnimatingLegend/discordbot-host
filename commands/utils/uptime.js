@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const config = require('../../api/config.js');
+const config = require('../../api/bot-config.json');
 
 // ================================ 
 // Latency Levels

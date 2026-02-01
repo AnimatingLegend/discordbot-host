@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-const config = require('../../api/config.js');
+const config = require('../../api/bot-config.json');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -10,7 +10,6 @@ module.exports = {
      description: `View ${config.BOT_USERNAME}'s source code on GitHub!`,
 
      async execute(ctx) {
-          const link = 'https://github.com/AnimatingLegend/discordbot-host';
-          await ctx.reply({ content: link, ephemeral: true });
+          await ctx.reply({ content: config.GITHUB, ephemeral: true });
      },
 };

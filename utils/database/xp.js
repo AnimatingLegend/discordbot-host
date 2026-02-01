@@ -128,6 +128,38 @@ function channelXPEnabled(channelID) {
      return row ? row.xp_enabled === 1 : true;
 }
 
+// =========================
+// Initialize XP Settings Table [for channels]
+// -------------------------
+// Same logic as above. (disabled = 0, enabled = 1)
+// =========================
+xpDB.prepare(`
+     CREATE TABLE IF NOT EXISTS guild_xp_settings (
+     guild_id TEXT PRIMARY KEY,
+     xp_enabled INTEGER DEFAULT 1,
+     levelup_channel_id TEXT
+)`).run();
+
+try {
+     xpDB.prepare(`ALTER TABLE guild_xp_settings ADD COLUMN levelup_channel_id TEXT`)
+          .run();
+} catch (err) {
+     // -- If the error is about the column already existing, ignore it -- \\
+     if (!err.message.includes('duplicate column name'))
+          console.error('Migration Error: ' + err.message);
+}
+
+function setLvlUpChannel(guildID, channelID) {
+     xpDB.prepare(`INSERT INTO guild_xp_settings (guild_id, levelup_channel_id) VALUES (?, ?) ON CONFLICT(guild_id) DO UPDATE SET levelup_channel_id = excluded.levelup_channel_id`)
+          .run(guildID, channelID);
+}
+
+function getLvlUpChannel(guildID) {
+     const row = xpDB.prepare(`SELECT levelup_channel_id FROM guild_xp_settings WHERE guild_id = ?`).get(guildID);
+
+     return row?.levelup_channel_id || null;
+}
+
 module.exports = {
      addXP,
      getUser,
@@ -135,5 +167,7 @@ module.exports = {
      getXpForNextLevel,
      guildXPEnabled,
      channelXPEnabled,
+     setLvlUpChannel,
+     getLvlUpChannel,
      xpDB
 };
