@@ -25,7 +25,7 @@ module.exports = {
                     await target_channel.send(`:tada: **<@${msg.author.id}>** has reached **level ${result.level}**!`);
                } catch (err) {
                     // --- Fallback to current channel if the dedicated channel cant be found --- \\
-                    msg.channel.send(`: tada:  **<@${msg.author.id}>** has reached **level ${result.level}**!`);
+                    msg.channel.send(`:tada:  **<@${msg.author.id}>** has reached **level ${result.level}**!`);
                }
           }
      }
