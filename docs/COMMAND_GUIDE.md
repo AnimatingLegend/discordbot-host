@@ -12,9 +12,13 @@ There are currently **30 Commands**, split into 4 categories:
 > Command names are **not capitalized** when used in discord.
 
 ## Command Prefix
-All commands use the prefix defined in your `discordbot.config` file.
-```bash
-PREFIX=!
+All commands use the prefix defined in your `bot-config.json` file.
+
+**Example**:
+```json
+{
+     "PREFIX": "!",
+}
 ```
 **Command usage:**
 ```bash
