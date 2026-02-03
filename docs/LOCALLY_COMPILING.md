@@ -7,7 +7,7 @@ This document will guide you step-by-step on how to compile your discord bot for
 ## Requirements
 Before you begin, make sure you have these things first.
 - **[Node.js](https://nodejs.org/en/download/current)**
-     - This is the engine that runs your bot. Make sure you get the **v25 (current)** release for better stability.
+     - This is the engine that runs your bot. Make sure you get the **v24 (LTS)** release for better stability.
 - **[Project Dependencies](#included-dependencies)**
      - These are the libraries the bot needs to work. like `discord.js` for the connection and `sqlite3` for the database.
 
