@@ -4,6 +4,15 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- **Saftey & Permission Checks**
+     - Users with **moderation perms** should now only have access to `/welcome_setup`.
+### Fixed
+- **`/xp_setup` Bugs**
+     - Fixed issue where the command used syntax of the old command name.
+     - Fixed issue where the command would repeat your command error instead of telling you how to properly use it.
+
 ## [2.3.1] - [2026-02-03]
 ### Changed
 - **Node Version Control**
