@@ -27,5 +27,6 @@ All commands use the prefix defined in your `bot-config.json` file.
 ```
 <p align="center">
 <strong>Command Example:</strong>
+
 <img src="./images/ban_cmd.png">
 </p>
