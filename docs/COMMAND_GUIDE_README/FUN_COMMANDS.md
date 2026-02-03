@@ -15,4 +15,4 @@ If successful, it will shoot out a randomized answer
 
 **Example:**
 
-![alt text](../readme_images/COMMANDS/eight-ball.png)
+![alt text](./images/eight-ball.png)

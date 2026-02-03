@@ -1,5 +1,11 @@
 # Utility & Guild Commands
-Most Utility & Guild commands are straightforward and require little explanation. Below are commands that have specific usage rules.
+Most Utility & Guild commands are straightforward and require little explanation.
+
+**Simple Util Command Example**:
+
+![alt image](./images/util_cmd.png)
+
+Below are commands that have specific usage rules.
 
 ### Welcome Setup
 Configures a professional **[Carl-Bot](https://carl.gg/)** style join and leave logs for the server. This system uses embeds to track account age, member count, and join/leave timestamps.
