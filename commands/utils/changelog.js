@@ -44,7 +44,7 @@ function parse_changelog(changelog_content) {
 module.exports = {
      data: new SlashCommandBuilder()
           .setName('changelog')
-          .setDescription('Read up on the latest changes for discordbot!')
+          .setDescription(`Read up on the latest changes for ${config.BOT_USERNAME}`)
           .addStringOption(option =>
                option.setName('version')
                     .setDescription('Specify a version number (e.g. 2.1.0, or Unreleased). Leave empty for Latest.')
@@ -52,7 +52,7 @@ module.exports = {
           ),
 
      name: 'changelog',
-     description: 'Read up on the latest changes for discordbot!',
+     description: `Read up on the latest changes for ${config.BOT_USERNAME}`,
 
      async execute(ctx, args) {
           // ==== Command Handling ==== \\

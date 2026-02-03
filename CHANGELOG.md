@@ -4,6 +4,17 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.1] - [2026-02-03]
+### Changed
+- **Node Version Control**
+     - Downgraded Node.js from v25 ==> v24 for better stability.
+          - [Download Node.Js v24](https://nodejs.org/en/download)
+### Fixed
+- **Emoji Formatting**
+     - Fixed issue with the emoji syntax for the level-up message.
+- **Softcoding Bot configuration**
+     - Bot should now be using up-to-date softcoded data throughout the repo.
+     
 ## [2.3.0] - [2026-02-01]
 ### Added
 - **Welcome / Leave Toggle System**

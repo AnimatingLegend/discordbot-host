@@ -1,10 +1,10 @@
 {
   "name": "discordbot-host",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Discordbot-host, your multipurpose bot for moderation, utility, and fun. ",
   "main": "index.js",
   "engines": {
-    "node": ">=25.0.0"
+    "node": ">=24.0.0"
   },
   "scripts": {
     "start": "node index.js",

@@ -49,7 +49,7 @@ for (const file of all_command_files) {
 // ==========================================================
 // Registering Commands
 // ==========================================================
-const rest = new REST({ version: '10' }).setToken(process.env.PRIVATE_APIKEY);
+const rest = new REST({ version: '10' }).setToken(config.TOKEN);
 const userid = config.CLIENT_ID;
 
 (async () => {
