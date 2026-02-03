@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- **Welcome / Leave System Tweakups**
+     - Updated both embeds to be more concise.
+          - Added Ordinal numbers to keep a structured order of who joined.
+          - Added roles to leave embed.
+          - Added a updated timestamp to let users know when someone joined or left.
 - **Saftey & Permission Checks**
      - Users with **moderation perms** should now only have access to `/welcome_setup`.
 ### Fixed
