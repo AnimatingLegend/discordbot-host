@@ -1,6 +1,7 @@
 const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('discord.js');
 const { xpDB, setLvlUpChannel } = require('../../../utils/database');
-const { config } = require('../../../api/bot-config.json');
+
+const config = require('../../../api/bot-config.json');
 
 module.exports = {
      data: new SlashCommandBuilder()

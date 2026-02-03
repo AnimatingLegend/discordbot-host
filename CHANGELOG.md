@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **`/xp_setup` Bugs**
      - Fixed issue where the command used syntax of the old command name.
      - Fixed issue where the command would repeat your command error instead of telling you how to properly use it.
+     - Fixed `undefined` error due to `config` variable have parameters.
 
 ## [2.3.1] - [2026-02-03]
 ### Changed
