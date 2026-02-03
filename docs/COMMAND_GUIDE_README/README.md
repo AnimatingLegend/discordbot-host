@@ -25,6 +25,7 @@ All commands use the prefix defined in your `bot-config.json` file.
 ```bash
 !ban @user <reason> <duration>
 ```
-
-**Command Example**:
-![alt image](./images/ban_cmd.png)
+<p align="center">
+<strong>Command Example:</strong>
+<img src="./images/ban_cmd.png">
+</p>
