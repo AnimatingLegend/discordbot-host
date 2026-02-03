@@ -21,7 +21,7 @@ npm -v
 You should see some version numbers pop up. If you do, you're good to go.
 
 **Terminal Example**
-<img src="./readme_images/LOCALLY_COMPILE/node_version_terminal.png">
+![alt image](./images/node_version_terminal.png)
 
 ### 2. Navigate your project
 Your terminal needs to know exactly where you bot files are located. Use the `cd` (change directory) command to point to your bots folder.
@@ -55,4 +55,4 @@ node index.js
 If successful, your terminal will show the commands being loaded, the database initializing, and a welcome message. Your bot should now be online!
 
 **Successful Startup:**
-![Successful Compile](./readme_images/LOCALLY_COMPILE/successful_compile.gif)
+![Successful Compile](./images/successful_compile.gif)
