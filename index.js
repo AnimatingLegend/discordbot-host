@@ -107,7 +107,7 @@ client.on('clientReady', () => {
     );
 
     console.log(`
-        ====== WELCOME TO ${client.config.BOT_USERNAME} ======
+        ====== WELCOME TO ${client.config.BOT_USERNAME.toUpperCase()} ======
         [${new Date().toLocaleString()}]
         =====================================
         [
