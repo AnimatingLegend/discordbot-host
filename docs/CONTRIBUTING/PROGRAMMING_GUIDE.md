@@ -1,4 +1,4 @@
-# Discordbot-Host Repo Programming Style Guide
+# DB-Host's Programming Style Guide
 
 **DISCLAIMER**  
 Inspired by the [Funkin' Style Guide](https://github.com/FunkinCrew/Funkin/blob/dummy/develop-v0.7.5/docs/style-guide.md#funkin-repo-code-style-guide).  

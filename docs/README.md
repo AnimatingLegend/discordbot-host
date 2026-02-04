@@ -6,17 +6,17 @@ Here is everything you need to know, and more about Discordbot-Host.
 ## Guides
 ### Bot Usage
 If you're having issues using a command:
-- [Command Guide](./COMMAND_GUIDE.md)
+- [Command Guide](./COMMAND_GUIDE_README/)
 
 ### Custom Discord Bot
 If you want to build your own bot:
-- [Discordbot Configuration](./DISCORD_BOT_CONFIGUATION.md)
-     - [Locally Compiling](./LOCALLY_COMPILING.md)
+- [Discordbot Configuration](./CUSTOM_BOT_CONFIGURATION/)
+     - [Locally Compiling](./CUSTOM_BOT_CONFIGURATION/LOCALLY_COMPILING.md)
 
 ### Github Contributions
 If you want to contribute to Discordbot-Host's development:
-- [Contributing](./CONTRIBUTING.MD)
-     - [Programming Guide](./PROGRAMMING_GUIDE.md)
+- [Contributing](./CONTRIBUTING/)
+     - [Programming Guide](./CONTRIBUTING/PROGRAMMING_GUIDE.md)
 
 
 ## Requirements

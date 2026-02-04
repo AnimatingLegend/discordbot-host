@@ -26,6 +26,11 @@ module.exports = {
      description: 'Welcome & Leave System controls',
 
      async execute(ctx, args) {
+          // ===== Saftey / Permission Checks ===== \\
+          if (!ctx.member || !ctx.member.permissions.has(PermissionFlagsBits.ManageGuild))
+               return ctx.reply({ content: 'You do not have permission to use this command.', flags: [MessageFlags.Ephemeral] });
+
+          // ===== Initialize Interaction / Parseing Arguments ===== \\
           const isInteraction = !!ctx.options;
           let type, status, channel;
 

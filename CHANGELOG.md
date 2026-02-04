@@ -4,6 +4,46 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.2] - [2026-02-04]
+> **This update log will be broken up into 2 parts:**
+> **[Documentation](#documentation-updates), & [Bot Changes/Fixes](#bot-updates)**
+
+## Bot Updates
+### Changed
+- **Welcome / Leave System Tweakups**
+     - Updated both embeds to be more concise.
+          - Added Ordinal numbers to keep a structured order of who joined.
+          - Added roles to leave embed.
+          - Added a updated timestamp to let users know when someone joined or left.
+- **Safety & Permission Checks**
+     - Users with **moderation perms** should now only have access to `/welcome_setup`.
+### Fixed
+- **`/xp_setup` Bugs**
+     - Fixed issue where the command used syntax of the old command name.
+     - Fixed issue where the command would repeat your command error instead of telling you how to properly use it.
+     - Fixed `undefined` error due to `config` variable having parameters.
+
+## Documentation Updates
+> **Readme Guide Overhaul PT.2**
+### Added
+- Added new images to the following readmes:
+     - [Command Guide README](https://github.com/AnimatingLegend/discordbot-host/blob/develop/docs/COMMAND_GUIDE_README/README.md)
+     - [Guild, Utility, & Configuration Command Guide](https://github.com/AnimatingLegend/discordbot-host/blob/develop/docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md)
+### Changed
+- Guides are now seperated into sections:
+     - **Command Guide**: 
+          - [Fun Commands](./docs/COMMAND_GUIDE_README/FUN_COMMANDS.md) 
+          - [Guild, Utility, & Configuration Commands](./docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md)
+          - [Moderation Commands](./docs/COMMAND_GUIDE_README/MODERATION_COMMANDS.md)
+     - **Contributing Guide**:
+          - [Contributing Readme](./docs/CONTRIBUTING/CONTRIBUTING.MD) 
+          - [Programming Guide](./docs/CONTRIBUTING/PROGRAMMING_GUIDE.md)
+     - **Bot Configuration Guide**: 
+          - [Configuration Readme](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)
+          - [Locally Compiling Guide](./docs/CUSTOM_BOT_CONFIGURATION/LOCALLY_COMPILING.md)
+### Fixed
+- Fixed a plethora of grammar mistakes, and typos throughout all the readmes.
+
 ## [2.3.1] - [2026-02-03]
 ### Changed
 - **Node Version Control**

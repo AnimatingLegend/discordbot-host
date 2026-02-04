@@ -19,14 +19,22 @@ module.exports = {
                }
           }
 
-          const joined_at = member.joinedTimestamp ? Math.floor(member.joinedTimestamp / 1000) : null;
+          const stayedFor = `<t:${Math.floor(member.joinedTimestamp / 1000)}:R>`;
+
+          const roles = member.roles.cache
+               .filter(r => r.id !== '@everyone')
+               .map(r => r.toString())
+               .join(' ' || 'N/A');
 
           const embed = new EmbedBuilder()
                .setColor('#992D22')
-               .setAuthor({ name: `${member.user.tag} left the server`, iconURL: member.user.displayAvatarURL() })
-               .setDescription(`<@${member.id}> | Joined: ${joined_at ? `<t:${joined_at}:D>` : 'N/A'}`)
-               .setFooter({ text: `ID: ${member.id}` })
-               .setTimestamp();
+               .setAuthor({ name: member.user.tag, iconURL: member.user.displayAvatarURL() })
+               .setDescription(`
+                    **Member Left**
+                    <@${member.user.id}> Joined: ${stayedFor || 'N/A'}
+                    Roles: ${roles || 'N/A'}
+               `)
+               .setFooter({ text: `ID: ${member.id} || ${new Date().toLocaleString()}` })
 
           channel.send({ embeds: [embed] });
      },
