@@ -6,12 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- **README Guide Overhaul PT.2**
+     - Added new images to some readmes.
+     - Fixed a plethora of grammar mistakes, and typos throughout all the readmes.
+     - Guides are now seperated by sections.
+          - **Command Guide**: **([Fun Commands](./docs/COMMAND_GUIDE_README/FUN_COMMANDS.md), [Guild, Utils, & Configuration Commands](./docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md), & [Moderation Commands](./docs/COMMAND_GUIDE_README/MODERATION_COMMANDS.md))**
+          - **Contributing Guide**: **([Contributing Readme](./docs/CONTRIBUTING/CONTRIBUTING.MD), [Programming Guide](./docs/CONTRIBUTING/PROGRAMMING_GUIDE.md))**
+          - **Bot Configuration Guide**: **([Configuration Readme](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md), [Locally Compiling Guide](./docs/CUSTOM_BOT_CONFIGURATION/LOCALLY_COMPILING.md))**
 - **Welcome / Leave System Tweakups**
      - Updated both embeds to be more concise.
           - Added Ordinal numbers to keep a structured order of who joined.
           - Added roles to leave embed.
           - Added a updated timestamp to let users know when someone joined or left.
-- **Saftey & Permission Checks**
+- **Safety & Permission Checks**
      - Users with **moderation perms** should now only have access to `/welcome_setup`.
 ### Fixed
 - **`/xp_setup` Bugs**
