@@ -1,7 +1,7 @@
 <h1 align="center">
 <br>
 
-<img src="./docs/readme_images/ICONS/db-host-icon.png" style="width:150px" alt="db-host-icon">
+<img src="./assets/icons/db-host-icon.png" style="width:150px" alt="db-host-icon">
 <br>
 DB-Host [Discord Bot Template]
 <br>
