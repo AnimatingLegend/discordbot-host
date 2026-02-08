@@ -20,11 +20,11 @@ xp.sqlite
 # ===== config ===== #
 .config
 *.config
+config.json
 .env
 *.env
 .env.local
 .env.*.local
-bot_config.json
 # ===== misc ===== #
 npm-debug.log
 yarn-error.log
