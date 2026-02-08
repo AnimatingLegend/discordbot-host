@@ -3,7 +3,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const file_system = require('node:fs');
 const file_path = require('node:path');
 
-const config = require('../../../bot_config.json');
+const config = require('../../../config.json');
 
 // ================================================
 // Parse ALL VERSIONS and their content from CHANGELOG.md

@@ -1,8 +1,9 @@
 const { REST, Routes } = require('discord.js');
 
-const config = require('../bot_config.json');
 const path = require('node:path');
 const fs = require('node:fs');
+
+const config = require('../config.json');
 
 // ==========================================================
 // Deploy Command Script

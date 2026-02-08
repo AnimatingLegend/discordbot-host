@@ -12,7 +12,7 @@ const client = new Client({
     partials: [Partials.Message, Partials.Channel]
 });
 
-const config = require('../bot_config.json');
+const config = require('../config.json');
 const path = require('node:path');
 const fs = require('node:fs');
 
