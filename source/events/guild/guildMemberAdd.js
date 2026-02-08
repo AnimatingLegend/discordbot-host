@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { welcomeDB } = require('../database/connections');
+const { welcomeDB } = require('../../database/connections');
 
 // === Helper function for `1st`, `2nd`, `3rd`, ETC === \\
 // === Usage: getOrdinal(member.guild.memberCount) === \\

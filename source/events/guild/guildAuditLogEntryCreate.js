@@ -1,5 +1,5 @@
 const { AuditLogEvent, Events } = require('discord.js');
-const { addModLog } = require('../database');
+const { addModLog } = require('../../database');
 
 module.exports = {
      name: Events.GuildAuditLogEntryCreate,

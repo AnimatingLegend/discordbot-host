@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { welcomeDB } = require('../database/connections');
+const { welcomeDB } = require('../../database/connections');
 
 module.exports = {
      name: 'guildMemberRemove',

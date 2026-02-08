@@ -1,5 +1,5 @@
 const { Events } = require('discord.js');
-const { addXP, guildXPEnabled, channelXPEnabled, getLvlUpChannel } = require('../database');
+const { addXP, guildXPEnabled, channelXPEnabled, getLvlUpChannel } = require('../../database');
 
 module.exports = {
      name: Events.MessageCreate,
