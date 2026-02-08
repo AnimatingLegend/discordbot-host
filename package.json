@@ -2,13 +2,13 @@
   "name": "discordbot-host",
   "version": "2.3.2",
   "description": "Discordbot-host, your multipurpose bot for moderation, utility, and fun.",
-  "main": "index.js",
+  "main": "source/index.js",
   "engines": {
     "node": ">=24.0.0"
   },
   "scripts": {
-    "start": "node index.js",
-    "deploy-cmds": "node deploy-cmds.js"
+    "start": "node source/index.js",
+    "deploy-cmds": "node source/deploy-cmds.js"
   },
   "author": "Legend.",
   "license": "ISC",

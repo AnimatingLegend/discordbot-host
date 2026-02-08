@@ -24,7 +24,7 @@ xp.sqlite
 *.env
 .env.local
 .env.*.local
-bot-config.json
+bot_config.json
 # ===== misc ===== #
 npm-debug.log
 yarn-error.log
