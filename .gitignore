@@ -14,7 +14,9 @@ package-lock.json
 Thumbs.db
 TODO.md
 # ===== Data ===== #
-SETTINGS_*.json
+SETTINGS_*.sqlite
+*.sqlite
+.sqlite
 # ===== config ===== #
 .config
 *.config
