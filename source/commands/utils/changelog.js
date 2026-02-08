@@ -66,7 +66,7 @@ module.exports = {
                requested_version = args[0];
 
           // ===== Version Control / Data Parsing ===== \\
-          const changelog_md = file_system.readFileSync(file_path.join(__dirname, '../../CHANGELOG.md'), 'utf-8');
+          const changelog_md = file_system.readFileSync(file_path.join(__dirname, '../../../CHANGELOG.md'), 'utf-8');
           const all_versions = parse_changelog(changelog_md);
 
           let target_version_data;
