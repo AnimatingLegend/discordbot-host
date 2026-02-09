@@ -41,8 +41,7 @@ module.exports = {
                     =====================================
                     [
                          - FACT: ${d_fact}
-                         - SOURCE: ${fact_data?.source || 'no source available right now.'}
-                         - LENGTH: ${fact_data?.length || 'no length available right now.'}
+                         - IMAGE: ${d_image}
                     ]
                     =====================================
                     POWERED BY API.SOME-RANDOM-API
