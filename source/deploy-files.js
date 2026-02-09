@@ -46,7 +46,7 @@ module.exports = (client) => {
           }
      }
 
-     // ==== Logging ==== \\
+     // ==== Logging Commands ==== \\
      logger.info(`[LOADING] ${loaded_commands.length} commands loaded from ${command_files.length} file(s)`);
      console.log(`------ Loaded Commands ------`);
      console.table(loaded_commands);
@@ -71,7 +71,7 @@ module.exports = (client) => {
           });
      }
 
-     // ==== Logging ==== \\
+     // ==== Logging Events ==== \\
      logger.info(`[LOADING] ${loaded_events.length} events loaded from ${event_files.length} file(s)`);
      console.log(`------ Loaded Events ------`);
      console.table(loaded_events);
