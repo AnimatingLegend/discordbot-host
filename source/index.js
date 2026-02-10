@@ -56,13 +56,15 @@ client.on('messageCreate', async (msg) => {
 
         await msg.reply({ embeds: [embed], ephemeral: true });
 
-        logger.warn(`[WARNING] Invalid Command: ${cmd_name}`) || console.error(`[WARNING] Invalid Command: ${cmd_name}`);
+        logger.warn(`${msg.author.tag} typed in an invalid command: (${cmd_name}).`);
+        logger.warn(`Available commands sent.`);
         return;
     }
 
     try {
         await cmd.execute(msg, args);
     } catch (err) {
+        logger.error(`There was an error executing this command: ${interaction.commandName}`)
         console.error(err);
 
         await msg.reply({
@@ -83,7 +85,7 @@ client.on('interactionCreate', async (interaction) => {
     try {
         await cmd.execute(interaction);
     } catch (err) {
-        logger.error(`[ERROR] There was an error executing this command: ${interaction.commandName}`)
+        logger.error(`There was an error executing this command: ${interaction.commandName}`)
         console.error(err);
 
         const errorMessage = { content: `[:x:] There was an error executing this command.` };

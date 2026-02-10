@@ -21,6 +21,7 @@ function READY_LOG(client) {
      logger.info(`CPU    | ${process.cpuUsage().system / 1024 / 1024} MS`);
      console.log(`----------------------------------------------------------`);
      logger.success(`WELCOME TO ${client.config.BOT_USERNAME.toUpperCase()}!`);
+     console.log(`----------------------------------------------------------`);
 }
 
 module.exports = { READY_LOG };
