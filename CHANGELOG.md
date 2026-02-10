@@ -8,9 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **Complete Source Code Overhaul**
      - All of your bots code is stored in the new `source` directory.
-     - `events` are now in sub-directories.
+     - You can now put `events` in sub-directories.
      - The `database` directory is now seperate from `utils`.
-     - **Bot Client Overhaul**
+     - **Logging Overhaul**:
+          - Code is now being logged with [`winston`](https://www.npmjs.com/package/winston), instead of the regular `console.log()`.
+          - Added icons with colors to differentiate what is being logged:
+               - `error` = Red
+               - `warn` = Yellow
+               - `success` = Green
+               - `info` = Blue
+               - `debug` = Magenta
+          - Made logging more clean and concise. (no more jumbled up logging!)
+          - Seperated logging logic to whatever is being logged.
+     - **Bot Client Overhaul**:
           - The bots **file logic** is now seperated from `index.js`. (**[view file code here](./source/deploy-files.js)**)
           - The bots `onReady` logic is seperated from `index.js` (**[view `onReady` code here](./source/events/client/ready.js)**)
 
