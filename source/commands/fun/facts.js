@@ -1,4 +1,5 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const logger = require('../../utils/logger.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -12,27 +13,18 @@ module.exports = {
                if (ctx.reply) return ctx.reply({ content: 'fetch is not available in this environment.', ephemeral: true });
                return;
           }
-          
+
           const fact = await fetch('https://uselessfacts.jsph.pl/random.json?language=en').then(res => res.json());
-          
+
           const factEmbed = new EmbedBuilder()
                .setTitle('Random Fact :mag_right:')
                .setColor('#95A5A6')
                .setDescription(fact?.text || 'no fact available right now.');
 
-          console.log(`
-               ============ FACT DATA ===============
-               [${new Date().toLocaleString()}]
-               =====================================
-               [
-                    - FACT: ${fact?.text || 'no fact available right now.'}
-                    - SOURCE: ${fact?.source || 'no source available right now.'}
-                    - LENGTH: ${fact?.length || 'no length available right now.'}
-               ]
-               =====================================
-               POWERED BY USELESS-FACTS
-               =====================================
-          `);
+          console.log(`----------------------------------------------------------`);
+          logger.info(`FACT DATA: - ${fact?.source}`);
+          logger.info(`RANDOM FACT: ${fact?.text || 'N/A'}`);
+          console.log(`----------------------------------------------------------`);
 
           await ctx.reply({ embeds: [factEmbed] });
      },

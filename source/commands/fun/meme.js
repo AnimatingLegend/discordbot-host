@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const logger = require('../../utils/logger.js');
 const axios = require('axios');
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
      name: 'meme',
      description: 'Get a random meme!',
 
-     async execute (ctx) {
+     async execute(ctx) {
           try {
                const subreddits = [
                     'comedyheaven',
@@ -36,20 +37,30 @@ module.exports = {
                     .setColor('#FFFF00')
                     .setFooter({ text: `Powered by Reddit | ${post.ups} | r/${post.subreddit}` });
 
-               console.log(`
-                    ============ MEME DATA ===============
-                    [${new Date().toLocaleString()}]
-                    =====================================
-                    [
-                         - URL: ${post.url}
-                         - TITLE: ${post.title}
-                         - UPVOTES: ${post.ups}
-                         - SUBREDDIT: ${post.subreddit}
-                    ]
-                    =====================================
-                    POWERED BY REDDIT | R/${post.subreddit.toUpperCase()}
-                    =====================================
-               `);
+               /*
+          console.log(`
+               ============ MEME DATA ===============
+               [${new Date().toLocaleString()}]
+               =====================================
+               [
+                    - URL: ${post.url}
+                    - TITLE: ${post.title}
+                    - UPVOTES: ${post.ups}
+                    - SUBREDDIT: ${post.subreddit}
+               ]
+               =====================================
+               POWERED BY REDDIT | R/${post.subreddit.toUpperCase()}
+               =====================================
+          `);
+          */
+
+               console.log(`----------------------------------------------------------`);
+               logger.info(`RANDOM MEME DATA:`);
+               logger.info(`TITLE: ${post.title.toUpperCase()}`);
+               logger.info(`PHOTO: ${post.url}`);
+               logger.info(`UPVOTES: ${post.ups}`);
+               logger.info(`SUBREDDIT: R/${post.subreddit.toUpperCase()}`);
+               console.log(`----------------------------------------------------------`);
 
                return await ctx.reply({ embeds: [meme_embed] });
           } catch (err) {

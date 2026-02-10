@@ -1,4 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const logger = require('../../utils/logger.js');
 const axios = require('axios');
 
 module.exports = {
@@ -35,18 +36,11 @@ module.exports = {
                     dog_embed.setImage(d_image);
                }
 
-               console.log(`
-                    ========== DOG FACT DATA ==========
-                    [${new Date().toLocaleString()}]
-                    =====================================
-                    [
-                         - FACT: ${d_fact}
-                         - IMAGE: ${d_image}
-                    ]
-                    =====================================
-                    POWERED BY API.SOME-RANDOM-API
-                    =====================================
-               `);
+               console.log(`----------------------------------------------------------`);
+               logger.info(`DOG FACT DATA: - ${fact_data?.source}`);
+               logger.info(`RANDOM DOG FACT: ${d_fact || 'N/A'}`);
+               logger.info(`RANDOM DOG PHOTO: ${d_image || 'N/A'}`);
+               console.log(`----------------------------------------------------------`);
 
                return ctx.reply({ embeds: [dog_embed] });
           } catch (err) {
