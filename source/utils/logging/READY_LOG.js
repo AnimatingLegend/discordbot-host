@@ -16,9 +16,8 @@ function READY_LOG(client) {
      logger.info(`NODE VERSION       | ${process.version}`);
      logger.info(`DISCORD.JS VERSION | ${require('discord.js').version}`);
      logger.info(`---------------------------------------------------`);
-     logger.info(`UPTIME | ${client.uptime / 1000} `);
-     logger.info(`MEMORY | ${process.memoryUsage().rss / 1024 / 1024} MB`);
-     logger.info(`CPU    | ${process.cpuUsage().system / 1024 / 1024} MS`);
+     logger.info(`MEMORY USAGE       | ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB`);
+     logger.info(`CPU USAGE          | ${(process.cpuUsage().system / 1000).toFixed(0)} MS`);
      console.log(`----------------------------------------------------------`);
      logger.success(`WELCOME TO ${client.config.BOT_USERNAME.toUpperCase()}!`);
      console.log(`----------------------------------------------------------`);

@@ -56,7 +56,7 @@ client.on('messageCreate', async (msg) => {
 
         await msg.reply({ embeds: [embed], ephemeral: true });
 
-        logger.warn(`${msg.author.tag} typed in an invalid command: (${cmd_name}).`);
+        logger.warn(`User typed in an invalid command: (${cmd_name}).`);
         logger.warn(`Available commands sent.`);
         return;
     }
