@@ -67,7 +67,7 @@ module.exports = (client) => {
 
           loaded_events.push({
                EVENT_NAME: event.name,
-               FILE_PATH: file
+               FILE_PATH: file_path.relative(process.cwd(), file)
           });
      }
 
