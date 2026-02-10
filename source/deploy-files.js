@@ -42,16 +42,14 @@ module.exports = (client) => {
                     FILE_PATH: file_path.relative(process.cwd(), file)
                });
           } else {
-               logger.warn(`[WARNING] The command at ${file} is missing a required "data.name" property.`);
+               logger.warn(`The command at ${file} is missing a required "data.name" property.`);
           }
      }
 
      // ==== Logging Commands ==== \\
-     logger.info(`[LOADING] ${loaded_commands.length} commands loaded from ${command_files.length} file(s)`);
      console.log(`------ Loaded Commands ------`);
      console.table(loaded_commands);
-     console.log(`------ Total Commands ------`);
-     console.log(client.commands.size);
+     logger.success(`${loaded_commands.length} command(s) loaded from ${command_files.length} file(s)`);
 
      // ==============================================
      // Load Events
@@ -72,9 +70,7 @@ module.exports = (client) => {
      }
 
      // ==== Logging Events ==== \\
-     logger.info(`[LOADING] ${loaded_events.length} events loaded from ${event_files.length} file(s)`);
      console.log(`------ Loaded Events ------`);
      console.table(loaded_events);
-     console.log(`------ Total Events ------`);
-     console.log(loaded_events.length);
+     logger.success(`${loaded_events.length} events loaded from ${event_files.length} file(s)`);
 };
