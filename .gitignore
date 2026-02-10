@@ -14,17 +14,17 @@ package-lock.json
 Thumbs.db
 TODO.md
 # ===== Data ===== #
-modlogs.sqlite
-welcome_settings.sqlite
-xp.sqlite
+SETTINGS_*.sqlite
+*.sqlite
+.sqlite
 # ===== config ===== #
 .config
 *.config
+config.json
 .env
 *.env
 .env.local
 .env.*.local
-bot-config.json
 # ===== misc ===== #
 npm-debug.log
 yarn-error.log
