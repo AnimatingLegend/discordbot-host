@@ -4,25 +4,24 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-### Changed
-- **Complete Source Code Overhaul**
-     - All of your bots code is stored in the new `source` directory.
-     - You can now put `events` in sub-directories.
-     - The `database` directory is now seperate from `utils`.
-     - **Logging Overhaul**:
-          - Code is now being logged with [`winston`](https://www.npmjs.com/package/winston), instead of the regular `console.log()`.
-          - Added icons with colors to differentiate what is being logged:
-               - `error` = Red
-               - `warn` = Yellow
-               - `success` = Green
-               - `info` = Blue
-               - `debug` = Magenta
-          - Made logging more clean and concise. (no more jumbled up logging!)
-          - Seperated logging logic to whatever is being logged.
-     - **Bot Client Overhaul**:
-          - The bots **file logic** is now seperated from `index.js`. (**[view file code here](./source/deploy-files.js)**)
-          - The bots `onReady` logic is seperated from `index.js` (**[view `onReady` code here](./source/events/client/ready.js)**)
+## [2.4.0] - [2026-02-10]
+### Complete Source Code Overhaul:
+- All of your bots code is stored in the new `source` directory.
+- You can now put `events` in sub-directories.
+- The `database` directory is now separate from `utils`.
+- **Logging Overhaul**:
+     - Code is now being logged with [`winston`](https://www.npmjs.com/package/winston), instead of the regular `console.log()`.
+     - Added icons with colors to differentiate what is being logged:
+          - `error` = Red
+          - `warn` = Yellow
+          - `success` = Green
+          - `info` = Blue
+          - `debug` = Magenta
+     - Made logging more clean and concise. (no more jumbled up logging!)
+     - Seperated logging logic to whatever is being logged.
+- **Bot Client Overhaul**:
+     - The bots **file logic** is now separated from `index.js`. (**[view file code here](./source/deploy-files.js)**)
+     - The bots `onReady` logic is separated from `index.js` (**[view `onReady` code here](./source/events/client/ready.js)**)
 
 ## [2.3.2] - [2026-02-04]
 > **This update log will be broken up into 2 parts:**
