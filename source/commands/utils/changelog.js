@@ -45,7 +45,7 @@ function parse_changelog(changelog_content) {
 module.exports = {
      data: new SlashCommandBuilder()
           .setName('changelog')
-          .setDescription(`Read up on the latest changes for ${config.BOT_USERNAME}`)
+          .setDescription(`Read up on the latest changes for ${config.main.BOT_USERNAME}`)
           .addStringOption(option =>
                option.setName('version')
                     .setDescription('Specify a version number (e.g. 2.1.0, or Unreleased). Leave empty for Latest.')
@@ -53,7 +53,7 @@ module.exports = {
           ),
 
      name: 'changelog',
-     description: `Read up on the latest changes for ${config.BOT_USERNAME}`,
+     description: `Read up on the latest changes for ${config.main.BOT_USERNAME}`,
 
      async execute(ctx, args) {
           // ==== Command Handling ==== \\
@@ -82,7 +82,7 @@ module.exports = {
                          .addFields(
                               { name: 'Available Versions', value: `**${all_versions.map(v => `\`[${v.version}\``).join('\n')}**` }
                          )
-                         .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.PREFIX}changelog 1.0.0\`)` });
+                         .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.main.BOT_PREFIX}changelog 1.0.0\`)` });
 
                     return await ctx.reply({ embeds: [embed], ephemeral: true });
                }
@@ -93,7 +93,7 @@ module.exports = {
                     .setColor('#3498DB')
                     .setTitle(':ballot_box_with_check: Available Versions: :ballot_box_with_check:')
                     .setDescription(`**${versionList}**`)
-                    .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.PREFIX}changelog 1.0.0\`)` });
+                    .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.main.BOT_PREFIX}changelog 1.0.0\`)` });
 
                return await ctx.reply({ embeds: [embed], ephemeral: true });
           }
@@ -132,7 +132,7 @@ module.exports = {
           const generateEmbed = (index) => {
                return new EmbedBuilder()
                     .setColor('#3498DB')
-                    .setTitle(`:newspaper: ${config.BOT_USERNAME} - Changelog || [${target_version_data.version} :newspaper:`)
+                    .setTitle(`:newspaper: ${config.main.BOT_USERNAME} - Changelog || [${target_version_data.version} :newspaper:`)
                     .setDescription(PAGES[index])
                     .setFooter({ text: `note: if the formatting looks weird, thats just how discord markdown looks.` });
           };

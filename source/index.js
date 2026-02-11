@@ -35,9 +35,9 @@ require('./deploy-files.js')(client);
 // Message / Prefix Handler
 // ==============================================
 client.on('messageCreate', async (msg) => {
-    if (msg.author.bot || !msg.content.startsWith(config.PREFIX)) return;
+    if (msg.author.bot || !msg.content.startsWith(config.main.BOT_PREFIX)) return;
 
-    const args = msg.content.slice(config.PREFIX.length).trim().split(/\s+/);
+    const args = msg.content.slice(config.main.BOT_PREFIX.length).trim().split(/\s+/);
     const cmd_name = args.shift().toLowerCase();
     const cmd = client.commands.get(cmd_name) || client.commands.find(cmd => cmd.aliases?.includes(cmd_name));
 
@@ -50,9 +50,9 @@ client.on('messageCreate', async (msg) => {
             .setDescription(`Invalid Command: \`${cmd_name}\``)
             .addFields(
                 { name: 'Available Commands', value: cmd_list },
-                { name: 'Prefix', value: `\`${config.PREFIX}\` | slash \`/\`` }
+                { name: 'Prefix', value: `\`${config.main.BOT_PREFIX}\` | slash \`/\`` }
             )
-            .setFooter({ text: `Use the command again with a specific command name \n(e.g., \`${config.PREFIX}help\`)` });
+            .setFooter({ text: `Use the command again with a specific command name \n(e.g., \`${config.main.BOT_PREFIX}help\`)` });
 
         await msg.reply({ embeds: [embed], ephemeral: true });
 
@@ -95,4 +95,4 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-client.login(config.TOKEN);
+client.login(config.main.BOT_TOKEN);

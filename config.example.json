@@ -1,20 +1,12 @@
-/**
-*             ~~ BOT CONFIG EXAMPLE ~~
-*    Here is everything you need to configure your discord bot
-*    If you have any questions, or concerns please visit:
-*    https://github.com/AnimatingLegend/discordbot-host/docs
-*
-* ~~ DELETE ALL COMMENTS AFTER CONFIGURING TO PREVENT ERRORS ~~   
-*/
-
 {
-     // -- Main Configuration -- \\
-     "TOKEN": "BOT_TOKEN_HERE",
-     "BOT_USERNAME": "BOT_USERNAME_HERE",
-     "CLIENT_ID": "BOT_CLIENT_ID_HERE",
-     "PREFIX": "BOT_PREFIX_HERE",
-
-     // -- Optional Configuration -- \\
-     "GITHUB": "BOTS_GITHUB_LINK",
-     "INVITE_LINK": "BOTS_INVITE_LINK"
+     "main": {
+          "BOT_USERNAME": "BOT_USERNAME_HERE",
+          "BOT_TOKEN": "BOT_TOKEN_HERE",
+          "BOT_PREFIX": "BOT_PREFIX_HERE",
+          "BOT_VERSION": "BOT_VERSION_HERE"  
+     },
+     "misc": {
+          "GITHUB": "BOT_SOURCE-CODE_LINK_HERE",
+          "INVITE": "BOT_INVITE_LINK_HERE"
+     }
 }

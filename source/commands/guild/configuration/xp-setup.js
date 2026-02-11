@@ -43,7 +43,7 @@ module.exports = {
                enabled = ctx.options.getBoolean('enabled') ? 1 : 0;
           } else {
                if (!Array.isArray(args) || args.length < 1)
-                    return ctx.reply({ content: `Usage: \`${config.PREFIX}xp_setup <server|channel> <true|false>\` or \`${config.PREFIX}xp_setup levelup_channel <channel>\``, flags: [MessageFlags.Ephemeral] });
+                    return ctx.reply({ content: `Usage: \`${config.main.BOT_PREFIX}xp_setup <server|channel> <true|false>\` or \`${config.main.BOT_PREFIX}xp_setup levelup_channel <channel>\``, flags: [MessageFlags.Ephemeral] });
 
                // ====== Handle level-up subcommand via prefix ====== \\
                if (args[0].toLowerCase() === 'levelup_channel') {
@@ -72,7 +72,7 @@ module.exports = {
 
                // ----- Handle Standard Toggle (server/channel) ----- \\
                if (args.length < 2)
-                    return ctx.reply({ content: `Please provide a state: \`${config.PREFIX}xp_setup ${scope} <true|false>\``, flags: [MessageFlags.Ephemeral] });
+                    return ctx.reply({ content: `Please provide a state: \`${config.main.BOT_PREFIX}xp_setup ${scope} <true|false>\``, flags: [MessageFlags.Ephemeral] });
 
                // ----- Parsed Arguments ----- \\
                scope = args[0].toLowerCase();

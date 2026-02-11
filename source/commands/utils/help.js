@@ -4,9 +4,9 @@ const config = require('../../../config.json');
 module.exports = {
      data: new SlashCommandBuilder()
           .setName("help")
-          .setDescription(`Information about ${config.BOT_USERNAME}, and it's features.`),
+          .setDescription(`Information about ${config.main.BOT_USERNAME}, and it's features.`),
      name: "help",
-     description: `Information about ${config.BOT_USERNAME}, and it's features.`,
+     description: `Information about ${config.main.BOT_USERNAME}, and it's features.`,
 
      async execute(ctx) {
           const guild = ctx.guild;
@@ -16,13 +16,13 @@ module.exports = {
 
           const helpEmbed = new EmbedBuilder()
                .setColor("#00a896")
-               .setTitle(`${config.BOT_USERNAME} — help`)
+               .setTitle(`${config.main.BOT_USERNAME} — help`)
                .setDescription("Your multipurpose bot for moderation, utility, and fun.")
                .setThumbnail(bot?.displayAvatarURL())
                .addFields(
                     {
                          name: "Quick Start",
-                         value: `Prefix \`${config.PREFIX}\` | slash \`/\`. \n Type \`${config.PREFIX}help\` or \`/help\` for more info.`,
+                         value: `Prefix \`${config.main.BOT_PREFIX}\` | slash \`/\`. \n Type \`${config.main.BOT_PREFIX}help\` or \`/help\` for more info.`,
                          inline: false,
                     },
                     {
@@ -32,7 +32,7 @@ module.exports = {
                     },
                     {
                          name: "Links",
-                         value: `[Source Code](${config.GITHUB}) \n [Invite Bot](${config.INVITE_LINK})\n\n`,
+                         value: `[Source Code](${config.misc.GITHUB}) \n [Invite Bot](${config.misc.INVITE_LINK})\n\n`,
                          inline: true,
                     },
                )
