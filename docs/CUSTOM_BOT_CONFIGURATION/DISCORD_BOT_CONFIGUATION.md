@@ -20,9 +20,9 @@ This document covers everything you need to know about setting up your discord t
 To keep things simple, this bot only uses **one JSON file** for all configuration values.
 
 ### 1. Create the configuration file
-In the `api` directory of your project, create a file named:
+In the root directory of your project, create a file named:
 ``` bash
-bot-config.json
+config.json
 ```
 ### 2. Add Required Values
 Use the following format inside the file:
@@ -35,7 +35,7 @@ Use the following format inside the file:
     "PREFIX": "BOT_PREFIX_HERE",
 }
 ```
-*format reference:* `bot-config-EX.json` **([file link](../api/bot-config-EX.json))**
+*format reference:* `config.example.json` **([file link](../../config.example.json))**
 
 ## Optional Configuration
 These values are optional and only used if provided:
@@ -50,7 +50,7 @@ Now that you configured your bot, its time to initialize it.
 
 > Read the **[Compiling Guide](./LOCALLY_COMPILING.md)** for a more detailed breakdown on how to initialize your bot.
 
-**1.** Make sure the `bot-config.json` if filled out correctly
+**1.** Make sure the `config.json` file is filled out correctly
 
 **Example:**
 ```json
