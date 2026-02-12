@@ -28,11 +28,12 @@ config.json
 Use the following format inside the file:
 
 ```json
-{
-    "TOKEN": "BOT_TOKEN_HERE",
+
+"main":{
+    "BOT_TOKEN": "BOT_TOKEN_HERE",
     "BOT_USERNAME": "BOT_USERNAME_HERE",
-    "CLIENT_ID": "BOT_CLIENT_ID_HERE",
-    "PREFIX": "BOT_PREFIX_HERE",
+    "BOT_PREFIX": "BOT_PREFIX_HERE",
+    "BOT_VERSION": "BOT_VERSION_HERE"
 }
 ```
 *format reference:* `config.example.json` **([file link](../../config.example.json))**
@@ -40,9 +41,9 @@ Use the following format inside the file:
 ## Optional Configuration
 These values are optional and only used if provided:
 ```json
-{
+"misc": {
     "GITHUB": "BOTS_GITHUB_LINK",
-    "INVITE_LINK": "BOTS_INVITE_LINK"
+    "INVITE": "BOTS_INVITE_LINK"
 }
 ```
 ## Initializing your bot
@@ -56,10 +57,10 @@ Now that you configured your bot, its time to initialize it.
 ```json
 // NOTE: THESE VALUES ARENT REAL
 {
-    "TOKEN": "MzA1Njc4OTAxMjM0NTY3ODk0.GxXXXX.XXXXXXXX",
+    "BOT_TOKEN": "MzA1Njc4OTAxMjM0NTY3ODk0.GxXXXX.XXXXXXXX",
     "BOT_USERNAME": "Krab-Bot",
-    "CLIENT_ID": "1463773555803295765",
-    "PREFIX": "kb-",
+    "BOT_PREFIX": "kb-",
+    "BOT_VERSION": "1.0.0"
 }
 ```
 **2.** Install dependencies:
