@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits, EmbedBuilder } = require('../../libs.js');
 const { getUserModlogs } = require("../../database");
 
 const ACTION_EMOJIS = {
