@@ -55,4 +55,4 @@ node index.js
 If successful, your terminal will show the commands being loaded, the database initializing, and a welcome message. Your bot should now be online!
 
 **Successful Startup:**
-![Successful Compile](./images/successful_compile.gif)
+![Successful Compile](./images/NPM_START.gif)
