@@ -14,6 +14,7 @@ const {
      ButtonBuilder,
      ButtonStyle,
      StringSelectMenuBuilder,
+     PollLayoutType,
 
      // Command Handling
      SlashCommandBuilder,
@@ -22,8 +23,10 @@ const {
      // Constants & Utilities
      ActivityType,
      PermissionFlagsBits,
+     MessageFlags,
      ChannelType,
-     Colors
+     Colors,
+     Poll
 } = require('discord.js');
 const voice = require('@discordjs/voice');
 const play = require('play-dl');
@@ -47,9 +50,10 @@ const { ReadyLog } = require('./utils/logging/ReadyLog.js');
 module.exports = {
      // Discord Classes
      Client, Collection, Events, GatewayIntentBits, Partials,
-     EmbedBuilder, ClientReady, ActionRowBuilder, ButtonBuilder, ButtonStyle,
+     EmbedBuilder, ClientReady,
+     ActionRowBuilder, ButtonBuilder, ButtonStyle, PollLayoutType,
      StringSelectMenuBuilder, SlashCommandBuilder, ContextMenuCommandBuilder,
-     ActivityType, PermissionFlagsBits, ChannelType, Colors,
+     ActivityType, PermissionFlagsBits, MessageFlags, ChannelType, Colors,
 
      // External Packages
      voice, play,

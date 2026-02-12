@@ -1,5 +1,4 @@
-const { SlashCommandBuilder, PollLayoutType } = require('discord.js');
-const config = require('../../../config.json');
+const { SlashCommandBuilder, PollLayoutType, config } = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()

@@ -1,5 +1,4 @@
-const { getRandomHexColor } = require('../../utils/random-colors.js');
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, colors } = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -18,7 +17,7 @@ module.exports = {
           const channel = ctx.channel;
 
           const embed = new EmbedBuilder()
-               .setColor(getRandomHexColor())
+               .setColor(colors.random())
                .setTitle(`:tv: Channel Information :tv:`)
                .setDescription(`Channel information about: <#${channel.id}>`)
                .addFields(

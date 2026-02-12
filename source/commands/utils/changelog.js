@@ -1,9 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-
-const file_system = require('node:fs');
-const file_path = require('node:path');
-
-const config = require('../../../config.json');
+const { SlashCommandBuilder, EmbedBuilder, fs, path, config } = require('../../libs.js');
 
 // ================================================
 // Parse ALL VERSIONS and their content from CHANGELOG.md
@@ -66,7 +61,7 @@ module.exports = {
                requested_version = args[0];
 
           // ===== Version Control / Data Parsing ===== \\
-          const changelog_md = file_system.readFileSync(file_path.join(__dirname, '../../../CHANGELOG.md'), 'utf-8');
+          const changelog_md = fs.readFileSync(path.join(__dirname, '../../../CHANGELOG.md'), 'utf-8');
           const all_versions = parse_changelog(changelog_md);
 
           let target_version_data;

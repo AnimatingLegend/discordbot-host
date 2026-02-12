@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('../../../libs.js');
 const { setWelcomeConfig } = require('../../../database');
 
 const config = require('../../../../config.json');

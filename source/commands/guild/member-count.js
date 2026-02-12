@@ -1,5 +1,4 @@
-const { getRandomHexColor } = require('../../utils/random-colors.js');
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder, colors } = require("../../libs.js");
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -16,7 +15,7 @@ module.exports = {
           const members = await ctx.guild.members.fetch();
 
           const embed = new EmbedBuilder()
-               .setColor(getRandomHexColor())
+               .setColor(colors.random())
                .setTitle(`:bust_in_silhouette: Member Count :bust_in_silhouette:`)
                .setDescription(`View the total number of member's in **${guild.name}**.`)
                .addFields(

@@ -1,5 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-const { getRandomHexColor } = require("../../utils/random-colors.js");
+const { SlashCommandBuilder, EmbedBuilder, colors } = require("discord.js");
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -12,7 +11,7 @@ module.exports = {
           const user = ctx.user ? ctx.user : ctx.author;
 
           const embed = new EmbedBuilder()
-               .setColor(getRandomHexColor())
+               .setColor(colors.random())
                .setTitle(`${user.username}'s Information`)
                .setThumbnail(user.displayAvatarURL())
                .addFields(
