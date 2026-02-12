@@ -10,21 +10,17 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 // === LOCAL UTILITIES & CONFIG === \\
+// --- Note-to-self: Only keep "leaf" utilities in this file. --- \\
 const logger = require('./utils/logger.js');
 const config = require('../config.json');
 const colors = require('./utils/random-colors.js');
 const emojis = require('./utils/random-emojis.js');
-
-// === MISC === \\
-const { ReadyLog } = require('./utils/logging/ReadyLog.js');
 
 // === EXPORTS (Alphabetical order) === \\
 module.exports = {
      axios,
      config,
      colors,
-     // export the entire discord.js package so it can be used anywhere
-     ...require('discord.js'),
      emojis,
      fs,
      he,
@@ -32,8 +28,9 @@ module.exports = {
      ms,
      path,
      play,
-     ReadyLog,
      sqlite3,
      voice,
      winston,
+     // === EXPORT PACKAGES === \\
+     ...require('discord.js'),
 }

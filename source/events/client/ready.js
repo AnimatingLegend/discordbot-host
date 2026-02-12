@@ -1,5 +1,5 @@
 const { ActivityType, Events, logger, config } = require('../../libs.js');
-const { ReadyLog } = require('../../libs.js');
+const { ReadyLog } = require('../../utils/logging/ReadyLog.js');
 
 module.exports = {
      name: Events.ClientReady,
