@@ -1,7 +1,10 @@
-const logger = require('../logger.js');
-const config = require('../../../config.json');
-
-function READY_LOG(client) {
+function ReadyLog(client, logger, config) {
+     if (!logger || !config) {
+          console.log(`----------------------------------------------------------`);
+          console.log(`[ERROR] Logger is not initialzied! Please wait a moment...`);
+          console.log(`----------------------------------------------------------`);
+          return;
+     }
      console.log(`----------------------------------------------------------`);
      logger.info(`${config.main.BOT_USERNAME.toUpperCase()} - v${config.main.BOT_VERSION}`);
      logger.info(`---------------------------------------------------`);
@@ -18,8 +21,11 @@ function READY_LOG(client) {
      logger.info(`MEMORY USAGE       | ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)} MB`);
      logger.info(`CPU USAGE          | ${(process.cpuUsage().system / 1000).toFixed(0)} MS`);
      console.log(`----------------------------------------------------------`);
-     logger.success(`WELCOME TO ${config.main.BOT_USERNAME.toUpperCase()}!`);
+     if (!logger.success)
+          logger.warn(`Logger is not initialzied! Please wait a moment...`)
+     else
+          logger.success(`WELCOME TO ${config.main.BOT_USERNAME.toUpperCase()}!`);
      console.log(`----------------------------------------------------------`);
 }
 
-module.exports = { READY_LOG };
+module.exports = { ReadyLog };

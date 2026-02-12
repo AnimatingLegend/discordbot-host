@@ -1,5 +1,30 @@
 // --- EXTERNAL PACKAGES (NPM) --- \\
-const discord = require('discord.js');
+const {
+     // Core Classes
+     Client,
+     ClientReady,
+     Collection,
+     Events,
+     GatewayIntentBits,
+     Partials,
+
+     // UI Components
+     EmbedBuilder,
+     ActionRowBuilder,
+     ButtonBuilder,
+     ButtonStyle,
+     StringSelectMenuBuilder,
+
+     // Command Handling
+     SlashCommandBuilder,
+     ContextMenuCommandBuilder,
+
+     // Constants & Utilities
+     ActivityType,
+     PermissionFlagsBits,
+     ChannelType,
+     Colors
+} = require('discord.js');
 const voice = require('@discordjs/voice');
 const play = require('play-dl');
 const axios = require('axios');
@@ -15,19 +40,25 @@ const config = require('../config.json');
 const colors = require('./utils/random-colors.js');
 const emojis = require('./utils/random-emojis.js');
 
+// --- MISC --- \\
+const { ReadyLog } = require('./utils/logging/ReadyLog.js');
+
 module.exports = {
-     ...discord,
-     discord,
-     voice,
-     play,
+     // Discord Classes
+     Client, Collection, Events, GatewayIntentBits, Partials,
+     EmbedBuilder, ClientReady, ActionRowBuilder, ButtonBuilder, ButtonStyle,
+     StringSelectMenuBuilder, SlashCommandBuilder, ContextMenuCommandBuilder,
+     ActivityType, PermissionFlagsBits, ChannelType, Colors,
+
+     // External Packages
+     voice, play,
      axios,
      ms,
      sqlite3,
      winston,
-     fs,
-     path,
+     fs, path,
      logger,
      config,
-     colors,
-     emojis
+     colors, emojis,
+     ReadyLog
 }

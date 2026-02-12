@@ -1,19 +1,15 @@
-const { Events, ActivityType } = require('discord.js');
-const { READY_LOG } = require('../../utils/logging/READY_LOG.js');
+const { ActivityType, Events, logger, config } = require('../../libs.js');
+const { ReadyLog } = require('../../libs.js');
 
 module.exports = {
      name: Events.ClientReady,
      once: true,
 
      execute(client) {
-          const statusText = `Your Commands | ${client.config.PREFIX}help`;
-
-          client.user.setActivity(statusText, {
+          client.user.setActivity(`Your Commands | ${config.main.BOT_PREFIX}help`, {
                type: ActivityType.Watching
           });
 
-          READY_LOG(client);
-
-          return;
+          return ReadyLog(client, logger, config);
      },
 };

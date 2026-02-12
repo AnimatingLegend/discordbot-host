@@ -1,7 +1,4 @@
-const file_system = require('node:fs');
-const file_path = require('node:path');
-
-const logger = require('./utils/logger.js');
+const { path, fs, logger } = require('./libs.js');
 
 module.exports = (client) => {
 
@@ -11,10 +8,10 @@ module.exports = (client) => {
      const getFiles = (dir) => {
           let results = [];
 
-          const list = file_system.readdirSync(dir, { withFileTypes: true });
+          const list = fs.readdirSync(dir, { withFileTypes: true });
 
           for (const file of list) {
-               const res = file_path.resolve(dir, file.name);
+               const res = path.resolve(dir, file.name);
 
                // -- Recursivily dive into subdirectories -- \\
                if (file.isDirectory())
@@ -26,7 +23,7 @@ module.exports = (client) => {
           return results;
      };
 
-     const command_files = getFiles(file_path.join(__dirname, './commands'));
+     const command_files = getFiles(path.join(__dirname, './commands'));
      const loaded_commands = [];
 
      for (const file of command_files) {
@@ -39,7 +36,7 @@ module.exports = (client) => {
 
                loaded_commands.push({
                     COMMAND_NAME: command.data.name,
-                    FILE_PATH: file_path.relative(process.cwd(), file)
+                    FILE_PATH: path.relative(process.cwd(), file)
                });
           } else {
                logger.warn(`The command at ${file} is missing a required "data.name" property.`);
@@ -54,7 +51,7 @@ module.exports = (client) => {
      // ==============================================
      // Load Events
      // ==============================================
-     const event_files = getFiles(file_path.join(__dirname, './events'));
+     const event_files = getFiles(path.join(__dirname, './events'));
      const loaded_events = [];
 
      for (const file of event_files) {
@@ -65,7 +62,7 @@ module.exports = (client) => {
 
           loaded_events.push({
                EVENT_NAME: event.name,
-               FILE_PATH: file_path.relative(process.cwd(), file)
+               FILE_PATH: path.relative(process.cwd(), file)
           });
      }
 

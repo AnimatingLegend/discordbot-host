@@ -1,5 +1,4 @@
 const { createLogger, format, transports } = require('winston');
-const path = require('path');
 
 /**
  * ~~ Define custom levels and their priority ~~

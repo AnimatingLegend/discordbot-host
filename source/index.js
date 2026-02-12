@@ -1,13 +1,4 @@
-const {
-    Client,
-    Collection,
-    EmbedBuilder,
-    GatewayIntentBits,
-    Partials,
-} = require('discord.js');
-
-const config = require('../config.json');
-const logger = require('./utils/logger.js');
+const { Client, Collection, EmbedBuilder, GatewayIntentBits, Partials, config, logger } = require('./libs.js');
 
 const client = new Client({
     intents: [
