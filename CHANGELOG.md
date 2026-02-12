@@ -4,6 +4,14 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- **Source Code Optimization**:
+     - All node packages / dependencies are now being dynamically imported in one file. (`[libs.js](./source/libs.js)`)
+     - Cleaned up bot configuration by separating the main configuration with the miscellaneous.
+          - View changes **[here]()**
+          - Read the Updated configuration doc **[here]()**
+
 ## [2.4.0] - [2026-02-10]
 ### Complete Source Code Overhaul:
 - All of your bots code is stored in the new `source` directory.
