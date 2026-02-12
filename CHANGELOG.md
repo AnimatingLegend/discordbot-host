@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Source Code Optimization**:
      - All node packages / dependencies are now being dynamically imported in one file. ([`libs.js`](./source/libs.js))
      - Cleaned up bot configuration by separating the main configuration with the miscellaneous.
-          - View changes **[here]()**
-          - Read the Updated configuration doc **[here]()**
+          - View changes **[here](./config.example.json)**
+          - Read the Updated configuration doc **[here](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)**
 
 ## [2.4.0] - [2026-02-10]
 ### Complete Source Code Overhaul:
