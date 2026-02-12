@@ -1,5 +1,4 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const logger = require('../../utils/logger.js');
+const { EmbedBuilder, SlashCommandBuilder, logger } = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()

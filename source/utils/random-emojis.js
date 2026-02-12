@@ -1,6 +1,6 @@
 const EMOJI_DATA = require('../database/data/emojis.json');
 
-function getRandomEmoji() {
+function random() {
      const emojis = Object.values(EMOJI_DATA);
 
      if (emojis.length === 0) return '👎';
@@ -9,4 +9,4 @@ function getRandomEmoji() {
      return emojis[random_index];
 }
 
-module.exports = { getRandomEmoji };
+module.exports = { random };

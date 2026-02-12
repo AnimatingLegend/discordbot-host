@@ -1,6 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-const logger = require('../../utils/logger.js');
-const axios = require("axios");
+const { SlashCommandBuilder, EmbedBuilder, logger, axios } = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()

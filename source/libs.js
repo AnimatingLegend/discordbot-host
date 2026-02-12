@@ -28,6 +28,7 @@ const {
 const voice = require('@discordjs/voice');
 const play = require('play-dl');
 const axios = require('axios');
+const he = require('he');
 const ms = require('ms');
 const sqlite3 = require('better-sqlite3');
 const winston = require('winston');
@@ -53,6 +54,7 @@ module.exports = {
      // External Packages
      voice, play,
      axios,
+     he,
      ms,
      sqlite3,
      winston,

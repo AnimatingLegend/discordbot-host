@@ -1,7 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const { getRandomHexColor } = require('../../utils/random-colors');
-const axios = require('axios');
-const he = require('he');
+const { SlashCommandBuilder, EmbedBuilder, axios, colors, he } = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -27,13 +24,13 @@ module.exports = {
                if (!revive_role_id) {
                     revive_role_id = await ctx.guild.roles.create({
                          name: 'Revive',
-                         color: getRandomHexColor(),
+                         color: colors.random(),
                          reason: 'Automated Revive role creation.'
                     });
                }
 
                const embed = new EmbedBuilder()
-                    .setColor(getRandomHexColor())
+                    .setColor(colors.random())
                     .setTitle(`:mending_heart: Chat Revive Trivia :mending_heart:`)
                     .setDescription(`**${questionText}**`)
                     .addFields(
