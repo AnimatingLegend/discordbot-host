@@ -31,7 +31,7 @@ module.exports = {
                     },
                     {
                          name: "Links",
-                         value: `[Source Code](${config.misc.GITHUB}) \n [Invite Bot](${config.misc.INVITE_LINK})\n\n`,
+                         value: `[Source Code](${config.misc.GITHUB}) \n [Invite Bot](${config.misc.INVITE})\n\n`,
                          inline: true,
                     },
                )
