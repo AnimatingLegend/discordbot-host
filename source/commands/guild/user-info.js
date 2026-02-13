@@ -1,7 +1,7 @@
 const {
      SlashCommandBuilder, EmbedBuilder,
      colors
-} = require("discord.js");
+} = require("../../libs.js");
 
 module.exports = {
      data: new SlashCommandBuilder()

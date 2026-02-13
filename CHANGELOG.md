@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
           - View changes **[here](./config.example.json)**
           - Read the Updated configuration doc **[here](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)**
 ### Fixed
+- **Consistent Bot Crashing**:
+     - Fixed issue where if you type **any** guild command, the entire bot client would crash, or display an error message.
 - **Logging Issues**:
      - Fixed issue where `guild_xp_settings` and `channel_xp_settings` would log `[TRUE]`, even when disabled.
 
