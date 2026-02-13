@@ -1,36 +1,36 @@
-// === EXTERNAL PACKAGES (NPM) === \\
-const discord = require('discord.js');
-const voice = require('@discordjs/voice');
-const play = require('play-dl');
+// === IMPORTS === \\
 const axios = require('axios');
+const BetterSqlite3 = require('better-sqlite3');
+const discord = require('discord.js');
+const fs = require('node:fs');
 const he = require('he');
 const ms = require('ms');
-const sqlite3 = require('better-sqlite3');
-const winston = require('winston');
-const fs = require('node:fs');
 const path = require('node:path');
+const play = require('play-dl');
+const voice = require('@discordjs/voice');
+const winston = require('winston');
 
-// === LOCAL UTILITIES & CONFIG === \\
-// --- Note-to-self: Only keep "leaf" utilities in this file. --- \\
-const logger = require('./utils/logger.js');
-const config = require('../config.json');
-const colors = require('./utils/random-colors.js');
-const emojis = require('./utils/random-emojis.js');
-
-// === EXPORTS (Alphabetical order) === \\
+// === EXPORT ALL UTILITIES === \\
 module.exports = {
-     ...discord,
      axios,
-     config,
-     colors,
-     emojis,
+     Database: BetterSqlite3,
+     discord, ...discord,
      fs,
      he,
-     logger,
      ms,
      path,
      play,
-     sqlite3,
      voice,
-     winston
-}
+     winston,
+
+     // === DYNAMIC UTILITIES === \\
+     get config() { return require('../config.json') },
+     get logger() { return require('./utils/logger.js') },
+     get colors() { return require('./utils/random-colors.js') },
+     get emojis() { return require('./utils/random-emojis.js') },
+
+     // === DATABASES === \\
+     get modLogDB() { return require('./database/connections.js') },
+     get welcomeDB() { return require('./database/connections.js') },
+     get xpDB() { return require('./database/connections.js') }
+};
