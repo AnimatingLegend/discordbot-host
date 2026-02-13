@@ -20,6 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - Fixed issue where if you type **any** guild command, the entire bot client would crash, or display an error message.
 - **Logging Issues**:
      - Fixed issue where `guild_xp_settings` and `channel_xp_settings` would log `[TRUE]`, even when disabled.
+### Removed
+- `random-emojis` support.
 
 ## [2.4.0] - [2026-02-10]
 ### Complete Source Code Overhaul:
