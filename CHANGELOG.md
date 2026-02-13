@@ -15,6 +15,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - Cleaned up bot configuration by separating them into sub-categories (e.g., `"main_config": {}`, `"misc_config": {}`).
           - View changes **[here](./config.example.json)**
           - Read the Updated configuration doc **[here](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)**
+- **Expanded `random-colors` Functionality**:
+     - `random()`:
+          - Selects a random HEX code from the `colors.json` database.
+          - **EX: `colors.random()`**
+     - `resolve(hex)`:
+          -  Converts a HEX string into a 24-bit integer to prevent crashing.
+          - **EX: `colors.resolve('#00a896')`** (dark green)
+     - `shift(name, percent)`:
+          - Adjusts brightness, and tint of a stored color. 
+          - **EX: `colors.shift('DarkGreen', 5)`**
+     - `static(name)`:
+          - Get a case-insensitve lookup for a specific color. 
+          - **EX: `colors.static('DarkGreen')`**
+     - **DOCUMENTATION COMING SOON**
 ### Fixed
 - **Consistent Bot Crashing**:
      - Fixed issue where if you type **any** guild command, the entire bot client would crash, or display an error message.
