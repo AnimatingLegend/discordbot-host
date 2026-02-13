@@ -1,4 +1,7 @@
-const { SlashCommandBuilder, EmbedBuilder, colors } = require('../../libs.js');
+const {
+     SlashCommandBuilder, EmbedBuilder,
+     colors
+} = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()

@@ -1,4 +1,7 @@
-const { Client, Collection, EmbedBuilder, GatewayIntentBits, Partials, config, logger } = require('./libs.js');
+const {
+    Client, Collection, EmbedBuilder, GatewayIntentBits, Partials,
+    config, logger
+} = require('./libs.js');
 
 const client = new Client({
     intents: [

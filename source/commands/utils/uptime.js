@@ -1,4 +1,7 @@
-const { SlashCommandBuilder, EmbedBuilder, config } = require('../../libs.js');
+const {
+     SlashCommandBuilder, EmbedBuilder,
+     config
+} = require('../../libs.js');
 
 // ================================ 
 // Latency Levels

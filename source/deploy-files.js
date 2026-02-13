@@ -1,4 +1,7 @@
-const { path, fs, logger } = require('./libs.js');
+const {
+     path, fs,
+     logger
+} = require('./libs.js');
 
 module.exports = (client) => {
 

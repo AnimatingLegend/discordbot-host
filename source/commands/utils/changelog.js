@@ -1,4 +1,8 @@
-const { SlashCommandBuilder, EmbedBuilder, fs, path, config } = require('../../libs.js');
+const {
+     SlashCommandBuilder, EmbedBuilder,
+     fs, path,
+     config
+} = require('../../libs.js');
 
 // ================================================
 // Parse ALL VERSIONS and their content from CHANGELOG.md

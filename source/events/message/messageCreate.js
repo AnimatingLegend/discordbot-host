@@ -1,6 +1,9 @@
-const { Events } = require('discord.js');
+const {
+     Events,
+     logger
+} = require('../../libs.js');
+
 const { addXP, guildXPEnabled, channelXPEnabled, getLvlUpChannel } = require('../../database');
-const logger = require('../../utils/logger.js');
 
 module.exports = {
      name: Events.MessageCreate,

@@ -1,4 +1,5 @@
 // === EXTERNAL PACKAGES (NPM) === \\
+const discord = require('discord.js');
 const voice = require('@discordjs/voice');
 const play = require('play-dl');
 const axios = require('axios');
@@ -18,6 +19,7 @@ const emojis = require('./utils/random-emojis.js');
 
 // === EXPORTS (Alphabetical order) === \\
 module.exports = {
+     ...discord,
      axios,
      config,
      colors,
@@ -30,7 +32,5 @@ module.exports = {
      play,
      sqlite3,
      voice,
-     winston,
-     // === EXPORT PACKAGES === \\
-     ...require('discord.js'),
+     winston
 }

@@ -1,4 +1,7 @@
-const { SlashCommandBuilder, PollLayoutType, config } = require('../../libs.js');
+const {
+     SlashCommandBuilder, PollLayoutType,
+     config
+} = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()

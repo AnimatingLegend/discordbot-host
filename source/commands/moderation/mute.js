@@ -1,4 +1,8 @@
-const { SlashCommandBuilder, PermissionFlagsBits, ms } = require('../../libs.js');
+const {
+     SlashCommandBuilder, PermissionFlagsBits,
+     ms
+} = require('../../libs.js');
+
 const { addModLog } = require('../../database');
 
 module.exports = {

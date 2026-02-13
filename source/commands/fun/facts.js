@@ -1,4 +1,7 @@
-const { EmbedBuilder, SlashCommandBuilder, logger } = require('../../libs.js');
+const {
+     EmbedBuilder, SlashCommandBuilder,
+     logger
+} = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
