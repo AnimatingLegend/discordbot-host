@@ -58,7 +58,7 @@ client.on('messageCreate', async (msg) => {
     try {
         await cmd.execute(msg, args);
     } catch (err) {
-        logger.error(`There was an error executing this command: ${interaction.commandName}`)
+        logger.error(`There was an error executing this command: ${cmd_name}`)
         console.error(err);
 
         await msg.reply({
