@@ -27,7 +27,6 @@ module.exports = {
      get config() { return require('../config.json') },
      get logger() { return require('./utils/logger.js') },
      get colors() { return require('./utils/random-colors.js') },
-     get emojis() { return require('./utils/random-emojis.js') },
 
      // === DATABASES === \\
      get modLogDB() { return require('./database/connections.js') },
