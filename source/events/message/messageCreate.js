@@ -11,15 +11,15 @@ module.exports = {
           if (msg.author.bot || !msg.guild) return;
 
           // --- Check if XP is enabled in the guild or channel --- \\
-          if (!guildXPEnabled(msg.guild.id)) {
-               logger.debug(`SQL Executed: SELECT xp_enabled FROM guild_xp_settings WHERE guild_id = **${guildXPEnabled(msg.guild.id)}**`);
-               return;
-          } else if (!channelXPEnabled(msg.channel.id)) {
-               logger.debug(`SQL Executed: SELECT xp_enabled FROM channel_xp_settings WHERE channel_id = **${channelXPEnabled(msg.channel.id)}**`);
+          if (!guildXPEnabled(msg.guild.id) && !channelXPEnabled(msg.channel.id)) {
+               logger.debug(`SQL Executed: SELECT xp_enabled FROM guild_xp_settings AND channel_xp_settings 
+               WHERE guild_id = [${guildXPEnabled(msg.guild.id)}] 
+               AND channel_id = [${channelXPEnabled(msg.channel.id)}]`);
                return;
           } else {
-               logger.debug(`SQL Executed: SELECT xp_enabled FROM guild_xp_settings WHERE guild_id = **${guildXPEnabled(msg.guild.id)}**`);
-               logger.debug(`SQL Executed: SELECT xp_enabled FROM channel_xp_settings WHERE channel_id = **${channelXPEnabled(msg.channel.id)}**`);
+               logger.debug(`SQL Executed: SELECT xp_enabled FROM guild_xp_settings AND channel_xp_settings 
+               WHERE guild_id = [${guildXPEnabled(msg.guild.id)}] 
+               AND channel_id = [${channelXPEnabled(msg.channel.id)}]`);
           }
 
           const xpAmount = Math.floor(Math.random() * 10) + 5;
