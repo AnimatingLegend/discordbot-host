@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - The Following classes & commands are now being logged dynamically:
           - Fact commands: (`/cat_facts`, `/dog_facts`, `/facts`)
           - Bot client (`onReady`)
-          - XP
+          - All Databases configured for this bot.
      - Cleaned up bot configuration by separating them into sub-categories (e.g., `"main_config": {}`, `"misc_config": {}`).
           - View changes **[here](./config.example.json)**
           - Read the Updated configuration doc **[here](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)**
