@@ -1,12 +1,22 @@
-const COLOR_DATA = require('../database/data/colors.json');
+const COLORS = require('../database/data/colors.json');
+const HEX = Object.keys(COLORS);
 
-function random() {
-     const hexs = Object.values(COLOR_DATA);
+module.exports = {
+     /**
+      * Get a random HEX color.
+      * @param {string[]} HEX - Array of colors from `colors.json`
+      */
+     random: () => {
+          // If JSON is empty or missing, return default color.
+          if (!HEX || HEX.length === 0) return '#5865F2';
 
-     if (hexs.length === 0) return '#000000';
+          /**
+           * Go through a random index of colors, and select one.
+           * @returns {string} - HEX color
+           */
+          const RAN_INDEX = Math.floor(Math.random() * HEX.length);
+          const SEL_HEX = HEX[RAN_INDEX];
 
-     const random_index = Math.floor(Math.random() * hexs.length);
-     return hexs[random_index];
-}
-
-module.exports = { random };
+          return SEL_HEX.startsWith('#') ? SEL_HEX : `${SEL_HEX}`;
+     },
+};
