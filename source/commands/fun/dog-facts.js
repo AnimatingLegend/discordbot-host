@@ -4,6 +4,8 @@ const {
      axios
 } = require('../../libs.js');
 
+const { DogFactLog } = require('../../utils/logging/commands/FactLog.js');
+
 module.exports = {
      data: new SlashCommandBuilder()
           .setName('dog_facts')
@@ -38,11 +40,7 @@ module.exports = {
                     dog_embed.setImage(d_image);
                }
 
-               console.log(`----------------------------------------------------------`);
-               logger.info(`DOG FACT DATA: - ${fact_data?.source}`);
-               logger.info(`RANDOM DOG FACT: ${d_fact || 'N/A'}`);
-               logger.info(`RANDOM DOG PHOTO: ${d_image || 'N/A'}`);
-               console.log(`----------------------------------------------------------`);
+               DogFactLog(d_image, d_fact, fact_data, logger);
 
                return ctx.reply({ embeds: [dog_embed] });
           } catch (err) {

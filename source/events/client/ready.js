@@ -3,7 +3,7 @@ const {
      logger, config
 } = require('../../libs.js');
 
-const { ReadyLog } = require('../../utils/logging/ReadyLog.js');
+const { ReadyLog } = require('../../utils/logging/client/ReadyLog.js');
 
 module.exports = {
      name: Events.ClientReady,

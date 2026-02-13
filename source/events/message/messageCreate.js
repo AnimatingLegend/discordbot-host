@@ -3,6 +3,8 @@ const {
      logger
 } = require('../../libs.js');
 
+const { XP_Logging } = require('../../utils/logging/database/XP_Logging.js');
+
 const { addXP, guildXPEnabled, channelXPEnabled, getLvlUpChannel } = require('../../database');
 
 module.exports = {
@@ -11,16 +13,7 @@ module.exports = {
           if (msg.author.bot || !msg.guild) return;
 
           // --- Check if XP is enabled in the guild or channel --- \\
-          if (!guildXPEnabled(msg.guild.id) && !channelXPEnabled(msg.channel.id)) {
-               logger.debug(`SQL Executed: SELECT xp_enabled FROM guild_xp_settings AND channel_xp_settings 
-               WHERE guild_id = [${guildXPEnabled(msg.guild.id)}] 
-               AND channel_id = [${channelXPEnabled(msg.channel.id)}]`);
-               return;
-          } else {
-               logger.debug(`SQL Executed: SELECT xp_enabled FROM guild_xp_settings AND channel_xp_settings 
-               WHERE guild_id = [${guildXPEnabled(msg.guild.id)}] 
-               AND channel_id = [${channelXPEnabled(msg.channel.id)}]`);
-          }
+          XP_Logging(msg, logger) || guildXPEnabled(msg.guild.id) && channelXPEnabled(msg.channel.id);
 
           const xpAmount = Math.floor(Math.random() * 10) + 5;
           const result = addXP(msg.author.id, msg.guild.id, xpAmount);

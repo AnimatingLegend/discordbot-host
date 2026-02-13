@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - **Source Code Optimization**:
      - All node packages / dependencies are now being dynamically imported in one file. ([`libs.js`](./source/libs.js))
+     - The Following classes & commands are now being logged dynamically:
+          - Fact commands: (`/cat_facts`, `/dog_facts`, `/facts`)
+          - Bot client (`onReady`)
+          - XP
      - Cleaned up bot configuration by separating the main configuration with the miscellaneous.
           - View changes **[here](./config.example.json)**
           - Read the Updated configuration doc **[here](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)**
