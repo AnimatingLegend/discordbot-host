@@ -33,11 +33,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - `/channel_info`:
           - Category, Created Date, & Channel Type are now aligned.
           - Server topics are now displayed as sub-headers for better context.
-     - `/server_info`
+     - `/server_info`:
           - Added dynamic timestamps, tracking server age.
-          - High-res thumbnails 
-          - Added Server ID to footer
-     - `/user_info`
+          - High-res thumbnails.
+          - Added Server ID to footer.
+     - `/user_info`:
           - The embed side-bar should now match to the target users role color.
           - Added dynamic timestamps tracking account age, and joining a server.
 ### Fixed
