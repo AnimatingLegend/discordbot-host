@@ -12,19 +12,18 @@ module.exports = {
 
      async execute(ctx, args) {
           const guild = ctx.guild;
-          const user = ctx.user ? ctx.user : ctx.author;
+          const created = Math.floor(guild.createdTimestamp / 1000);
 
           const embed = new EmbedBuilder()
                .setColor(colors.random())
-               .setTitle(`Server Info - ${guild.name}`)
-               .setThumbnail(guild.iconURL())
+               .setTitle(`${guild.name} — Server Info`)
+               .setThumbnail(guild.iconURL({ size: 1024, extension: 'png', forceStatic: false }))
                .addFields(
-                    { name: "Server Name", value: guild.name, inline: true },
-                    { name: "Server ID", value: guild.id, inline: true },
-                    { name: "Owner", value: `<@${guild.ownerId}>`, inline: true },
-                    { name: "Server Creation Date", value: `<t:${Math.floor(guild.createdTimestamp / 1000)}:D>`, inline: true },
-                    { name: "Total Members", value: `${guild.memberCount}`, inline: true }
-               );
+                    { name: ":bust_in_silhouette: Owner", value: `<@${guild.ownerId}>`, inline: true },
+                    { name: ':busts_in_silhouette: Members', value: `${guild.memberCount}`, inline: true },
+                    { name: ':calendar: Created', value: `<t:${created}:D>\n<t:${created}:R>`, inline: false },
+               )
+               .setFooter({ text: `Server ID: ${guild.id}` });
 
           if (ctx.reply)
                return await ctx.reply({ embeds: [embed] });

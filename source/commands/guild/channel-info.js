@@ -1,5 +1,5 @@
 const {
-     SlashCommandBuilder, EmbedBuilder,
+     SlashCommandBuilder, EmbedBuilder, ChannelType,
      colors
 } = require('../../libs.js');
 
@@ -17,19 +17,30 @@ module.exports = {
      description: 'Get information about the channel you\'re in.',
 
      async execute(ctx, args) {
-          const channel = ctx.channel;
+          const target_channel = ctx.options?.getChannel('channel') || ctx.channel;
+          const created = Math.floor(target_channel.createdTimestamp / 1000);
+
+          // --- Map channel type to string --- \\
+          const map_type = {
+               [ChannelType.GuildText]: 'Text',
+               [ChannelType.GuildVoice]: 'Voice',
+               [ChannelType.GuildCategory]: 'Category',
+               [ChannelType.GuildAnnouncement]: 'Announcement',
+               [ChannelType.GuildStageVoice]: 'Stage',
+               [ChannelType.PublicThread]: 'Thread',
+               [ChannelType.PrivateThread]: 'Thread',
+          }
 
           const embed = new EmbedBuilder()
                .setColor(colors.random())
-               .setTitle(`:tv: Channel Information :tv:`)
-               .setDescription(`Channel information about: <#${channel.id}>`)
+               .setTitle(`${target_channel.name} — Channel Info`)
+               .setDescription(target_channel.topic ? `*${target_channel.topic}*` : 'N/A')
                .addFields(
-                    { name: 'ID', value: `${channel.id}`, inline: true },
-                    { name: 'Type', value: `${channel.type} (${channel.type === 0 ? 'Text' : 'Voice'})`, inline: true },
-                    { name: 'Created', value: `<t:${Math.floor(channel.createdTimestamp / 1000)}:R>`, inline: true },
-                    { name: 'Subject', value: channel.topic || 'N/A', inline: true },
-                    { name: 'Category', value: `${channel.parent ? `<#${channel.parent.id}>` : 'N/A'}`, inline: true }
-               );
+                    { name: ':calendar: Created', value: `<t:${created}:D>\n<t:${created}:R>`, inline: true },
+                    { name: ':file_folder: Category', value: target_channel.parent ? `${target_channel.parent.name}` : 'N/A', inline: true },
+                    { name: ':tv: Type', value: `\`${map_type[target_channel.type] || 'Unknown'}\``, inline: true },
+               )
+               .setFooter({ text: `Channel ID: ${target_channel.id}` });
 
           if (ctx.reply)
                return await ctx.reply({ embeds: [embed] });

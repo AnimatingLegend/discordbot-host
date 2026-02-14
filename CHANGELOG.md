@@ -29,6 +29,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
           - Get a case-insensitve lookup for a specific color. 
           - **EX: `colors.static('DarkGreen')`**
      - **DOCUMENTATION COMING SOON**
+- **The following commands have been updated visually**:
+     - `/channel_info`:
+          - Category, Created Date, & Channel Type are now aligned.
+          - Server topics are now displayed as sub-headers for better context.
+     - `/server_info`
+          - Added dynamic timestamps, tracking server age.
+          - High-res thumbnails 
+          - Added Server ID to footer
+     - `/user_info`
+          - The embed side-bar should now match to the target users role color.
+          - Added dynamic timestamps tracking account age, and joining a server.
 ### Fixed
 - **Consistent Bot Crashing**:
      - Fixed issue where if you type **any** guild command, the entire bot client would crash, or display an error message.
