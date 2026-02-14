@@ -1,5 +1,6 @@
 const {
      SlashCommandBuilder, EmbedBuilder,
+     formatter,
      fs, path,
      config
 } = require('../../libs.js');
@@ -129,11 +130,12 @@ module.exports = {
 
           // ===== Embed Logic ===== \\
           const generateEmbed = (index) => {
+               const clean_content = formatter.cleanMD(PAGES[index] || 'No Description Found.');
                return new EmbedBuilder()
                     .setColor('#3498DB')
-                    .setTitle(`:newspaper: ${config.main.BOT_USERNAME} - Changelog || [${target_version_data.version} :newspaper:`)
-                    .setDescription(PAGES[index])
-                    .setFooter({ text: `note: if the formatting looks weird, thats just how discord markdown looks.` });
+                    .setTitle(`:newspaper: Changelog (${config.main.BOT_USERNAME}) | [${target_version_data.version} :newspaper:`)
+                    .setDescription(clean_content || 'No Description Found.')
+                    .setTimestamp()
           };
 
           const get_row = () => {

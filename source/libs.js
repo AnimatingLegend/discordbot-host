@@ -15,6 +15,7 @@ module.exports = {
      axios,
      Database: BetterSqlite3,
      discord, ...discord,
+     formatter: require('./utils/markdown.js'),
      fs,
      he,
      ms,

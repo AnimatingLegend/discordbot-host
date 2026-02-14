@@ -30,6 +30,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
           - **EX: `colors.static('DarkGreen')`**
      - **DOCUMENTATION COMING SOON**
 - **The following commands have been updated visually**:
+     - `/changelog`:
+          - Added 'deep-scan' indentation that converts discords messy markdown lists into a nice structured tree.
+               - **New Symbols**: :large_blue_diamond: , `*`, & `L`
+          - Added vertical spacing between major categories and headers for mobile support.
+          - File paths are now automatically converted to absolute GitHub URLs, making it visually appealing and clickable.
+          - Updated embed heading.
+          - Fixed the `1024` character limit crash by adding an auto-splitter.
      - `/channel_info`:
           - Category, Created Date, & Channel Type are now aligned.
           - Server topics are now displayed as sub-headers for better context.
