@@ -32,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **The following commands have been updated visually**:
      - `/changelog`:
           - Added 'deep-scan' indentation that converts discords messy markdown lists into a nice structured tree.
-               - **New Symbols**: :large_blue_diamond: , `*`, & `L`
+               - **New Symbols**: 🔹, ◦, and L
           - Added vertical spacing between major categories and headers for mobile support.
           - File paths are now automatically converted to absolute GitHub URLs, making it visually appealing and clickable.
           - Updated embed heading.

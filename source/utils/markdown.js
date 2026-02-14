@@ -1,3 +1,6 @@
+const libs = require('../libs.js');
+const config = libs.config;
+
 module.exports = {
      cleanMD: (content) => {
           if (!content) return "";
@@ -8,8 +11,9 @@ module.exports = {
           cleaned = cleaned.replace(/^### (.*$)/gm, '\n〉**$1**');
           cleaned = cleaned.replace(/^## (.*$)/gm, '\n══ **$1** ══');
 
-          // --- Fix Hyperlinks --- \\
-          cleaned = cleaned.replace(/\[(.*?)\]\(\.\/(.*?)\)/g, '[$1](https://github.com/your-repo/blob/main/$2)');
+          // --- Fix Hyperlinks (Make sure config.misc.GITHUB is defined) --- \\
+          const githubURL = config?.misc?.GITHUB || 'https://github.com/AnimatingLegend/discordbot-host';
+          cleaned = cleaned.replace(/\[(.*?)\]\(\.\/(.*?)\)/g, `[$1](${githubURL}/blob/main/$2)`);
 
           const lines = cleaned.split('\n');
           const formattedLines = lines.map(line => {
