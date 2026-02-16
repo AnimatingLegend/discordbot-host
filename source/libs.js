@@ -6,8 +6,6 @@ const fs = require('node:fs');
 const he = require('he');
 const ms = require('ms');
 const path = require('node:path');
-const play = require('play-dl');
-const voice = require('@discordjs/voice');
 const winston = require('winston');
 
 // === EXPORT ALL UTILITIES === \\
@@ -20,8 +18,6 @@ module.exports = {
      he,
      ms,
      path,
-     play,
-     voice,
      winston,
 
      // === DYNAMIC UTILITIES === \\
