@@ -59,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - `@discordjs/voice`
      - `ffmpeg-static`
      - `libsodium-wrappers`
-     - `ytdl-core`   
+     - `ytdl-core`
+
 - `random-emojis` support.
 
 ## [2.4.0] - [2026-02-10]
