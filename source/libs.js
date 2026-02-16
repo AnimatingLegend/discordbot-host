@@ -5,6 +5,7 @@ const discord = require('discord.js');
 const fs = require('node:fs');
 const he = require('he');
 const ms = require('ms');
+const openmeteo = require('openmeteo');
 const path = require('node:path');
 const winston = require('winston');
 
@@ -17,6 +18,7 @@ module.exports = {
      fs,
      he,
      ms,
+     openmeteo, ...openmeteo,
      path,
      winston,
 

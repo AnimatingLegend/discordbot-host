@@ -60,6 +60,7 @@ module.exports = {
                          \`leaderboard\` \`rank\`
                          \`poll\`
                          \`uptime\`
+                         \`weather\`
                          \`world_clock\`
                          `,
                          inline: false,

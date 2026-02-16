@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- **New Commands**:
+     - `/weather`
+          - Utility Command
+          - NPM Package Used: **[`openmeteo`](https://open-meteo.com/)**
+          - View the new command and how it works the **[command guide](./docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md#weather)**
 ### Changed
 - **Source Code Optimization**:
      - All node packages / dependencies are now being dynamically imported in one file. ([`libs.js`](./source/libs.js))
