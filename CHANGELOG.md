@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - Cleaned up bot configuration by separating them into sub-categories (e.g., `"main_config": {}`, `"misc_config": {}`).
           - View changes **[here](./config.example.json)**
           - Read the Updated configuration doc **[here](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)**
+     - The bots Prefix handler is being initialized dynamically.
+          - View new message handler **[here](./source/events/client/interactionCreate.js)**
 - **Expanded `random-colors` Functionality**:
      - `random()`:
           - Selects a random HEX code from the `colors.json` database.
