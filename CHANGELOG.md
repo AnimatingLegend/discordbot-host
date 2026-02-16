@@ -50,9 +50,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - **Consistent Bot Crashing**:
      - Fixed issue where if you type **any** guild command, the entire bot client would crash, or display an error message.
+     - Fixed issue where bot would crash due to messed up parameters in `index.js`. (whoops, my bad!)
 - **Logging Issues**:
      - Fixed issue where `guild_xp_settings` and `channel_xp_settings` would log `[TRUE]`, even when disabled.
 ### Removed
+- **The following node packages**:
+     - `@discordjs/rest`
+     - `@discordjs/voice`
+     - `ffmpeg-static`
+     - `libsodium-wrappers`
+     - `ytdl-core`   
 - `random-emojis` support.
 
 ## [2.4.0] - [2026-02-10]
