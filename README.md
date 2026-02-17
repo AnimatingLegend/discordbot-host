@@ -33,6 +33,8 @@ TABLE OF CONTENTS <br>
 |
 <a href="#documentation">Documentation</a>
 |
+<a href="./docs/CONTRIBUTING/CONTRIBUTING.MD">Contributing</a>
+|
 <a href="./LICENSE.md">License</a>
 </p>
 </strong>

@@ -1,5 +1,7 @@
-const { SlashCommandBuilder, PollLayoutType } = require('discord.js');
-const config = require('../../../config.json');
+const {
+     SlashCommandBuilder, PollLayoutType,
+     config
+} = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -40,7 +42,7 @@ module.exports = {
                const input_string = args.join(' ');
                const parts = input_string.split(seperator);
 
-               if (parts.length < 2) return await ctx.reply({ content: `You're using the wrong format. Please use: \`${config.PREFIX}-poll <question> ${seperator} <answers>\``, ephemeral: true });
+               if (parts.length < 2) return await ctx.reply({ content: `You're using the wrong format. Please use: \`${config.main.BOT_PREFIX}-poll <question> ${seperator} <answers>\``, ephemeral: true });
 
                RAW_QUESTION = parts[0].trim();
                RAW_ANSWER_INPUT = parts.slice(1).join(seperator).trim();

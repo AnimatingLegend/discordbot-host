@@ -1,5 +1,9 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const logger = require('../../utils/logger.js');
+const {
+     EmbedBuilder, SlashCommandBuilder,
+     logger
+} = require('../../libs.js');
+
+const { FactLog } = require('../../utils/logging/commands/FactLog.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -21,10 +25,7 @@ module.exports = {
                .setColor('#95A5A6')
                .setDescription(fact?.text || 'no fact available right now.');
 
-          console.log(`----------------------------------------------------------`);
-          logger.info(`FACT DATA: - ${fact?.source}`);
-          logger.info(`RANDOM FACT: ${fact?.text || 'N/A'}`);
-          console.log(`----------------------------------------------------------`);
+          FactLog(fact, logger);
 
           await ctx.reply({ embeds: [factEmbed] });
      },

@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('../../libs.js');
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -7,8 +7,8 @@ module.exports = {
           .addStringOption(option =>
                option.setName('question')
                     .setDescription('What is your question young lad?')
-                    .setRequired(true)      
-          ),          
+                    .setRequired(true)
+          ),
 
      name: '8ball',
      description: 'Ask the magic 8ball a question!',
@@ -19,10 +19,10 @@ module.exports = {
           if (ctx.options) {
                question = ctx.options.getString('question');
           } else if (args && args.length > 0) {
-               question = args.join(' ');               
+               question = args.join(' ');
           }
 
-          if (!question) 
+          if (!question)
                return await ctx.reply({ content: 'What is your question young lad?' });
 
           question = question.trim();
@@ -40,8 +40,8 @@ module.exports = {
                .setColor('#000000')
                .setTitle(':8ball: Magic 8ball :8ball:')
                .addFields(
-                    { name: '**Question:** ', value: question},
-                    { name: '**Answer:** ', value: replies[Math.floor(Math.random() * replies.length)]}
+                    { name: '**Question:** ', value: question },
+                    { name: '**Answer:** ', value: replies[Math.floor(Math.random() * replies.length)] }
                )
 
           await ctx.reply({ embeds: [embed] });

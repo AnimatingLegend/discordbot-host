@@ -1,9 +1,9 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-
-const file_system = require('node:fs');
-const file_path = require('node:path');
-
-const config = require('../../../config.json');
+const {
+     SlashCommandBuilder, EmbedBuilder,
+     formatter,
+     fs, path,
+     config
+} = require('../../libs.js');
 
 // ================================================
 // Parse ALL VERSIONS and their content from CHANGELOG.md
@@ -45,7 +45,7 @@ function parse_changelog(changelog_content) {
 module.exports = {
      data: new SlashCommandBuilder()
           .setName('changelog')
-          .setDescription(`Read up on the latest changes for ${config.BOT_USERNAME}`)
+          .setDescription(`Read up on the latest changes for ${config.main.BOT_USERNAME}`)
           .addStringOption(option =>
                option.setName('version')
                     .setDescription('Specify a version number (e.g. 2.1.0, or Unreleased). Leave empty for Latest.')
@@ -53,7 +53,7 @@ module.exports = {
           ),
 
      name: 'changelog',
-     description: `Read up on the latest changes for ${config.BOT_USERNAME}`,
+     description: `Read up on the latest changes for ${config.main.BOT_USERNAME}`,
 
      async execute(ctx, args) {
           // ==== Command Handling ==== \\
@@ -66,7 +66,7 @@ module.exports = {
                requested_version = args[0];
 
           // ===== Version Control / Data Parsing ===== \\
-          const changelog_md = file_system.readFileSync(file_path.join(__dirname, '../../../CHANGELOG.md'), 'utf-8');
+          const changelog_md = fs.readFileSync(path.join(__dirname, '../../../CHANGELOG.md'), 'utf-8');
           const all_versions = parse_changelog(changelog_md);
 
           let target_version_data;
@@ -82,7 +82,7 @@ module.exports = {
                          .addFields(
                               { name: 'Available Versions', value: `**${all_versions.map(v => `\`[${v.version}\``).join('\n')}**` }
                          )
-                         .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.PREFIX}changelog 1.0.0\`)` });
+                         .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.main.BOT_PREFIX}changelog 1.0.0\`)` });
 
                     return await ctx.reply({ embeds: [embed], ephemeral: true });
                }
@@ -93,7 +93,7 @@ module.exports = {
                     .setColor('#3498DB')
                     .setTitle(':ballot_box_with_check: Available Versions: :ballot_box_with_check:')
                     .setDescription(`**${versionList}**`)
-                    .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.PREFIX}changelog 1.0.0\`)` });
+                    .setFooter({ text: `Use the command again with a specific version name \n(e.g., \`${config.main.BOT_PREFIX}changelog 1.0.0\`)` });
 
                return await ctx.reply({ embeds: [embed], ephemeral: true });
           }
@@ -130,11 +130,15 @@ module.exports = {
 
           // ===== Embed Logic ===== \\
           const generateEmbed = (index) => {
+               const clean_content = formatter.cleanMD(PAGES[index] || 'No Description Found.');
                return new EmbedBuilder()
                     .setColor('#3498DB')
-                    .setTitle(`:newspaper: ${config.BOT_USERNAME} - Changelog || [${target_version_data.version} :newspaper:`)
-                    .setDescription(PAGES[index])
-                    .setFooter({ text: `note: if the formatting looks weird, thats just how discord markdown looks.` });
+                    .setTitle(`:newspaper: Changelog (${config.main.BOT_USERNAME}) | [${target_version_data.version} :newspaper:`)
+                    .setDescription(`
+                         **View Full Changelog [here](${config.misc.GITHUB}/blob/main/CHANGELOG.md)**\n
+                         ${clean_content}` || 'No Description Found.'
+                    )
+                    .setTimestamp()
           };
 
           const get_row = () => {
@@ -163,9 +167,10 @@ module.exports = {
                     // -- Disable all buttons when the collector ends -- \\
                     const final_row = get_row(CUR_PAGE_INDEX);
 
-                    if (final_row.length > 0) {
-                         final_row[0].components.forEach(b => b.setDisabled(true));
-                         ctx.editReply({ components: final_row });
+                    if (final_row && final_row.length > 0) {
+                         final_row[0].components.forEach(button => button.setDisabled(true));
+
+                         ctx.reply({ components: final_row }).catch(() => { });
                     }
                });
           }
