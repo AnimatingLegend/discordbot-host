@@ -167,9 +167,10 @@ module.exports = {
                     // -- Disable all buttons when the collector ends -- \\
                     const final_row = get_row(CUR_PAGE_INDEX);
 
-                    if (final_row.length > 0) {
-                         final_row[0].components.forEach(b => b.setDisabled(true));
-                         ctx.editReply({ components: final_row });
+                    if (final_row && final_row.length > 0) {
+                         final_row[0].components.forEach(button => button.setDisabled(true));
+
+                         ctx.reply({ components: final_row }).catch(() => { });
                     }
                });
           }
