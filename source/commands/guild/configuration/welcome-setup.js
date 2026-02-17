@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits, MessageFlags } = require('../../../libs.js');
 const { setWelcomeConfig } = require('../../../database');
 
 const config = require('../../../../config.json');
@@ -48,7 +48,7 @@ module.exports = {
                // ---- Prefix Logic: !welcome_setup <welcome|leave> <#channel|true|false> ---- \\
 
                if (!args || args.length < 2)
-                    return ctx.reply(`Usage: \`${config.PREFIX}welcome_setup <welcome|leave> <#channel|true|false>\``, { flags: [MessageFlags.Ephemeral] });
+                    return ctx.reply(`Usage: \`${config.main.BOT_PREFIX}welcome_setup <welcome|leave> <#channel|true|false>\``, { flags: [MessageFlags.Ephemeral] });
 
                type = args[0].toLowerCase();
 

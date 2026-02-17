@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("../../libs.js");
 
 module.exports = {
      data: new SlashCommandBuilder()
@@ -25,7 +25,7 @@ module.exports = {
                .setTitle(':alarm_clock: World Clock :alarm_clock:')
                .setDescription('The current time & date in different time zones.')
                .setTimestamp();
-          
+
           timeZones.forEach(zone => {
                const timeString = new Date().toLocaleString('en-US', {
                     timeZone: zone.timeZone,
@@ -38,9 +38,9 @@ module.exports = {
           });
 
           if (ctx.reply) {
-               return ctx.reply({ embeds: [embed]});
+               return ctx.reply({ embeds: [embed] });
           } else {
-               return ctx.followUp({ embeds: [embed]});
+               return ctx.followUp({ embeds: [embed] });
           }
      },
 };

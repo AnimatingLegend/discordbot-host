@@ -1,5 +1,5 @@
 ## Fun Commands
-Fun commands are simple to use. Below is one example.
+Fun commands are simple to use. Below is two examples.
 
 ### 8ball
 Ask the magic discordbot a question!
@@ -16,3 +16,13 @@ If successful, it will shoot out a randomized answer
 **Example:**
 
 ![alt text](./images/eight-ball.png)
+
+### TicTacToe
+Play a game of tic-tac-toe against a friend or a bot!
+
+```bash
+# -- format -- #
+tictactoe <user>
+
+!tictactoe @legend
+```

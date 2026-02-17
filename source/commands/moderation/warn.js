@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, PermissionFlagsBits } = require('../../libs.js');
 const { addModLog } = require("../../database");
 
 module.exports = {

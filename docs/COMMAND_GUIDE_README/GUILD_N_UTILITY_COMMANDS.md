@@ -19,6 +19,16 @@ poll <question> | <answer>
 - Seperate the question and answers using `|`
 - You can add up to **10** answer options
 
+### Weather
+Get the current weather in your area, as well as it's coordinates.
+```bash
+# -- format -- #
+weather <location>
+
+# -- example -- #
+!weather tokyo
+```
+
 ## Configuration Commands
 Configuration commands are (somewhat) complex commands that users can use to configure their bot to what they deem comfortable for their own server.
 

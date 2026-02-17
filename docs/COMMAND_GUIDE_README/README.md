@@ -18,7 +18,7 @@ All commands use the prefix defined in your [`config.json`](../../config.example
 **Example**:
 ```json
 {
-     "PREFIX": "!",
+     "BOT_PREFIX": "!",
 }
 ```
 **Command Usage:**

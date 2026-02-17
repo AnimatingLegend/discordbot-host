@@ -1,5 +1,7 @@
-const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const config = require('../../../config.json');
+const {
+     SlashCommandBuilder, EmbedBuilder,
+     config
+} = require('../../libs.js');
 
 // ================================ 
 // Latency Levels
@@ -33,7 +35,7 @@ module.exports = {
           const readyTimestamp = Math.floor(ctx.client.readyTimestamp / 1000);
 
           const embed = new EmbedBuilder()
-               .setTitle(`${config.BOT_USERNAME}'s Uptime Stats :robot:`)
+               .setTitle(`${config.main.BOT_USERNAME}'s Uptime Stats :robot:`)
                .setColor(color)
                .addFields(
                     { name: ':wireless: Ping [LATENCY]', value: `\`${wsPing}ms\``, inline: true },

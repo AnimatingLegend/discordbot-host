@@ -41,7 +41,7 @@ This might take a minute. It's reading the project files and taking each API and
 > If you ever notice a specific feature isnt working because a package is missing, you can manually install it by typing `npm install <package-name>` (e.g., `npm install discord.js`)
 
 #### Included Dependencies:
-- `axios`, `badge-maker`, `better-sqlite3`, `@discordjs/rest`, `@discordjs/voice`, `discord-jokes`, `discord.js`, `ffmpeg-static`, `he`, `libsodium-wrappers`, `ms`, `nodemon`, `path`, `prettier`, `sqlite3`, `winston`, `ytdl-core`.
+- `axios`, `badge-maker`, `better-sqlite3`, `discord-jokes`, `discord.js`, `he`, `ms`, `nodemon`, `path`, `prettier`, `sqlite3`, `winston`.
 
 ## Running the Bot
 Once the installation is complete, your bot is ready to go live! Run either of these commands:
@@ -55,4 +55,4 @@ node index.js
 If successful, your terminal will show the commands being loaded, the database initializing, and a welcome message. Your bot should now be online!
 
 **Successful Startup:**
-![Successful Compile](./images/successful_compile.gif)
+![Successful Compile](./images/NPM_START.gif)

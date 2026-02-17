@@ -4,6 +4,80 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - [2026-02-16]
+### Added
+- **New Commands**:
+     - `/weather`
+          - Utility Command
+          - NPM Package Used: **[`openmeteo`](https://open-meteo.com/)**
+          - View the new command and how it works the **[command guide](./docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md#weather)**
+     - `/tictactoe`
+          - Fun Command
+          - NPM Package Used: **[`discord-gamecord`](https://www.npmjs.com/package/discord-gamecord)**
+          - View the new command and how it works in the **[command guide](./docs/COMMAND_GUIDE_README/FUN_COMMANDS.md/#tictactoe)**
+### Changed
+- **Source Code Optimization**:
+     - All node packages / dependencies are now being dynamically imported in one file. ([`libs.js`](./source/libs.js))
+     - The Following classes & commands are now being logged dynamically:
+          - Fun commands: (`/cat_facts`, `/dog_facts`, `/facts`, `/meme`)
+          - Utility commands: (`/weather`)
+          - Bot client (`onReady`)
+          - All Databases configured for this bot.
+     - Cleaned up bot configuration by separating them into sub-categories (e.g., `"main_config": {}`, `"misc_config": {}`).
+          - View changes **[here](./config.example.json)**
+          - Read the Updated configuration doc **[here](./docs/CUSTOM_BOT_CONFIGURATION/DISCORD_BOT_CONFIGUATION.md)**
+     - The bots Prefix handler is being initialized dynamically.
+          - View new message handler **[here](./source/events/client/interactionCreate.js)**
+- **Expanded `random-colors` Functionality**:
+     - `random()`:
+          - Selects a random HEX code from the `colors.json` database.
+          - **EX: `colors.random()`**
+     - `resolve(hex)`:
+          -  Converts a HEX string into a 24-bit integer to prevent crashing.
+          - **EX: `colors.resolve('#00a896')`** (dark green)
+     - `shift(name, percent)`:
+          - Adjusts brightness, and tint of a stored color. 
+          - **EX: `colors.shift('DarkGreen', 5)`**
+     - `static(name)`:
+          - Get a case-insensitve lookup for a specific color. 
+          - **EX: `colors.static('DarkGreen')`**
+     - **DOCUMENTATION COMING SOON**
+- **The following commands have been updated visually**:
+     - `/changelog`:
+          - Added redirection link to the full update log on github.
+          - Added 'deep-scan' indentation that converts discords messy markdown lists into a nice structured tree.
+               - **New Symbols**: 🔹, ◦, and L
+          - Added vertical spacing between major categories and headers for mobile support.
+          - File paths are now automatically converted to absolute GitHub URLs, making it visually appealing and clickable.
+          - Updated embed heading.
+          - Fixed the `1024` character limit crash by adding an auto-splitter.
+     - `/channel_info`:
+          - Category, Created Date, & Channel Type are now aligned.
+          - Server topics are now displayed as sub-headers for better context.
+     - `/server_info`:
+          - Added dynamic timestamps, tracking server age.
+          - High-res thumbnails.
+          - Added Server ID to footer.
+     - `/user_info`:
+          - The embed side-bar should now match to the target users role color.
+          - Added dynamic timestamps tracking account age, and joining a server.
+### Fixed
+- **Consistent Bot Crashing**:
+     - Fixed issue where if you type **any** guild command, the entire bot client would crash, or display an error message.
+     - Fixed issue where bot would crash due to incorrect parameter handling in `index.js`. (whoops, sorry about that!)
+     - Fixed issue where the `/changelog` command would cause the bot to crash due to buttons timing out.
+- **Logging Issues**:
+     - Fixed issue where `guild_xp_settings` and `channel_xp_settings` would log `[TRUE]`, even when disabled.
+### Removed
+- **The following node packages**:
+     - `@discordjs/rest`
+     - `@discordjs/voice`
+     - `ffmpeg-static`
+     - `libsodium-wrappers`
+     - `ytdl-core`
+
+- `random-emojis` support.
+
 ## [2.4.0] - [2026-02-10]
 ### Complete Source Code Overhaul:
 - All of your bots code is stored in the new `source` directory.
