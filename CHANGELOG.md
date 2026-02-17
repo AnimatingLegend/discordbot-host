@@ -19,7 +19,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Source Code Optimization**:
      - All node packages / dependencies are now being dynamically imported in one file. ([`libs.js`](./source/libs.js))
      - The Following classes & commands are now being logged dynamically:
-          - Fact commands: (`/cat_facts`, `/dog_facts`, `/facts`)
+          - Fun commands: (`/cat_facts`, `/dog_facts`, `/facts`, `/meme`)
+          - Utility commands: (`/weather`)
           - Bot client (`onReady`)
           - All Databases configured for this bot.
      - Cleaned up bot configuration by separating them into sub-categories (e.g., `"main_config": {}`, `"misc_config": {}`).
