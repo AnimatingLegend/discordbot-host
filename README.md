@@ -64,15 +64,17 @@ Here are the current commands available. This list will continue to grow as upda
 - Leaderboard | Rank
 - Poll
 - Uptime
+- Weather
 - World_Clock
 ### Configuration
 - Welcome_Setup
 - XP_Setup
 ### Fun Commands
 - Cat_Facts | Dog_Facts | Facts
+- 8ball
 - Joke | Meme
 - Revive
-- 8ball
+- TicTacToe
 
 ## Documentation
 For more information on how to **configure**, **build**, or **contribute** to Discordbot-Host's development, As well as having trouble using a **bot command**:
