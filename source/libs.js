@@ -2,6 +2,7 @@
 const axios = require('axios');
 const BetterSqlite3 = require('better-sqlite3');
 const discord = require('discord.js');
+const discord_gamecord = require('discord-gamecord');
 const fs = require('node:fs');
 const he = require('he');
 const ms = require('ms');
@@ -14,6 +15,7 @@ module.exports = {
      axios,
      Database: BetterSqlite3,
      discord, ...discord,
+     discord_gamecord, ...discord_gamecord,
      formatter: require('./utils/markdown.js'),
      fs,
      he,

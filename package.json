@@ -24,6 +24,7 @@
     "axios": "^1.13.2",
     "badge-maker": "^5.0.2",
     "better-sqlite3": "^12.6.2",
+    "discord-gamecord": "^4.4.4",
     "discord-jokes": "^4.0.7",
     "discord.js": "^14.25.1",
     "he": "^1.2.0",

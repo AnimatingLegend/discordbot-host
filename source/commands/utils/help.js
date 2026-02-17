@@ -77,9 +77,10 @@ module.exports = {
                          name: ":game_die: Fun",
                          value: `
                          \`cat_facts\` \`dog_facts\` \`facts\`
+                         \`8ball\`
                          \`joke\` \`meme\`
                          \`revive\`
-                         \`8ball\`
+                         \`tictactoe\`
                          \n\n
                          `,
                          inline: false,

@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
           - Utility Command
           - NPM Package Used: **[`openmeteo`](https://open-meteo.com/)**
           - View the new command and how it works the **[command guide](./docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md#weather)**
+     - `/tictactoe`
+          - Fun Command
+          - NPM Package Used: **[`discord-gamecord`](https://www.npmjs.com/package/discord-gamecord)**
+          - View the new command and how it works in the **[command guide](./docs/COMMAND_GUIDE_README/FUN_COMMANDS.md/#tictactoe)**
 ### Changed
 - **Source Code Optimization**:
      - All node packages / dependencies are now being dynamically imported in one file. ([`libs.js`](./source/libs.js))
