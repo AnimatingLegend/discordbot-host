@@ -134,7 +134,10 @@ module.exports = {
                return new EmbedBuilder()
                     .setColor('#3498DB')
                     .setTitle(`:newspaper: Changelog (${config.main.BOT_USERNAME}) | [${target_version_data.version} :newspaper:`)
-                    .setDescription(clean_content || 'No Description Found.')
+                    .setDescription(`
+                         **View Full Changelog [here](${config.misc.GITHUB}/blob/main/CHANGELOG.md)**\n
+                         ${clean_content}` || 'No Description Found.'
+                    )
                     .setTimestamp()
           };
 

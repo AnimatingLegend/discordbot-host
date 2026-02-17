@@ -43,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
      - **DOCUMENTATION COMING SOON**
 - **The following commands have been updated visually**:
      - `/changelog`:
+          - Added redirection link to the full update log on github.
           - Added 'deep-scan' indentation that converts discords messy markdown lists into a nice structured tree.
                - **New Symbols**: 🔹, ◦, and L
           - Added vertical spacing between major categories and headers for mobile support.
