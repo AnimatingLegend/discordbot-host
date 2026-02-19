@@ -7,7 +7,7 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "dev": "nodemon source/index.js",
+    "develop": "nodemon source/index.js",
     "start": "node source/index.js",
     "format": "prettier --write source/"
   },
