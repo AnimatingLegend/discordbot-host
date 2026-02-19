@@ -30,6 +30,7 @@ module.exports = {
      get colors() { return require('./utils/random-colors.js') },
 
      // === DATABASES === \\
+     get automodDB() { return require('./database/connections.js') },
      get modLogDB() { return require('./database/connections.js') },
      get welcomeDB() { return require('./database/connections.js') },
      get xpDB() { return require('./database/connections.js') }
