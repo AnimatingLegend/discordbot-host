@@ -7,6 +7,7 @@ const { XP_Logging } = require('../../utils/logging/database/XP_Logging.js');
 const { addXP, guildXPEnabled, channelXPEnabled, getLvlUpChannel } = require('../../database');
 
 const { getAutomodSettings } = require('../../database');
+const { AutomodLog } = require('../../utils/logging/database/Automod_Log.js');
 
 module.exports = {
      name: Events.MessageCreate,
@@ -26,6 +27,8 @@ module.exports = {
                const isViolation = banned.some(word => clean_content.includes(word.toLowerCase()));
 
                if (isViolation) {
+                    AutomodLog(msg);
+
                     await msg.delete().catch(err =>
                          logger.error(`[AUTOMOD] Missing \`MANAGE_MESSAGES\` permission: ${err}`)
                     );
