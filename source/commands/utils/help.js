@@ -68,8 +68,9 @@ module.exports = {
                     {
                          name: ":gear: Configuration",
                          value: `
-                         \`xp_setup\`
+                         \`automod_setup\`
                          \`welcome_setup\`
+                         \`xp_setup\`
                          `,
                          inline: false,
                     },
