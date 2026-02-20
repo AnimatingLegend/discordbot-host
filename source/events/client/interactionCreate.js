@@ -1,8 +1,7 @@
 const {
      colors,
      config,
-     Events,
-     EmbedBuilder,
+     Events, EmbedBuilder,
      logger
 } = require('../../libs.js');
 
@@ -40,11 +39,14 @@ module.exports = (client) => {
                logger.error(`There was an error executing this command: ${cmd_name}`)
                console.error(err);
 
-               await msg.reply({
-                    content: `[:x:] There was an error executing this command.`
-               }).catch(() => null);
+               // --- Check if the msg still exists before replying. --- \\
+               if (msg.deletable || msg.channel.messages.cache.has(msg.id)) {
+                    await msg.reply({ content: `[:x:] There was an error executing this command.` });
+               } else {
+                    // --- FALLBACK: just send the same message to the channel if the original is already deleted. --- \\
+                    await msg.channel.send({ content: `[:x:] There was an error executing this command.` });
+               }
           }
-
      });
 
      client.on(Events.InteractionCreate, async (interaction) => {
