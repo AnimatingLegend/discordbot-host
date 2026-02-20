@@ -18,12 +18,12 @@ automodDB.prepare(`
 // Update Automod settings
 // ------------------------------
 // guildID - Discord Guild ID
-// enabled: 0|1, bannedWords: string[], logChannelID: string
+// enabled: 0|1, words: string[], logChannelID: string
 // ==============================
-function automodSetup(guildID, { enabled, bannedWords, logChannelID }) {
-     // ---- If updating banned words ---- \\
-     if (bannedWords) {
-          const bannedWords_JSON = JSON.stringify(bannedWords);
+function automodSetup(guildID, { enabled, words, logChannelID }) {
+     // --- If updating banned words --- \\
+     if (words !== undefined) {
+          const bannedWords_JSON = JSON.stringify(words);
 
           return automodDB.prepare(`
                INSERT INTO automod_settings (guild_id, banned_words) 
@@ -33,8 +33,8 @@ function automodSetup(guildID, { enabled, bannedWords, logChannelID }) {
           `).run(guildID, bannedWords_JSON);
      }
 
-     // ---- If toggling status or setting log channel ---- \\
-     if (logChannelID) {
+     // --- If toggling status or setting log channel --- \\
+     if (logChannelID !== undefined) {
           return automodDB.prepare(`
                INSERT INTO automod_settings (guild_id, log_channel_id) 
                VALUES (?, ?) 
@@ -43,12 +43,14 @@ function automodSetup(guildID, { enabled, bannedWords, logChannelID }) {
           `).run(guildID, logChannelID);
      }
 
+     // --- Make sure `enabled` is NOT `undefined` before running --- \\
+     const status = enabled ?? 0;
      return automodDB.prepare(`
           INSERT INTO automod_settings (guild_id, enabled) 
           VALUES (?, ?) 
           ON CONFLICT(guild_id) 
           DO UPDATE SET enabled = excluded.enabled
-     `).run(guildID, enabled);
+     `).run(guildID, status);
 }
 
 function getAutomodSettings(guildID) {

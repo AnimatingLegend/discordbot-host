@@ -16,30 +16,30 @@ module.exports = {
           // =============================================
           // Automod
           // =============================================
-          const automod_config = getAutomodSettings(msg.guild.id);
+          const settings = getAutomodSettings(msg.guild.id);
 
-          if (automod_config && automod_config.enabled === 1) {
-               const bannedWords = JSON.parse(automod_config.banned_words || '[]');
+          // --- Use `!=` 0 to catch both `null`, `undefined` and `0` --- \\
+          if (settings && settings.enabled != 0) {
+               const banned = JSON.parse(settings.banned_words || '[]');
+               const clean_content = msg.content.toLowerCase();
 
-               // --- Check for banned words (case-insensitive) --- \\
-               const isViolation = bannedWords.some(word =>
-                    msg.content.toLowerCase().includes(word.toLowerCase())
-               );
+               const isViolation = banned.some(word => clean_content.includes(word.toLowerCase()));
 
                if (isViolation) {
-                    await msg.delete().catch(() => null);
+                    await msg.delete().catch(err =>
+                         logger.error(`[AUTOMOD] Missing \`MANAGE_MESSAGES\` permission: ${err}`)
+                    );
 
-                    // --- Send a temporary warning that deletes itself after 5 seconds --- \\
-                    msg.channel.send(`[:x:] **<@${msg.author.id}>** that word is not allowed in this server.`)
-                         .then(message => setTimeout(() => message.delete.catch(() => null), 5000));
+                    const warning_msg = await msg.channel.send(`:warning: <@${msg.author.id}> That word is not permitted in this server.`);
+                    setTimeout(() => warning_msg.delete(), 5000);
 
-                    return; // --- EXIT: Do not give XP or log if message is a violation or deleted. --- \\
+                    return;
                }
           }
 
           // =============================================
           // XP Logging
-          // =========================================
+          // =============================================
           // --- Check if XP is enabled in the guild or channel --- \\
           XP_Logging(msg, logger) || guildXPEnabled(msg.guild.id) && channelXPEnabled(msg.channel.id);
 
