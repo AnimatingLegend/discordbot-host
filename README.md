@@ -67,6 +67,7 @@ Here are the current commands available. This list will continue to grow as upda
 - Weather
 - World_Clock
 ### Configuration
+- Automod_Setup
 - Welcome_Setup
 - XP_Setup
 ### Fun Commands
