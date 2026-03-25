@@ -32,10 +32,11 @@ weather <location>
 ## Configuration Commands
 Configuration commands are (somewhat) complex commands that users can use to configure their bot to what they deem comfortable for their own server.
 
-### Automod Setup [WORK IN PROGRESS]
+### Automod Setup
+Add or remove insensitive words, from your server!
 ```bash
 # -- format -- #
-automod_setup <scope|subcommand> <value>
+automod_setup <subcommand> <value>
 
 # -- example -- #
 !automod_setup toggle true/false
@@ -43,8 +44,13 @@ automod_setup <scope|subcommand> <value>
 !automod_setup list
 ```
 
+**Subcommands**:
+- `toggle`: enable or disable this command.
+- `list`: Provides a list of words you blacklisted.
+- `add` / `remove`: Add or remove a insensitive word from your list.
+
 ### Welcome Setup
-Configures a professional **[Carl-Bot](https://carl.gg/)** style join and leave logs for the server. This system uses embeds to track account age, member count, and join/leave timestamps.
+Configures a professional **[Carl-Bot](https://carl.gg/)** style join and leave log for the server. This system uses embeds to track account age, member count, and join/leave timestamps.
 ```bash
 # -- format -- #
 welcome_setup <type> <#channel|status>
