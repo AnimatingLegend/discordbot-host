@@ -1,3 +1,5 @@
+const { version } = require(`${process.cwd()}/package.json`);
+
 function ReadyLog(client, logger, config) {
      if (!logger || !config) {
           console.log(`----------------------------------------------------------`);
@@ -6,7 +8,7 @@ function ReadyLog(client, logger, config) {
           return;
      }
      console.log(`----------------------------------------------------------`);
-     logger.info(`${config.main.BOT_USERNAME.toUpperCase()} - v${config.main.BOT_VERSION}`);
+     logger.info(`${config.main.BOT_USERNAME.toUpperCase()} - v${version} `);
      logger.info(`---------------------------------------------------`);
      logger.info(`Initializing ${client.guilds.cache.size} Guilds...`);
      logger.info(`Initializing ${client.commands.size} Commands...`);
