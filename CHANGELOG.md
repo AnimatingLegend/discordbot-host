@@ -4,12 +4,17 @@ All noteable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-### Added
+## [3.0.1] - [2026-03-25]
+### Notable Changes
 - **Automod System**:
-     - 1 new command: (`/automod_setup`)
-     - 3 new sub-commands: (`add`, `remove`, `toggle`)
-          - Read up on the new command **[here](./docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md#automod-setup)**
+     - 1 New command (`/automod_setup`)
+     - 4 New Sub-commands (`add`, `remove`, `toggle`, `list`)
+     - View the new command and how it works in the **[command guide](./docs/COMMAND_GUIDE_README/GUILD_N_UTILITY_COMMANDS.md/#automod-setup-work-in-progress)**
+### Security
+- Bump sqlite3 from `v5.1.7` - `6.0.1` ([031303a](https://github.com/AnimatingLegend/discordbot-host/commit/031303ae7834b7e4466ba9365333cefd296c76a5)) - By @dependabot in [#31](https://github.com/AnimatingLegend/discordbot-host/pull/31)
+
+### New Contributors for v3.0.1
+@dependabot made their first contribution in [#31](https://github.com/AnimatingLegend/discordbot-host/pull/31)
 
 ## [3.0.0] - [2026-02-16]
 ### Added
