@@ -1,4 +1,4 @@
-const { PermissionFlagsBits, SlashCommandBuilder } = require("../../libs.js");
+const { EmbedBuilder, PermissionFlagsBits, SlashCommandBuilder } = require("../../libs.js");
 const { getAutomodSettings, automodSetup } = require("../../database");
 
 module.exports = {
@@ -18,10 +18,12 @@ module.exports = {
                sub.setName('toggle')
                     .setDescription('Enable or disable the automod')
                     .addBooleanOption(opt => opt.setName('status').setDescription('True = 0n, False = Off').setRequired(true)))
-          /*.addSubcommand(sub =>
+          .addSubcommand(sub =>
                sub.setName('list')
-                    .setDescription('List all the words in the blacklist.'))*/,
+                    .setDescription('List all the words in the blacklist.')),
 
+     name: 'automod_setup',
+     description: 'Automod Controls',
 
      async execute(ctx, args) {
           const guildID = ctx.guild.id;
@@ -42,28 +44,32 @@ module.exports = {
                          ? ctx.options.getString('word').toLowerCase()
                          : args[1]?.toLowerCase();
 
-                    if (!newWord) return ctx.reply({ content: '[:x:] Please provide a word to block.' });
-                    if (words.includes(newWord)) return ctx.reply({ content: '[:x:] Word is already blacklisted.' });
+                    if (!newWord) ctx.reply({ content: '[:x:] Please provide a word to block.' });
+                    if (words.includes(newWord)) ctx.reply({ content: '[:x:] Word is already blacklisted.' });
 
                     words.push(newWord);
                     automodSetup(guildID, { words });
-                    return ctx.reply({ content: `[:white_check_mark:] Added \`${newWord}\` to the blacklist.` });
+                    ctx.reply({ content: `[:white_check_mark:] Added \`${newWord}\` to the blacklist.` });
+
+                    return;
                }
                case 'remove': {
                     const targetWord = isSlash
                          ? ctx.options.getString('word').toLowerCase()
                          : args[1]?.toLowerCase();
 
-                    if (!targetWord) return ctx.reply({ content: '[:x:] Please provide a word to remove.' });
-                    if (!words.includes(targetWord)) return ctx.reply({ content: '[:x:] Word is not blacklisted.' });
+                    if (!targetWord) ctx.reply({ content: '[:x:] Please provide a word to remove.' });
+                    if (!words.includes(targetWord)) ctx.reply({ content: '[:x:] Word is not blacklisted.' });
 
                     words = words.filter(word => word !== targetWord);
                     automodSetup(guildID, { words });
 
                     // --- Send a removal message. --- \\
                     // --- Do a fallback if theres an error whilist sending the message. --- \\
-                    return ctx.reply({ content: `[:white_check_mark:] Removed \`${targetWord}\` from the blacklist.` })
+                    ctx.reply({ content: `[:white_check_mark:] Removed \`${targetWord}\` from the blacklist.` })
                          .catch(() => ctx.channel.send({ content: `[:white_check_mark:] Removed \`${targetWord}\` from the blacklist.` }));
+
+                    return;
                }
                case 'toggle': {
                     let status;
@@ -76,12 +82,26 @@ module.exports = {
                     }
 
                     automodSetup(guildID, { enabled: status });
-                    return ctx.reply({ content: `[:white_check_mark:] Automod is now **${status === 1 ? 'enabled' : 'disabled'}**.` });
+                    ctx.reply({ content: `[:white_check_mark:] Automod is now **${status === 1 ? 'enabled' : 'disabled'}**.` });
+
+                    return;
                }
-               // --- TODO: make a `list` subcommand that lists all the words in the blacklist. --- \\
-               // case 'list': { }
+               case 'list': {
+                    if (words.length === 0) ctx.reply({ content: '[:x:] There are no words in the blacklist.' });
+                    else {
+                         const logList = words.map((word, index) => `**${index + 1}.** \`${word}\``);
+
+                         const FINAL_DESC = logList.join('\n');
+                         const embed = new EmbedBuilder()
+                              .setColor('#ED4245')
+                              .setTitle(':lock: Blacklisted Words :lock:')
+                              .setDescription(FINAL_DESC);
+
+                         return ctx.reply({ embeds: [embed] });
+                    }
+               }
                default:
-                    return ctx.reply({ content: `[:x:] Invalid usage. Use: \`add\`, \`remove\`, or \`toggle\`.` });
+                    return ctx.reply({ content: `[:x:] Invalid usage. Use: \`add\`, \`remove\`, \`list\` or \`toggle\`.` });
           }
      },
 };
