@@ -22,7 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.13.2",
-    "badge-maker": "^5.0.2",
+    "badge-maker": "^6.0.0",
     "better-sqlite3": "^12.6.2",
     "discord-gamecord": "^4.4.4",
     "discord-jokes": "^4.0.7",
